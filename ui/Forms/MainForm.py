@@ -7,12 +7,17 @@ from PyQt5 import QtGui
 from PyQt5.QtGui import QTextCursor
 
 import R
+from Configuration import Configuration
 import ui.ui_designer.ui_MainForm
-from Utils import CrawlUtil, TextUtil
+from Utils import CrawlUtil
+from ui.Forms.Signals import SearchFinish
 
 
 class MainForm(ui.ui_designer.ui_MainForm.Ui_mainForm):
+    # 信号
+    searchFinish = SearchFinish()  # 搜索完成
 
+    config = ''
     searchResult = ''
     searchword = ''
     # 线程
@@ -40,6 +45,7 @@ class MainForm(ui.ui_designer.ui_MainForm.Ui_mainForm):
         初始化变量
         :return: None
         """
+        self.config = Configuration.getInstance()
         self.thread_search = threading.Thread(target=self._search, name='')
         pass
 
@@ -54,12 +60,19 @@ class MainForm(ui.ui_designer.ui_MainForm.Ui_mainForm):
         """
         # 搜索
         self.btnSearch.clicked.connect(self.search)
+        # 搜索完成
+        self.searchFinish.signal.connect(self.finish)
         # 关于
         self.btnAbout.clicked.connect(lambda: print('关于'))
         # 项目地址
         self.btnOpenSource.clicked.connect(lambda: webbrowser.open_new(R.string.OPEN_SOURCE))
         pass
 
+    def finish(self):
+        print('搜索完成')
+        pass
+
+    # 点击搜索按钮
     def search(self):
         if self.thread_search.is_alive():
             self.log('正在搜索中！请稍后再试！')
@@ -79,16 +92,18 @@ class MainForm(ui.ui_designer.ui_MainForm.Ui_mainForm):
         self.thread_search.start()
         pass
 
+    # 搜索
     def _search(self):
         # 获取搜索的数据
         self.searchResult = CrawlUtil.search(self.searchword, self.interface)
-        # 发射搜索完成的信号
         # 将json格式化成python内置的列表对象
         self.searchResult = json.loads(self.searchResult)
         # 解析成app标准的列表
         self.searchResult = CrawlUtil.parseSearchResult(self.searchResult, self.interface)
         print(self.searchResult)
         self.log('「' + self.searchword + '」搜索完成！共{}项结果.'.format(len(self.searchResult)))
+        # 发射搜索完成的信号
+        self.searchFinish.signal.emit()
         pass
 
     def log(self, msg, showTime=True):
