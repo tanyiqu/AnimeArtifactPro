@@ -5,15 +5,17 @@ import json
 
 from PyQt5 import QtGui
 from PyQt5.QtGui import QTextCursor
+from PyQt5.QtWidgets import QWidget
 
 import R
 from Configuration import Configuration
-import ui.ui_designer.ui_MainForm
+import ui.ui_designer.ui_file.ui_form_mainForm
 from Utils import CrawlUtil
-from ui.Forms.Signals import SearchFinish
+from Signals import SearchFinish
+from ui.Widgets.Item import Item
 
 
-class MainForm(ui.ui_designer.ui_MainForm.Ui_mainForm):
+class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
     # 信号
     searchFinish = ''  # 搜索完成
 
@@ -68,12 +70,22 @@ class MainForm(ui.ui_designer.ui_MainForm.Ui_mainForm):
         self.btnAbout.clicked.connect(lambda: print('关于'))
         # 项目地址
         self.btnOpenSource.clicked.connect(lambda: webbrowser.open_new(R.string.OPEN_SOURCE))
+
+        self.pushButton.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
+
         pass
 
     # 搜索完成后执行的操作
     def _searchFinished(self):
         self.log('「' + self.searchword + '」搜索完成！共{}项结果.'.format(len(self.searchResult)))
         print('搜索完成')
+        for result in self.searchResult:
+            w = QWidget()
+            i = Item(result['title'], '', '')
+            i.setupUi(w)
+            i.init()
+            self.layout_scroll.addChildWidget(w)
+            pass
         pass
 
     # 点击搜索按钮

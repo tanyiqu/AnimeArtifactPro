@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui_MainForm.ui'
+# Form implementation generated from reading ui file 'ui_form_mainForm.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #
@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_mainForm(object):
     def setupUi(self, mainForm):
         mainForm.setObjectName("mainForm")
-        mainForm.resize(1063, 872)
+        mainForm.resize(1000, 800)
         self.gridLayout = QtWidgets.QGridLayout(mainForm)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setSpacing(0)
@@ -29,6 +29,9 @@ class Ui_mainForm(object):
         self.txtSearchword = QtWidgets.QLineEdit(self.widgetTop)
         self.txtSearchword.setGeometry(QtCore.QRect(310, 9, 311, 41))
         self.txtSearchword.setObjectName("txtSearchword")
+        self.pushButton = QtWidgets.QPushButton(self.widgetTop)
+        self.pushButton.setGeometry(QtCore.QRect(770, 20, 75, 23))
+        self.pushButton.setObjectName("pushButton")
         self.gridLayout.addWidget(self.widgetTop, 0, 0, 1, 1)
         self.widgetConsole = QtWidgets.QWidget(mainForm)
         self.widgetConsole.setMinimumSize(QtCore.QSize(0, 180))
@@ -103,20 +106,37 @@ class Ui_mainForm(object):
         self.stackedWidget = QtWidgets.QStackedWidget(mainForm)
         self.stackedWidget.setObjectName("stackedWidget")
         self.page1 = QtWidgets.QWidget()
+        self.page1.setStyleSheet("")
         self.page1.setObjectName("page1")
+        self.gridLayout_4 = QtWidgets.QGridLayout(self.page1)
+        self.gridLayout_4.setObjectName("gridLayout_4")
+        self.scrollArea = QtWidgets.QScrollArea(self.page1)
+        self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setObjectName("scrollArea")
+        self.scroll = QtWidgets.QWidget()
+        self.scroll.setGeometry(QtCore.QRect(0, 0, 963, 510))
+        self.scroll.setObjectName("scroll")
+        self.layout_scroll = QtWidgets.QGridLayout(self.scroll)
+        self.layout_scroll.setObjectName("layout_scroll")
+        self.scrollArea.setWidget(self.scroll)
+        self.gridLayout_4.addWidget(self.scrollArea, 0, 1, 1, 1)
         self.stackedWidget.addWidget(self.page1)
         self.page2 = QtWidgets.QWidget()
+        self.page2.setStyleSheet("background-color: rgb(255, 255, 0);")
         self.page2.setObjectName("page2")
         self.stackedWidget.addWidget(self.page2)
         self.gridLayout.addWidget(self.stackedWidget, 1, 0, 1, 1)
 
         self.retranslateUi(mainForm)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(mainForm)
 
     def retranslateUi(self, mainForm):
         _translate = QtCore.QCoreApplication.translate
         mainForm.setWindowTitle(_translate("mainForm", "看番神器"))
         self.btnSearch.setText(_translate("mainForm", "搜索"))
+        self.pushButton.setText(_translate("mainForm", "PushButton"))
         self.btnGetAllLinks.setText(_translate("mainForm", "抓取链接"))
         self.btnOpenSource.setText(_translate("mainForm", "项目地址"))
         self.lblLastPlayEpisodeName.setText(_translate("mainForm", "无"))
