@@ -1,4 +1,6 @@
 import requests
+import re
+from Configuration import Configuration
 
 # 使用接口1搜索
 
@@ -22,5 +24,27 @@ def search(searchword):
         'dect': '0'
     }
     resp = requests.get(url, params=params)
-    return resp.content.decode('utf-8')
+    return str(resp.content.decode('utf_8_sig')).strip()
+    pass
+
+
+def parse(json):
+    """
+    解析json成app标准的数组
+    :param json: json
+    :return: app标准的数组
+    """
+    result = []
+    for o in json:
+        obj = {}
+        url = o['url']
+        if re.match('^/.*?/$', o['url']):
+            url = Configuration.getInstance().url_header + o['url']
+            pass
+        obj.update({'url': url})
+        obj.update({'cover': o['thumb']})
+        obj.update({'title': o['title']})
+        obj.update({'latest': o['lianzaijs']})
+        result.append(obj)
+    return result
     pass

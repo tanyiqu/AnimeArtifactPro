@@ -1,18 +1,19 @@
 import threading
 import time
 import webbrowser
+import json
 
 from PyQt5 import QtGui
 from PyQt5.QtGui import QTextCursor
 
 import R
 import ui.ui_designer.ui_MainForm
-from Utils import CrawlUtil
+from Utils import CrawlUtil, TextUtil
 
 
 class MainForm(ui.ui_designer.ui_MainForm.Ui_mainForm):
 
-    searchResultJson = ''
+    searchResult = ''
     searchword = ''
     # 线程
     # 搜索动漫线程
@@ -79,10 +80,15 @@ class MainForm(ui.ui_designer.ui_MainForm.Ui_mainForm):
         pass
 
     def _search(self):
-        self.searchResultJson = CrawlUtil.search(self.searchword, self.interface)
-        self.log('搜索完成！')
+        # 获取搜索的数据
+        self.searchResult = CrawlUtil.search(self.searchword, self.interface)
         # 发射搜索完成的信号
-        print(self.searchResultJson)
+        # 将json格式化成python内置的列表对象
+        self.searchResult = json.loads(self.searchResult)
+        # 解析成app标准的列表
+        self.searchResult = CrawlUtil.parseSearchResult(self.searchResult, self.interface)
+        print(self.searchResult)
+        self.log('「' + self.searchword + '」搜索完成！共{}项结果.'.format(len(self.searchResult)))
         pass
 
     def log(self, msg, showTime=True):
