@@ -15,14 +15,15 @@ from ui.Forms.Signals import SearchFinish
 
 class MainForm(ui.ui_designer.ui_MainForm.Ui_mainForm):
     # 信号
-    searchFinish = SearchFinish()  # 搜索完成
+    searchFinish = ''  # 搜索完成
+
+    # 线程
+    # 搜索动漫线程
+    thread_search = ''
 
     config = ''
     searchResult = ''
     searchword = ''
-    # 线程
-    # 搜索动漫线程
-    thread_search = ''
     interface = 1
 
     def init(self, mainForm):
@@ -46,6 +47,7 @@ class MainForm(ui.ui_designer.ui_MainForm.Ui_mainForm):
         :return: None
         """
         self.config = Configuration.getInstance()
+        self.searchFinish = SearchFinish()
         self.thread_search = threading.Thread(target=self._search, name='')
         pass
 
@@ -61,14 +63,16 @@ class MainForm(ui.ui_designer.ui_MainForm.Ui_mainForm):
         # 搜索
         self.btnSearch.clicked.connect(self.search)
         # 搜索完成
-        self.searchFinish.signal.connect(self.finish)
+        self.searchFinish.signal.connect(self._searchFinished)
         # 关于
         self.btnAbout.clicked.connect(lambda: print('关于'))
         # 项目地址
         self.btnOpenSource.clicked.connect(lambda: webbrowser.open_new(R.string.OPEN_SOURCE))
         pass
 
-    def finish(self):
+    # 搜索完成后执行的操作
+    def _searchFinished(self):
+        self.log('「' + self.searchword + '」搜索完成！共{}项结果.'.format(len(self.searchResult)))
         print('搜索完成')
         pass
 
@@ -101,7 +105,6 @@ class MainForm(ui.ui_designer.ui_MainForm.Ui_mainForm):
         # 解析成app标准的列表
         self.searchResult = CrawlUtil.parseSearchResult(self.searchResult, self.interface)
         print(self.searchResult)
-        self.log('「' + self.searchword + '」搜索完成！共{}项结果.'.format(len(self.searchResult)))
         # 发射搜索完成的信号
         self.searchFinish.signal.emit()
         pass
