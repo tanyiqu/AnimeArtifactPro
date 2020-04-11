@@ -12,7 +12,12 @@ from Utils import CrawlUtil
 
 class MainForm(ui.ui_designer.ui_MainForm.Ui_mainForm):
 
-    sousuoJson = ''
+    searchResultJson = ''
+    searchword = ''
+    # 线程
+    # 搜索动漫线程
+    thread_search = ''
+    interface = 1
 
     def init(self, mainForm):
         # 标题
@@ -21,10 +26,20 @@ class MainForm(ui.ui_designer.ui_MainForm.Ui_mainForm):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("resource/imgs/logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         mainForm.setWindowIcon(icon)
+        # 初始化变量
+        self.initVars()
         # 欢迎
         self.welcome()
         # 连接信号槽
         self.do_connect()
+        pass
+
+    def initVars(self):
+        """
+        初始化变量
+        :return: None
+        """
+        self.thread_search = threading.Thread(target=self._search, name='')
         pass
 
     def welcome(self):
@@ -33,7 +48,7 @@ class MainForm(ui.ui_designer.ui_MainForm.Ui_mainForm):
 
     def do_connect(self):
         """
-        做连接信号槽
+        连接信号槽
         :return:
         """
         # 搜索
@@ -45,23 +60,29 @@ class MainForm(ui.ui_designer.ui_MainForm.Ui_mainForm):
         pass
 
     def search(self):
+        if self.thread_search.is_alive():
+            self.log('正在搜索中！请稍后再试！')
+            return
         # 获取输入的关键词
-        searchword = self.searchword.text().strip()
-        if searchword == R.string.NONE:
+        self.searchword = self.txtSearchword.text().strip()
+        if self.searchword == R.string.NONE:
             self.log('【警告】请输入关键词！')
             return
-        print('搜索：', searchword)
-        self.log('正在搜索：「' + searchword + '」')
+        print('搜索：', self.searchword)
+        self.log('正在搜索：「' + self.searchword + '」')
         self.log('...')
         # 根据输入获取json数组
         # 开启线程搜索
-        t = threading.Thread(target=self._search, name='', args=(searchword,))
-        t.start()
+        # 因为线程只能被执行一次，所以只要线程没有在运行就得生成新的线程
+        self.thread_search = threading.Thread(target=self._search, name='')
+        self.thread_search.start()
         pass
 
-    def _search(self, searchword):
-        self.sousuoJson = CrawlUtil.search(searchword)
-        print(self.sousuoJson)
+    def _search(self):
+        self.searchResultJson = CrawlUtil.search(self.searchword, self.interface)
+        self.log('搜索完成！')
+        # 发射搜索完成的信号
+        print(self.searchResultJson)
         pass
 
     def log(self, msg, showTime=True):

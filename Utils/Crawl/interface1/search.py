@@ -1,5 +1,7 @@
 import requests
 
+# 使用接口1搜索
+
 url = 'http://testsea.diyiwl.wang/ssszz.php'
 headers = {
     'Accept': '*/*',

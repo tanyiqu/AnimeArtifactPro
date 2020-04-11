@@ -59,7 +59,7 @@
        <string>搜索</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="searchword">
+     <widget class="QLineEdit" name="txtSearchword">
       <property name="geometry">
        <rect>
         <x>310</x>
