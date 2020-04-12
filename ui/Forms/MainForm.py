@@ -5,7 +5,7 @@ import json
 
 from PyQt5 import QtGui
 from PyQt5.QtGui import QTextCursor
-from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QWidget, QGridLayout
 
 import R
 from Configuration import Configuration
@@ -41,6 +41,11 @@ class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
         self.welcome()
         # 连接信号槽
         self.do_connect()
+
+        # self.grid
+        # self.grid = QGridLayout(0, 4)
+        # self.scroll.setLayout(self.grid)
+
         pass
 
     def initVars(self):
@@ -79,12 +84,19 @@ class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
     def _searchFinished(self):
         self.log('「' + self.searchword + '」搜索完成！共{}项结果.'.format(len(self.searchResult)))
         print('搜索完成')
+        r = 0
+        c = 0
         for result in self.searchResult:
             w = QWidget()
             i = Item(result['title'], '', '')
             i.setupUi(w)
             i.init()
-            self.layout_scroll.addChildWidget(w)
+            # self.layout_scroll.addChildWidget(w)
+            self.grid.addWidget(w, r, c)
+            c += 1
+            if c == 4:
+                c = 0
+                r += 1
             pass
         pass
 
