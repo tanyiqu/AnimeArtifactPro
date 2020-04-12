@@ -11,3 +11,11 @@ class SearchFinish(QObject):
     """
     signal = pyqtSignal()
     pass
+
+
+class ItemWidgetMouseRelease(QObject):
+    """
+    鼠标释放
+    """
+    signal = pyqtSignal()
+    pass

@@ -13,6 +13,7 @@ import ui.ui_designer.ui_file.ui_form_mainForm
 from Utils import CrawlUtil
 from Signals import SearchFinish
 from ui.Widgets.Item import Item
+from ui.Widgets.ItemWidget import ItemWidget
 
 
 class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
@@ -87,10 +88,12 @@ class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
         r = 0
         c = 0
         for result in self.searchResult:
-            w = QWidget()
-            i = Item(result['url'], result['title'], result['cover'], result['latest'])
-            i.setupUi(w)
-            i.init(w)
+            w = ItemWidget(result['url'], result['title'], result['cover'], result['latest'])
+            # w = QWidget()
+            # i = Item(result['url'], result['title'], result['cover'], result['latest'])
+            # i.setupUi(w)
+            # i.init(w)
+            w.itemWidgetMouseRelease.signal.connect(lambda: print('按下'))
             self.grid.addWidget(w, r, c)
             c += 1
             if c == 4:
