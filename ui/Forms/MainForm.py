@@ -32,6 +32,7 @@ class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
     detailResult = ''
     searchword = ''
     interface = 1
+    currentEName = ''
 
     def init(self, mainForm):
         # 标题
@@ -116,16 +117,16 @@ class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
     def _search(self):
         # 获取搜索的数据
         self.searchResult = CrawlUtil.search(self.searchword, self.interface)
+        # print(self.searchResult)
         # 将json格式化成python内置的列表对象
         self.searchResult = json.loads(self.searchResult)
+        # print('标准化前：', self.searchResult)
         # 解析成app标准的列表
         self.searchResult = CrawlUtil.parseSearchResult(self.searchResult, self.interface)
-        print(self.searchResult)
+        # print('标准化后：', self.searchResult)
         # 发射搜索完成的信号
         self.searchFinish.signal.emit()
         pass
-
-        # 搜索完成后执行的操作
 
     # 搜索完成时执行
     def _searchFinished(self):
@@ -138,14 +139,9 @@ class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
         r = 0
         c = 0
         for result in self.searchResult:
-            w = ItemWidget(result['url'], result['title'], result['cover'], result['latest'])
+            w = ItemWidget(result)
             # 点击事件
-            d = {
-                'url': result['url'],
-                'cover': result['cover'],
-                'title': result['title']
-            }
-            w.itemWidgetMouseRelease.signal.connect(partial(self.detail, d))
+            w.itemWidgetMouseRelease.signal.connect(partial(self.detail, result))
             self.grid.addWidget(w, r, c)
             c += 1
             if c == 4:
@@ -160,29 +156,60 @@ class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
         :param params: 参数字典
         :return: None
         """
+        # 点击了某一部动漫
+        self.currentEName = params['title']
         # 跳转到详情页
         self.stackedWidget.setCurrentIndex(2)
-        print(params['url'])
+        # print(params['url'])
         self.log_secondary('正在访问「' + params['title'] + '」')
         self.log_secondary('正在获取详情信息')
         self.log_secondary('...')
-        self.lblTitle.setText(params['title'])
-        # 因为已经拿到封面了，可以在这里加载封面
+
+        # print('params：', params)
+        # 设置
+        notnow = '暂无'
+        # 标题
+        if params['title'].strip() == R.string.NONE:
+            self.lblTitle.setText(notnow)
+            pass
+        else:
+            self.lblTitle.setText(params['title'])
+        # 时间
+        if params['time'].strip() == R.string.NONE:
+            self.lblTime.setText(notnow)
+            pass
+        else:
+            self.lblTime.setText(params['time'])
+        # 地区
+        if params['area'].strip() == R.string.NONE:
+            self.lblArea.setText(notnow)
+            pass
+        else:
+            self.lblArea.setText(params['area'])
+        # 演员
+        if params['stars'].strip() == R.string.NONE:
+            self.lblStars.setText(notnow)
+            pass
+        else:
+            self.lblStars.setText(params['stars'])
+        # 加载封面
         t = threading.Thread(target=setLabelImg, name='', args=(self.lblCover, params['cover'],))
         t.start()
-        self.thread_detail = threading.Thread(target=self._detail, name='')
+        self.thread_detail = threading.Thread(target=self._detail, name='', args=(params['url'],))
         self.thread_detail.start()
         pass
 
-    def _detail(self):
+    def _detail(self, url):
         print('执行')
-
+        self.detailResult = CrawlUtil.detail(url, self.log_secondary, self.interface)
+        print(self.detailResult)
         # 发射获取完成的信号
         self.detailFinish.signal.emit()
         pass
 
     def _detailFinish(self):
-        self.log_secondary('获取完成！')
+        self.log_secondary('获取完成！!')
+        # self.log_secondary('「' + self.currentEName + '」 总集数：' + len(self.detailResult))
         # 在这里加载详情信息
         pass
 
@@ -197,7 +224,7 @@ class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
         pass
 
     def log_secondary(self, msg, showTime=True):
-        msg = msg.strip()
+        msg = str(msg).strip()
         if showTime:
             t = time.strftime('%H:%M:%S', time.localtime())
             msg = t + ' ' + msg

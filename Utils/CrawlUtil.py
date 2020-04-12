@@ -2,7 +2,7 @@
 供外部调用
 """
 
-import Utils.Crawl.interface1.search
+import Utils.Crawl.interface1
 
 
 def search(searchword, interface):
@@ -13,7 +13,7 @@ def search(searchword, interface):
     :return: json格式的字符串
     """
     if interface == 1:
-        return Utils.Crawl.interface1.search.search(searchword)
+        return Utils.Crawl.interface1.search(searchword)
     pass
 
 
@@ -24,12 +24,33 @@ def parseSearchResult(json, interface):
         url:url,
         cover:cover,
         title:title,
-        latest:latest   最新集数（最新连载），可有可无
+        latest:latest   最新集数（最新连载），可有可无,
+        area:area,
+        time:time,
+        stars:stars
     }]
     :param json: json
     :param interface: 接口
     :return: app标准的数组
     """
     if interface == 1:
-        return Utils.Crawl.interface1.search.parse(json)
+        return Utils.Crawl.interface1.parse(json)
+    pass
+
+
+def detail(url, func, interface):
+    """
+    获取详情
+    {
+        num:num,
+        nameList: [{1:'第1集'}, {2:'第2集'}],
+        linkList: [{1: 'url'}, {2: 'url'}]
+    }
+    :param url: 链接
+    :param func: 打印日志接口
+    :param interface: 接口
+    :return: 详情信息的字典
+    """
+    if interface == 1:
+        return Utils.Crawl.interface1.detail(url, func)
     pass

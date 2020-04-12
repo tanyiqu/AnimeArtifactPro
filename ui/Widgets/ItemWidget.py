@@ -15,9 +15,9 @@ class ItemWidget(QWidget):
     # start = 0
     # end = 0
 
-    def __init__(self, url, title, cover, latest):
+    def __init__(self, params):
         super().__init__()
-        self.item = Item(url, title, cover, latest)
+        self.item = Item(params)
         self.item.setupUi(self)
         self.item.init()
         self.itemWidgetMouseRelease = ItemWidgetMouseRelease()
