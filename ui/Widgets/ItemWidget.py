@@ -2,9 +2,7 @@
 实现了Item的自定义QWidget类
 为了实现点击事件
 """
-import time
 
-from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QWidget
 
 from Signals import ItemWidgetMouseRelease
@@ -21,7 +19,7 @@ class ItemWidget(QWidget):
         super().__init__()
         self.item = Item(url, title, cover, latest)
         self.item.setupUi(self)
-        self.item.init(self)
+        self.item.init()
         self.itemWidgetMouseRelease = ItemWidgetMouseRelease()
         pass
 

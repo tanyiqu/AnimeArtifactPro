@@ -19,3 +19,11 @@ class ItemWidgetMouseRelease(QObject):
     """
     signal = pyqtSignal()
     pass
+
+
+class DetailFinish(QObject):
+    """
+    获取详情完成
+    """
+    signal = pyqtSignal()
+    pass
