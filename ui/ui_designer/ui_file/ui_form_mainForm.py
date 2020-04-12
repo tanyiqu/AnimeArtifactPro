@@ -35,6 +35,7 @@ class Ui_mainForm(object):
         self.scroll.setGeometry(QtCore.QRect(0, 0, 934, 528))
         self.scroll.setObjectName("scroll")
         self.grid = QtWidgets.QGridLayout(self.scroll)
+        self.grid.setSpacing(9)
         self.grid.setObjectName("grid")
         self.scrollArea.setWidget(self.scroll)
         self.gridLayout.addWidget(self.scrollArea, 0, 0, 1, 1)

@@ -3,7 +3,7 @@ import time
 import webbrowser
 import json
 
-from PyQt5 import QtGui
+from PyQt5 import QtGui, sip
 from PyQt5.QtGui import QTextCursor
 from PyQt5.QtWidgets import QWidget, QGridLayout
 
@@ -88,10 +88,9 @@ class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
         c = 0
         for result in self.searchResult:
             w = QWidget()
-            i = Item(result['title'], '', '')
+            i = Item(result['url'], result['title'], result['cover'], result['latest'])
             i.setupUi(w)
-            i.init()
-            # self.layout_scroll.addChildWidget(w)
+            i.init(w)
             self.grid.addWidget(w, r, c)
             c += 1
             if c == 4:
@@ -105,6 +104,11 @@ class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
         if self.thread_search.is_alive():
             self.log('正在搜索中！请稍后再试！')
             return
+        # 清除现有的搜索结果
+        while self.grid.count() != 0:
+            w = self.grid.itemAt(0).widget()
+            self.grid.removeWidget(w)
+            sip.delete(w)
         # 获取输入的关键词
         self.searchword = self.txtSearchword.text().strip()
         if self.searchword == R.string.NONE:

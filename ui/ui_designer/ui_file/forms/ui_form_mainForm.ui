@@ -71,7 +71,11 @@
             <height>528</height>
            </rect>
           </property>
-          <layout class="QGridLayout" name="grid"/>
+          <layout class="QGridLayout" name="grid">
+           <property name="spacing">
+            <number>9</number>
+           </property>
+          </layout>
          </widget>
         </widget>
        </item>
