@@ -34,7 +34,25 @@
      <property name="currentIndex">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="page1">
+     <widget class="QWidget" name="pageWelcome">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 0);</string>
+      </property>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>130</y>
+         <width>431</width>
+         <height>191</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>WELCOME</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="pageSearchResult">
       <property name="styleSheet">
        <string notr="true"/>
       </property>
@@ -81,10 +99,21 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="page2">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 0);</string>
-      </property>
+     <widget class="QWidget" name="pageDetail"/>
+     <widget class="QWidget" name="pageNoResult">
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>170</y>
+         <width>291</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>啥都没有</string>
+       </property>
+      </widget>
      </widget>
     </widget>
    </item>
@@ -128,7 +157,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="btnBack">
       <property name="geometry">
        <rect>
         <x>770</x>
@@ -138,7 +167,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>返回</string>
       </property>
      </widget>
     </widget>

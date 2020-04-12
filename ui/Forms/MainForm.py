@@ -5,14 +5,12 @@ import json
 
 from PyQt5 import QtGui, sip
 from PyQt5.QtGui import QTextCursor
-from PyQt5.QtWidgets import QWidget, QGridLayout
 
 import R
 from Configuration import Configuration
 import ui.ui_designer.ui_file.ui_form_mainForm
 from Utils import CrawlUtil
 from Signals import SearchFinish
-from ui.Widgets.Item import Item
 from ui.Widgets.ItemWidget import ItemWidget
 
 
@@ -42,11 +40,6 @@ class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
         self.welcome()
         # 连接信号槽
         self.do_connect()
-
-        # self.grid
-        # self.grid = QGridLayout(0, 4)
-        # self.scroll.setLayout(self.grid)
-
         pass
 
     def initVars(self):
@@ -76,24 +69,23 @@ class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
         self.btnAbout.clicked.connect(lambda: print('关于'))
         # 项目地址
         self.btnOpenSource.clicked.connect(lambda: webbrowser.open_new(R.string.OPEN_SOURCE))
-
-        self.pushButton.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
-
+        # 返回
+        self.btnBack.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
         pass
 
     # 搜索完成后执行的操作
     def _searchFinished(self):
         self.log('「' + self.searchword + '」搜索完成！共{}项结果.'.format(len(self.searchResult)))
+        # 如果没有搜到任何结果就跳到没有结果页
+        if len(self.searchResult) == 0:
+            self.stackedWidget.setCurrentIndex(3)
+            return
         print('搜索完成')
         r = 0
         c = 0
         for result in self.searchResult:
             w = ItemWidget(result['url'], result['title'], result['cover'], result['latest'])
-            # w = QWidget()
-            # i = Item(result['url'], result['title'], result['cover'], result['latest'])
-            # i.setupUi(w)
-            # i.init(w)
-            w.itemWidgetMouseRelease.signal.connect(lambda: print('按下'))
+            w.itemWidgetMouseRelease.signal.connect(lambda: self.stackedWidget.setCurrentIndex(2))
             self.grid.addWidget(w, r, c)
             c += 1
             if c == 4:
@@ -107,6 +99,7 @@ class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
         if self.thread_search.is_alive():
             self.log('正在搜索中！请稍后再试！')
             return
+        self.stackedWidget.setCurrentIndex(1)
         # 清除现有的搜索结果
         while self.grid.count() != 0:
             w = self.grid.itemAt(0).widget()
