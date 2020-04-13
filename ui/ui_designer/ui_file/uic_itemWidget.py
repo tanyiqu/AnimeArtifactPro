@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui_widget_item.ui'
+# Form implementation generated from reading ui file 'itemWidget.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #
@@ -23,6 +23,7 @@ class Ui_item(object):
         self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName("gridLayout")
         self.widget = QtWidgets.QWidget(item)
+        self.widget.setToolTip("")
         self.widget.setObjectName("widget")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.widget)
         self.gridLayout_2.setContentsMargins(0, 0, 0, 0)

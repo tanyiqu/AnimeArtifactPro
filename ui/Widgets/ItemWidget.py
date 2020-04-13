@@ -6,7 +6,8 @@
 from PyQt5.QtWidgets import QWidget
 
 from Signals import ItemWidgetMouseRelease
-from ui.Widgets.Item import Item
+# noinspection PyProtectedMember
+from ui.Widgets._Widgets._ItemWidget import _ItemWidget
 
 
 class ItemWidget(QWidget):
@@ -17,7 +18,7 @@ class ItemWidget(QWidget):
 
     def __init__(self, params):
         super().__init__()
-        self.item = Item(params)
+        self.item = _ItemWidget(params)
         self.item.setupUi(self)
         self.item.init()
         self.itemWidgetMouseRelease = ItemWidgetMouseRelease()

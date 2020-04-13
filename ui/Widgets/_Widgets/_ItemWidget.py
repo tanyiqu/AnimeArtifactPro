@@ -2,10 +2,10 @@ import threading
 
 import R
 from Utils.WebUtil import setLabelImg
-from ui.ui_designer.ui_file.ui_widget_item import Ui_item
+from ui.ui_designer.ui_file.uic_itemWidget import Ui_item
 
 
-class Item(Ui_item):
+class _ItemWidget(Ui_item):
 
     def __init__(self, params):
         # self.url = url

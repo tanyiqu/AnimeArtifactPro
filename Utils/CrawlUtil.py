@@ -24,10 +24,10 @@ def parseSearchResult(json, interface):
         url:url,
         cover:cover,
         title:title,
-        latest:latest   最新集数（最新连载），可有可无,
-        area:area,
-        time:time,
-        stars:stars
+        latest:latest   最新集数（最新连载），可有可无
+        area:area,      可有可无
+        time:time,      可有可无
+        stars:stars     可有可无
     }]
     :param json: json
     :param interface: 接口

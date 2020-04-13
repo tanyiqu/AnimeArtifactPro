@@ -32,7 +32,7 @@
    <item row="1" column="0">
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="pageWelcome">
       <property name="styleSheet">
@@ -85,7 +85,7 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>934</width>
+            <width>981</width>
             <height>528</height>
            </rect>
           </property>
@@ -474,6 +474,26 @@
       <property name="text">
        <string>返回</string>
       </property>
+     </widget>
+     <widget class="QComboBox" name="comboSelectInterface">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>10</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>接口1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>接口2</string>
+       </property>
+      </item>
      </widget>
     </widget>
    </item>

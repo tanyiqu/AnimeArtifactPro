@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui_form_mainForm.ui'
+# Form implementation generated from reading ui file 'mainForm.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #
@@ -39,7 +39,7 @@ class Ui_mainForm(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scroll = QtWidgets.QWidget()
-        self.scroll.setGeometry(QtCore.QRect(0, 0, 934, 528))
+        self.scroll.setGeometry(QtCore.QRect(0, 0, 981, 528))
         self.scroll.setObjectName("scroll")
         self.grid = QtWidgets.QGridLayout(self.scroll)
         self.grid.setSpacing(9)
@@ -171,6 +171,11 @@ class Ui_mainForm(object):
         self.btnBack = QtWidgets.QPushButton(self.widgetTop)
         self.btnBack.setGeometry(QtCore.QRect(770, 20, 75, 23))
         self.btnBack.setObjectName("btnBack")
+        self.comboSelectInterface = QtWidgets.QComboBox(self.widgetTop)
+        self.comboSelectInterface.setGeometry(QtCore.QRect(210, 10, 91, 31))
+        self.comboSelectInterface.setObjectName("comboSelectInterface")
+        self.comboSelectInterface.addItem("")
+        self.comboSelectInterface.addItem("")
         self.gridLayout_4.addWidget(self.widgetTop, 0, 0, 1, 1)
         self.widgetTools = QtWidgets.QWidget(mainForm)
         self.widgetTools.setMinimumSize(QtCore.QSize(0, 30))
@@ -244,7 +249,7 @@ class Ui_mainForm(object):
         self.gridLayout_4.addWidget(self.widgetConsole, 3, 0, 1, 1)
 
         self.retranslateUi(mainForm)
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(mainForm)
 
     def retranslateUi(self, mainForm):
@@ -263,6 +268,8 @@ class Ui_mainForm(object):
         self.label_2.setText(_translate("mainForm", "啥都没有"))
         self.btnSearch.setText(_translate("mainForm", "搜索"))
         self.btnBack.setText(_translate("mainForm", "返回"))
+        self.comboSelectInterface.setItemText(0, _translate("mainForm", "接口1"))
+        self.comboSelectInterface.setItemText(1, _translate("mainForm", "接口2"))
         self.btnGetAllLinks.setText(_translate("mainForm", "抓取链接"))
         self.btnOpenSource.setText(_translate("mainForm", "项目地址"))
         self.lblLastPlayEpisodeName.setText(_translate("mainForm", "无"))
