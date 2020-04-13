@@ -15,6 +15,7 @@ from Utils import CrawlUtil, VideoUtil
 from Signals import SearchFinish, DetailFinish
 from Utils.WebUtil import setLabelImg
 from ui.Widgets.ItemWidget import ItemWidget
+from ui.Widgets.WelcomeWidget import WelcomeWidget
 
 
 class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
@@ -24,8 +25,8 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
     """
 
     # 信号
-    searchFinish = ''   # 搜索完成
-    detailFinish = ''   # 获取详情完成
+    searchFinish = ''  # 搜索完成
+    detailFinish = ''  # 获取详情完成
 
     # 线程
     # 搜索动漫线程
@@ -39,6 +40,8 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
     searchword = ''
     interface = 1
     currentEName = ''
+
+    welcomeWidget = ''
 
     def init(self):
         # 初始化变量
@@ -55,6 +58,8 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         :return: None
         """
         self.config = Configuration.getInstance()
+        self.welcomeWidget = WelcomeWidget()
+        self.gridWelcome.addWidget(self.welcomeWidget, 0, 0)
         self.searchFinish = SearchFinish()
         self.detailFinish = DetailFinish()
         self.thread_search = threading.Thread(target=self._search, name='')
@@ -219,7 +224,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         # 动态生成对应的按钮
         r = 0
         c = 0
-        for i in range(1, len(self.detailResult)+1):
+        for i in range(1, len(self.detailResult) + 1):
             result = self.detailResult[i]
             w = QPushButton(result[0])
             w.clicked.connect(partial(self.play, result[0], result[1]))

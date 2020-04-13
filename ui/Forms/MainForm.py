@@ -31,9 +31,15 @@ class MainForm(QWidget):
         self.setWindowIcon(icon)
 
         # 加载欢迎图片
-        self.mainForm.lblWelcomeImg.setFixedSize(800,400)
-        url = 'https://cn.bing.com//th?id=OHR.WatChaloem_ZH-CN8722271527_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp'
-        setLabelImg(self.mainForm.lblWelcomeImg, url)
+        # self.mainForm.lblWelcomeImg.setFixedSize(800,400)
+        # url = 'https://cn.bing.com//th?id=OHR.WatChaloem_ZH-CN8722271527_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp'
+        # setLabelImg(self.mainForm.lblWelcomeImg, url)
         pass
+
+    # i = 0
+    # def paintEvent(self, QPaintEvent):
+    #     print(self.i)
+    #     self.i += 1
+    #     pass
 
     pass

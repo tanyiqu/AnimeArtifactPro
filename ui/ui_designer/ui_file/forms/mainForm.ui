@@ -10,6 +10,12 @@
     <height>800</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>960</width>
+    <height>650</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>看番神器</string>
   </property>
@@ -38,17 +44,22 @@
       <property name="styleSheet">
        <string notr="true"/>
       </property>
-      <layout class="QGridLayout" name="gridLayout_8">
-       <item row="0" column="0">
-        <widget class="QLabel" name="lblWelcomeImg">
-         <property name="styleSheet">
-          <string notr="true">border: 1px solid #000000;</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
+      <layout class="QGridLayout" name="gridWelcome">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <property name="spacing">
+        <number>0</number>
+       </property>
       </layout>
      </widget>
      <widget class="QWidget" name="pageSearchResult">
@@ -391,8 +402,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>923</width>
-               <height>180</height>
+               <width>83</width>
+               <height>30</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridBtns"/>
@@ -426,13 +437,13 @@
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>60</height>
+       <height>55</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
        <width>16777215</width>
-       <height>60</height>
+       <height>55</height>
       </size>
      </property>
      <property name="styleSheet">
