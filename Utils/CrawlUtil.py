@@ -53,3 +53,15 @@ def detail(url, func, interface):
     if interface == 1:
         return Utils.Crawl.interface1.detail(url, func)
     pass
+
+
+def getVideoUrl(url, interface):
+    """
+    获取视频真实播放链接
+    :param url: url
+    :param interface: 接口
+    :return: 真实播放链接
+    """
+    if interface == 1:
+        return Utils.Crawl.interface1.getPlayLink(url)
+    pass

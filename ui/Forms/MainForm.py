@@ -11,7 +11,7 @@ from PyQt5.QtWidgets import QPushButton
 import R
 from Configuration import Configuration
 import ui.ui_designer.ui_file.ui_form_mainForm
-from Utils import CrawlUtil
+from Utils import CrawlUtil, VideoUtil
 from Signals import SearchFinish, DetailFinish
 from Utils.WebUtil import setLabelImg
 from ui.Widgets.ItemWidget import ItemWidget
@@ -214,7 +214,7 @@ class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
         pass
 
     def _detailFinish(self):
-        self.log_secondary('获取完成！!')
+        self.log_secondary('番剧获取完毕!')
         self.log_secondary('「' + self.currentEName + '」 总集数：' + str(len(self.detailResult)))
         # 在这里加载详情信息
         # 动态生成对应的按钮
@@ -238,7 +238,12 @@ class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
         print('播放', url)
         self.log_secondary('正在播放：' + name)
         # 开启线程获取真实播放链接
-        
+        url = CrawlUtil.getVideoUrl(url, self.interface)
+        self.log_secondary('真实视频播放链接：' + url)
+        # 判断一下能不能用potplayer播放
+        if url[-5:].lower() == '.m3u8':
+            self.log_secondary('m3u8链接暂时只能用网页解析！')
+        VideoUtil.play(url)
         pass
 
     def log(self, msg, showTime=True):
