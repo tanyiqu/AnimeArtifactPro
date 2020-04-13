@@ -42,9 +42,8 @@ def detail(url, func, interface):
     """
     获取详情
     {
-        num:num,
-        nameList: [{1:'第1集'}, {2:'第2集'}],
-        linkList: [{1: 'url'}, {2: 'url'}]
+        1: ['第1集'.'url'],
+        2: ['第2集'.'url']
     }
     :param url: 链接
     :param func: 打印日志接口

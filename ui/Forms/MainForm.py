@@ -6,6 +6,7 @@ from functools import partial
 
 from PyQt5 import QtGui, sip
 from PyQt5.QtGui import QTextCursor
+from PyQt5.QtWidgets import QPushButton
 
 import R
 from Configuration import Configuration
@@ -160,6 +161,11 @@ class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
         self.currentEName = params['title']
         # 跳转到详情页
         self.stackedWidget.setCurrentIndex(2)
+        # 在此页面清除原来的搜索结果，方便体验
+        while self.gridBtns.count() != 0:
+            w = self.gridBtns.itemAt(0).widget()
+            self.gridBtns.removeWidget(w)
+            sip.delete(w)
         # print(params['url'])
         self.log_secondary('正在访问「' + params['title'] + '」')
         self.log_secondary('正在获取详情信息')
@@ -209,8 +215,30 @@ class MainForm(ui.ui_designer.ui_file.ui_form_mainForm.Ui_mainForm):
 
     def _detailFinish(self):
         self.log_secondary('获取完成！!')
-        # self.log_secondary('「' + self.currentEName + '」 总集数：' + len(self.detailResult))
+        self.log_secondary('「' + self.currentEName + '」 总集数：' + str(len(self.detailResult)))
         # 在这里加载详情信息
+        # 动态生成对应的按钮
+        r = 0
+        c = 0
+        for i in range(1, len(self.detailResult)+1):
+            result = self.detailResult[i]
+            w = QPushButton(result[0])
+            w.clicked.connect(partial(self.play, result[0], result[1]))
+            w.setFixedSize(120, 35)
+            self.gridBtns.addWidget(w, r, c)
+            c += 1
+            if c == 7:
+                c = 0
+                r += 1
+            i += 1
+            pass
+        pass
+
+    def play(self, name, url):
+        print('播放', url)
+        self.log_secondary('正在播放：' + name)
+        # 开启线程获取真实播放链接
+        
         pass
 
     def log(self, msg, showTime=True):

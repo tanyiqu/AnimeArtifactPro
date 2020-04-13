@@ -86,7 +86,9 @@ def detail(url, log):
     # print('jsonLinkDir：', jsonLinkDir)
     detailResult = {}
     for i in range(1, num+1):
-        detailResult.update({episodeDir[i]: jsonLinkDir[i]})
+        value = [episodeDir[i], jsonLinkDir[i]]
+        # detailResult.update({episodeDir[i]: jsonLinkDir[i]})
+        detailResult.update({i: value})
     # 整合成{集数名:json链接}
     # print('最终整合：', detailResult)
     return detailResult
