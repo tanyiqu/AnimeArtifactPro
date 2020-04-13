@@ -4,7 +4,7 @@ import webbrowser
 import json
 from functools import partial
 
-from PyQt5 import QtGui, sip
+from PyQt5 import sip
 from PyQt5.QtGui import QTextCursor
 from PyQt5.QtWidgets import QPushButton
 
@@ -40,13 +40,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
     interface = 1
     currentEName = ''
 
-    def init(self, mainForm):
-        # 标题
-        mainForm.setWindowTitle(R.string.APP_NAME)
-        # 图标
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("resource/imgs/logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        mainForm.setWindowIcon(icon)
+    def init(self):
         # 初始化变量
         self.initVars()
         # 欢迎

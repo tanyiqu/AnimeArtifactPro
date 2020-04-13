@@ -36,21 +36,20 @@
      </property>
      <widget class="QWidget" name="pageWelcome">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 0);</string>
+       <string notr="true"/>
       </property>
-      <widget class="QLabel" name="label">
-       <property name="geometry">
-        <rect>
-         <x>230</x>
-         <y>130</y>
-         <width>431</width>
-         <height>191</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>WELCOME</string>
-       </property>
-      </widget>
+      <layout class="QGridLayout" name="gridLayout_8">
+       <item row="0" column="0">
+        <widget class="QLabel" name="lblWelcomeImg">
+         <property name="styleSheet">
+          <string notr="true">border: 1px solid #000000;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
      <widget class="QWidget" name="pageSearchResult">
       <property name="styleSheet">
@@ -461,11 +460,14 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="text">
+       <string>我的青春恋爱物语</string>
+      </property>
      </widget>
      <widget class="QPushButton" name="btnBack">
       <property name="geometry">
        <rect>
-        <x>770</x>
+        <x>740</x>
         <y>20</y>
         <width>75</width>
         <height>23</height>
