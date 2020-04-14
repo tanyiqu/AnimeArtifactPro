@@ -7,6 +7,11 @@ from PyQt5.QtWidgets import QWidget, QGridLayout, QPushButton
 
 
 class WelcomeWidget(QWidget):
+    """
+    首页的欢迎界面
+    """
+
+
     # 是否可以画了
     canDraw = False
     imgData = ''

@@ -1,6 +1,5 @@
 import threading
 import time
-import webbrowser
 import json
 from functools import partial
 
@@ -33,13 +32,18 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
     thread_search = ''
     # 加载动漫详情
     thread_detail = ''
+    # 抓取所有链接
+    thread_getAllLinks = ''
 
     config = ''
     searchResult = ''
     detailResult = ''
     searchword = ''
     interface = 1
+    # 当前番剧的名字
     currentEName = ''
+    # 当前番剧的链接
+    currentEUrl = ''
 
     welcomeWidget = ''
 
@@ -64,6 +68,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         self.detailFinish = DetailFinish()
         self.thread_search = threading.Thread(target=self._search, name='')
         self.thread_detail = threading.Thread(target=self._detail, name='')
+        self.thread_getAllLinks = threading.Thread(target=self._getAllLinks, name='getLinks', args=(self.detailResult, self.log_secondary,))
         pass
 
     def welcome(self):
@@ -76,18 +81,18 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         连接信号槽
         :return:
         """
+        # 页面切换 --> 禁用抓取链接按钮
+        self.stackedWidget.currentChanged.connect(lambda: self.btnGetAllLinks.setEnabled(False))
         # 搜索
         self.btnSearch.clicked.connect(self.search)
         # 搜索完成
         self.searchFinish.signal.connect(self._searchFinished)
         # 获取详情完成
         self.detailFinish.signal.connect(self._detailFinish)
-        # 关于
-        self.btnAbout.clicked.connect(lambda: print('关于'))
-        # 项目地址
-        self.btnOpenSource.clicked.connect(lambda: webbrowser.open_new(R.string.OPEN_SOURCE))
         # 返回
         self.btnBack.clicked.connect(self.back)
+        # 抓取链接
+        self.btnGetAllLinks.clicked.connect(self.getAllLinks)
         pass
 
     # 点击搜索按钮
@@ -160,10 +165,13 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         """
         跳转到详情页
         :param params: 参数字典
+        {url', 'cover',  'title', 'latest', 'area', 'time','stars'}
         :return: None
         """
         # 点击了某一部动漫
+        print('点击了：' + params['title'])
         self.currentEName = params['title']
+        self.currentEUrl = params['url']
         # 跳转到详情页
         self.stackedWidget.setCurrentIndex(2)
         # 在此页面清除原来的搜索结果，方便体验
@@ -222,9 +230,9 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         self.log_secondary('番剧获取完毕!')
         self.log_secondary('「' + self.currentEName + '」 总集数：' + str(len(self.detailResult)))
         # 在这里加载详情信息
-        # 动态生成对应的按钮
         r = 0
         c = 0
+        # 动态生成对应的按钮
         for i in range(1, len(self.detailResult) + 1):
             result = self.detailResult[i]
             w = QPushButton(result[0])
@@ -237,6 +245,19 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
                 r += 1
             i += 1
             pass
+        self.btnGetAllLinks.setEnabled(True)
+        pass
+
+    # 点击 “抓取链接”
+    def getAllLinks(self):
+        print('获取全部链接：', self.currentEUrl)
+        t = threading.Thread(target=self._getAllLinks, name='getLinks', args=(self.detailResult, self.log_secondary,))
+        t.start()
+        pass
+
+    def _getAllLinks(self, result, func):
+        result = CrawlUtil.getAllLinks(result, func, self.interface)
+        print(result)
         pass
 
     # 播放

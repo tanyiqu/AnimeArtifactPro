@@ -65,3 +65,16 @@ def getVideoUrl(url, interface):
     if interface == 1:
         return Utils.Crawl.interface1.getPlayLink(url)
     pass
+
+
+def getAllLinks(result, func, interface):
+    """
+    获取全部链接 由线程调用此函数
+    :param result: {1: ['第1集', 'url'], 2: ['第2集', 'url']}
+    :param func: 打印日志函数
+    :param interface: 接口
+    :return: 获取到的链接字符串
+    """
+    if interface == 1:
+        return Utils.Crawl.interface1.getAllLinks(result, func)
+    pass

@@ -1,8 +1,10 @@
+import webbrowser
 from PyQt5.QtCore import Qt, QPoint, QRect
 from PyQt5.QtGui import QMouseEvent, QPainter, QPixmap
+import R
+from PyQt5.QtWidgets import QWidget
 # noinspection PyProtectedMember
 from ui.Forms._Forms._MainForm import _MainForm
-from PyQt5.QtWidgets import QWidget
 
 
 class MainForm(QWidget):
@@ -17,7 +19,7 @@ class MainForm(QWidget):
     SHADOW_WIDTH = 8
     pixmaps = []
 
-    _isMaxing = False
+    isMaxing = False
     # 最大尺寸
     maxSize = None
     # 最大化之前的大小
@@ -71,6 +73,11 @@ class MainForm(QWidget):
         self.mainForm.btnMinSize.clicked.connect(self.showMinimized)
         # 最大化
         self.mainForm.btnMaxSize.clicked.connect(self._maxSize)
+
+        # 关于
+        self.mainForm.btnAbout.clicked.connect(lambda: print('关于'))
+        # 项目地址
+        self.mainForm.btnOpenSource.clicked.connect(lambda: webbrowser.open_new(R.string.OPEN_SOURCE))
         pass
 
     # 点击最大化
@@ -79,7 +86,7 @@ class MainForm(QWidget):
         如果当前不是最大化状态，就最大化
         如果是最大化状态就还原
         """
-        if not self._isMaxing:
+        if not self.isMaxing:
             print('最大化')
             self.lastSize = self.size()
             self.lastPos = self.pos()
@@ -97,7 +104,7 @@ class MainForm(QWidget):
                 self.move(0, 0)
                 self.resize(self.maxSize)
                 pass
-            self._isMaxing = True
+            self.isMaxing = True
             pass
         else:
             print('还原')
@@ -105,7 +112,7 @@ class MainForm(QWidget):
             self.resize(self.lastSize)
             self.mainForm.gridMain.setContentsMargins(self.SHADOW_WIDTH, self.SHADOW_WIDTH, self.SHADOW_WIDTH,
                                                       self.SHADOW_WIDTH)
-            self._isMaxing = False
+            self.isMaxing = False
             pass
         pass
 
