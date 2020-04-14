@@ -2,7 +2,7 @@ from PyQt5.QtCore import Qt, QPoint, QRect
 from PyQt5.QtGui import QMouseEvent, QPainter, QPixmap
 # noinspection PyProtectedMember
 from ui.Forms._Forms._MainForm import _MainForm
-from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QWidget, QDesktopWidget
 
 
 class MainForm(QWidget):
@@ -83,8 +83,11 @@ class MainForm(QWidget):
             self.mainForm.gridMain.setContentsMargins(0, 0, 0, 0)
             # showMaximized()有时候无响应，所但是第一次基本上都会相应
             # 所以第一次最大化后，记录一下尺寸
+
             if self.maxSize is None:
-                self.showMaximized()
+                # self.showMaximized()
+                # 使用这种方式最大化
+                self.setWindowState(Qt.WindowMaximized)
                 self.maxSize = self.size()
                 pass
             else:
