@@ -87,7 +87,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         # 项目地址
         self.btnOpenSource.clicked.connect(lambda: webbrowser.open_new(R.string.OPEN_SOURCE))
         # 返回
-        self.btnBack.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
+        self.btnBack.clicked.connect(self.back)
         pass
 
     # 点击搜索按钮
@@ -239,7 +239,14 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
             pass
         pass
 
+    # 播放
     def play(self, name, url):
+        """
+        播放
+        :param name: 第几集
+        :param url: 真实url
+        :return: None
+        """
         print('播放', url)
         self.log_secondary('正在播放：' + name)
         # 开启线程获取真实播放链接
@@ -249,6 +256,21 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         if url[-5:].lower() == '.m3u8':
             self.log_secondary('m3u8链接暂时只能用网页解析！')
         VideoUtil.play(url)
+        pass
+
+    # 返回
+    def back(self):
+        index = self.stackedWidget.currentIndex()
+        # 在首页，不操作
+        if index == 0:
+            pass
+        # 在搜索结果为空页,返回首页
+        elif index == 3:
+            self.stackedWidget.setCurrentIndex(0)
+            pass
+        # 其余的返回上一页
+        else:
+            self.stackedWidget.setCurrentIndex(index-1)
         pass
 
     def log(self, msg, showTime=True):

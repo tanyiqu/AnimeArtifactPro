@@ -288,11 +288,23 @@ background-color: rgb(255, 255, 255)
       </property>
       <item row="0" column="0">
        <widget class="QPushButton" name="btnBack">
+        <property name="minimumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="styleSheet">
          <string notr="true">background-color: #ffffff;</string>
         </property>
         <property name="text">
-         <string>返回</string>
+         <string/>
         </property>
        </widget>
       </item>

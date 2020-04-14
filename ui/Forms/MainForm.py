@@ -2,7 +2,7 @@ from PyQt5.QtCore import Qt, QPoint, QRect
 from PyQt5.QtGui import QMouseEvent, QPainter, QPixmap
 # noinspection PyProtectedMember
 from ui.Forms._Forms._MainForm import _MainForm
-from PyQt5.QtWidgets import QWidget, QDesktopWidget
+from PyQt5.QtWidgets import QWidget
 
 
 class MainForm(QWidget):
@@ -54,7 +54,10 @@ class MainForm(QWidget):
         self.mainForm.btnMaxSize.setStyleSheet("QPushButton{border-image: url(resource/imgs/max_normal.png)}"
                                                "QPushButton:hover{border-image: url(resource/imgs/max_hover.png)}"
                                                "QPushButton:pressed{border-image: url(resource/imgs/max_pressed.png)}")
-
+        # 返回
+        self.mainForm.btnBack.setStyleSheet("QPushButton{border-image: url(resource/imgs/back_normal.png)}"
+                                            "QPushButton:hover{border-image: url(resource/imgs/back_hover.png)}"
+                                            "QPushButton:pressed{border-image: url(resource/imgs/back_pressed.png)}")
         # 加载欢迎图片
         # self.mainForm.lblWelcomeImg.setFixedSize(800,400)
         #         # url = 'https://cn.bing.com//th?id=OHR.WatChaloem_ZH-CN8722271527_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp'
