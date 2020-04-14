@@ -10,7 +10,8 @@ from ui.Forms._Forms._MainForm import _MainForm
 class MainForm(QWidget):
     """
     主窗口类
-    对窗口的操作放在此类
+    对窗口的样式外观操作放在此类
+    另外还有窗口的事件重写
     """
     _startPos = None
     _endPos = None
@@ -60,10 +61,6 @@ class MainForm(QWidget):
         self.mainForm.btnBack.setStyleSheet("QPushButton{border-image: url(resource/imgs/back_normal.png)}"
                                             "QPushButton:hover{border-image: url(resource/imgs/back_hover.png)}"
                                             "QPushButton:pressed{border-image: url(resource/imgs/back_pressed.png)}")
-        # 加载欢迎图片
-        # self.mainForm.lblWelcomeImg.setFixedSize(800,400)
-        #         # url = 'https://cn.bing.com//th?id=OHR.WatChaloem_ZH-CN8722271527_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp'
-        #         # setLabelImg(self.mainForm.lblWelcomeImg, url)
         pass
 
     def initFunc(self):
@@ -73,7 +70,6 @@ class MainForm(QWidget):
         self.mainForm.btnMinSize.clicked.connect(self.showMinimized)
         # 最大化
         self.mainForm.btnMaxSize.clicked.connect(self._maxSize)
-
         # 关于
         self.mainForm.btnAbout.clicked.connect(lambda: print('关于'))
         # 项目地址
@@ -93,7 +89,6 @@ class MainForm(QWidget):
             self.mainForm.gridMain.setContentsMargins(0, 0, 0, 0)
             # showMaximized()有时候无响应，所但是第一次基本上都会相应
             # 所以第一次最大化后，记录一下尺寸
-
             if self.maxSize is None:
                 # self.showMaximized()
                 # 使用这种方式最大化
@@ -116,6 +111,7 @@ class MainForm(QWidget):
             pass
         pass
 
+    # 绘制窗口阴影
     def drawShadow(self, painter):
         # 绘制左上角、左下角、右上角、右下角、上、下、左、右边框
         self.pixmaps.append(str("resource/imgs/shadow/left_top.png"))

@@ -68,7 +68,6 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         self.detailFinish = DetailFinish()
         self.thread_search = threading.Thread(target=self._search, name='')
         self.thread_detail = threading.Thread(target=self._detail, name='')
-        self.thread_getAllLinks = threading.Thread(target=self._getAllLinks, name='getLinks', args=(self.detailResult, self.log_secondary,))
         pass
 
     def welcome(self):
@@ -161,6 +160,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
             pass
         pass
 
+    # 获取详情
     def detail(self, params):
         """
         跳转到详情页
@@ -218,6 +218,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         self.thread_detail.start()
         pass
 
+    # 获取详情 线程执行
     def _detail(self, url):
         print('执行')
         self.detailResult = CrawlUtil.detail(url, self.log_secondary, self.interface)
@@ -226,6 +227,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         self.detailFinish.signal.emit()
         pass
 
+    # 获取详情完成
     def _detailFinish(self):
         self.log_secondary('番剧获取完毕!')
         self.log_secondary('「' + self.currentEName + '」 总集数：' + str(len(self.detailResult)))
@@ -248,16 +250,10 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         self.btnGetAllLinks.setEnabled(True)
         pass
 
-    # 点击 “抓取链接”
+    # 抓取链接
     def getAllLinks(self):
-        print('获取全部链接：', self.currentEUrl)
-        t = threading.Thread(target=self._getAllLinks, name='getLinks', args=(self.detailResult, self.log_secondary,))
+        t = threading.Thread(target=CrawlUtil.getAllLinks, name='getLinks', args=(self.detailResult, self.log_secondary, self.interface,))
         t.start()
-        pass
-
-    def _getAllLinks(self, result, func):
-        result = CrawlUtil.getAllLinks(result, func, self.interface)
-        print(result)
         pass
 
     # 播放
