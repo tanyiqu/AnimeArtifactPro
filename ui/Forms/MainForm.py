@@ -1,5 +1,5 @@
-from PyQt5.QtCore import Qt, QPoint
-from PyQt5.QtGui import QMouseEvent
+from PyQt5.QtCore import Qt, QPoint, QRect
+from PyQt5.QtGui import QMouseEvent, QPainter, QPixmap
 # noinspection PyProtectedMember
 from ui.Forms._Forms._MainForm import _MainForm
 from PyQt5.QtWidgets import QWidget
@@ -13,6 +13,9 @@ class MainForm(QWidget):
     _startPos = None
     _endPos = None
     _isTracking = False
+
+    SHADOW_WIDTH = 8
+    pixmaps = []
 
     _isMaxing = False
     # 最大化之前的大小
@@ -32,13 +35,7 @@ class MainForm(QWidget):
     def initAppearance(self):
         # 设置无边框
         self.setWindowFlags(Qt.FramelessWindowHint)
-        # # 标题
-        # self.setWindowTitle(R.string.APP_NAME)
-        # # 图标
-        # icon = QtGui.QIcon()
-        # icon.addPixmap(QtGui.QPixmap("resource/imgs/logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        # self.setWindowIcon(icon)
-
+        self.setAttribute(Qt.WA_TranslucentBackground)
         # 按钮
         # 关闭
         self.mainForm.btnClose.setStyleSheet("QPushButton{border-image: url(resource/imgs/close_normal.png)}"
@@ -55,8 +52,8 @@ class MainForm(QWidget):
 
         # 加载欢迎图片
         # self.mainForm.lblWelcomeImg.setFixedSize(800,400)
-        # url = 'https://cn.bing.com//th?id=OHR.WatChaloem_ZH-CN8722271527_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp'
-        # setLabelImg(self.mainForm.lblWelcomeImg, url)
+        #         # url = 'https://cn.bing.com//th?id=OHR.WatChaloem_ZH-CN8722271527_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp'
+        #         # setLabelImg(self.mainForm.lblWelcomeImg, url)
         pass
 
     def initFunc(self):
@@ -78,6 +75,46 @@ class MainForm(QWidget):
             self._isMaxing = True
         pass
 
+    def drawShadow(self, painter):
+        # 绘制左上角、左下角、右上角、右下角、上、下、左、右边框
+        self.pixmaps.append(str("resource/imgs/shadow/left_top.png"))
+        self.pixmaps.append(str("resource/imgs/shadow/left_bottom.png"))
+        self.pixmaps.append(str("resource/imgs/shadow/right_top.png"))
+        self.pixmaps.append(str("resource/imgs/shadow/right_bottom.png"))
+        self.pixmaps.append(str("resource/imgs/shadow/top_mid.png"))
+        self.pixmaps.append(str("resource/imgs/shadow/bottom_mid.png"))
+        self.pixmaps.append(str("resource/imgs/shadow/left_mid.png"))
+        self.pixmaps.append(str("resource/imgs/shadow/right_mid.png"))
+        painter.drawPixmap(0, 0, self.SHADOW_WIDTH, self.SHADOW_WIDTH, QPixmap(self.pixmaps[0]))  # 左上角
+        painter.drawPixmap(self.width() - self.SHADOW_WIDTH, 0, self.SHADOW_WIDTH, self.SHADOW_WIDTH,
+                           QPixmap(self.pixmaps[2]))  # 右上角
+        painter.drawPixmap(0, self.height() - self.SHADOW_WIDTH, self.SHADOW_WIDTH, self.SHADOW_WIDTH,
+                           QPixmap(self.pixmaps[1]))  # 左下角
+        painter.drawPixmap(self.width() - self.SHADOW_WIDTH, self.height() - self.SHADOW_WIDTH, self.SHADOW_WIDTH,
+                           self.SHADOW_WIDTH, QPixmap(self.pixmaps[3]))  # 右下角
+        painter.drawPixmap(0, self.SHADOW_WIDTH, self.SHADOW_WIDTH, self.height() - 2 * self.SHADOW_WIDTH,
+                           QPixmap(self.pixmaps[6]).scaled(self.SHADOW_WIDTH,
+                                                           self.height() - 2 * self.SHADOW_WIDTH))  # 左
+        painter.drawPixmap(self.width() - self.SHADOW_WIDTH, self.SHADOW_WIDTH, self.SHADOW_WIDTH,
+                           self.height() - 2 * self.SHADOW_WIDTH, QPixmap(self.pixmaps[7]).scaled(self.SHADOW_WIDTH,
+                                                                                                  self.height() - 2 * self.SHADOW_WIDTH))  # 右
+        painter.drawPixmap(self.SHADOW_WIDTH, 0, self.width() - 2 * self.SHADOW_WIDTH, self.SHADOW_WIDTH,
+                           QPixmap(self.pixmaps[4]).scaled(self.width() - 2 * self.SHADOW_WIDTH,
+                                                           self.SHADOW_WIDTH))  # 上
+        painter.drawPixmap(self.SHADOW_WIDTH, self.height() - self.SHADOW_WIDTH, self.width() - 2 * self.SHADOW_WIDTH,
+                           self.SHADOW_WIDTH, QPixmap(self.pixmaps[5]).scaled(self.width() - 2 * self.SHADOW_WIDTH,
+                                                                              self.SHADOW_WIDTH))  # 下
+
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        self.drawShadow(painter)
+        painter.setPen(Qt.NoPen)
+        painter.setBrush(Qt.white)
+        painter.drawRect(QRect(self.SHADOW_WIDTH, self.SHADOW_WIDTH, self.width() - 2 * self.SHADOW_WIDTH,
+                               self.height() - 2 * self.SHADOW_WIDTH))
+
+    # 鼠标移动
+
     def mouseMoveEvent(self, e: QMouseEvent):  # 重写移动事件
         # if e.button() == Qt.LeftButton and self.inMovingArea(e.pos()):
         if self._isTracking:
@@ -90,6 +127,7 @@ class MainForm(QWidget):
             self._isTracking = True
             self._startPos = QPoint(e.x(), e.y())
 
+    # 鼠标释放
     def mouseReleaseEvent(self, e: QMouseEvent):
         if e.button() == Qt.LeftButton and self.inMovingArea(e.pos()):
             self._isTracking = False

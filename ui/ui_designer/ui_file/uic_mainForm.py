@@ -16,7 +16,7 @@ class Ui_mainForm(object):
         mainForm.resize(1000, 800)
         mainForm.setMinimumSize(QtCore.QSize(960, 650))
         self.gridLayout_4 = QtWidgets.QGridLayout(mainForm)
-        self.gridLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_4.setContentsMargins(8, 8, 8, 8)
         self.gridLayout_4.setSpacing(0)
         self.gridLayout_4.setObjectName("gridLayout_4")
         self.widgetTools = QtWidgets.QWidget(mainForm)
@@ -73,17 +73,19 @@ class Ui_mainForm(object):
         self.gridLayout_2.setSpacing(0)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.console1 = QtWidgets.QPlainTextEdit(self.widgetConsole)
-        self.console1.setStyleSheet("color: rgb(255, 255, 255);\n"
-"background-color: rgb(0, 0, 0);\n"
+        self.console1.setStyleSheet("color: #ffffff;\n"
+"background-color: #303038;\n"
 "font: 12pt \"微软雅黑\";")
+        self.console1.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.console1.setReadOnly(True)
         self.console1.setPlainText("")
         self.console1.setObjectName("console1")
         self.gridLayout_2.addWidget(self.console1, 0, 0, 1, 1)
         self.console2 = QtWidgets.QPlainTextEdit(self.widgetConsole)
-        self.console2.setStyleSheet("color: rgb(255, 255, 255);\n"
-"background-color: rgb(0, 0, 0);\n"
+        self.console2.setStyleSheet("color: #ffffff;\n"
+"background-color: #303038;\n"
 "font: 12pt \"微软雅黑\";")
+        self.console2.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.console2.setReadOnly(True)
         self.console2.setPlainText("")
         self.console2.setObjectName("console2")
@@ -235,7 +237,7 @@ class Ui_mainForm(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scroll = QtWidgets.QWidget()
-        self.scroll.setGeometry(QtCore.QRect(0, 0, 981, 533))
+        self.scroll.setGeometry(QtCore.QRect(0, 0, 81, 28))
         self.scroll.setObjectName("scroll")
         self.grid = QtWidgets.QGridLayout(self.scroll)
         self.grid.setSpacing(9)
@@ -338,7 +340,7 @@ class Ui_mainForm(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName("scrollArea_2")
         self.scrollBtns = QtWidgets.QWidget()
-        self.scrollBtns.setGeometry(QtCore.QRect(0, 0, 923, 185))
+        self.scrollBtns.setGeometry(QtCore.QRect(0, 0, 83, 30))
         self.scrollBtns.setObjectName("scrollBtns")
         self.gridBtns = QtWidgets.QGridLayout(self.scrollBtns)
         self.gridBtns.setObjectName("gridBtns")

@@ -68,6 +68,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
 
     def welcome(self):
         self.log(R.string.WELCOME)
+        self.log_secondary('请搜索！')
         pass
 
     def do_connect(self):
