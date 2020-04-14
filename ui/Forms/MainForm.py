@@ -18,8 +18,12 @@ class MainForm(QWidget):
     pixmaps = []
 
     _isMaxing = False
+    # 最大尺寸
+    maxSize = None
     # 最大化之前的大小
     lastSize = None
+    # 最大化之前的位置
+    lastPos = None
 
     def __init__(self):
         super().__init__()
@@ -35,6 +39,7 @@ class MainForm(QWidget):
     def initAppearance(self):
         # 设置无边框
         self.setWindowFlags(Qt.FramelessWindowHint)
+        # 设置窗口透明
         self.setAttribute(Qt.WA_TranslucentBackground)
         # 按钮
         # 关闭
@@ -65,14 +70,37 @@ class MainForm(QWidget):
         self.mainForm.btnMaxSize.clicked.connect(self._maxSize)
         pass
 
+    # 点击最大化
     def _maxSize(self):
-        if self._isMaxing:
-            self.resize(self.lastSize)
-            self._isMaxing = False
-        else:
+        """
+        如果当前不是最大化状态，就最大化
+        如果是最大化状态就还原
+        """
+        if not self._isMaxing:
+            print('最大化')
             self.lastSize = self.size()
-            self.showMaximized()
+            self.lastPos = self.pos()
+            self.mainForm.gridMain.setContentsMargins(0, 0, 0, 0)
+            # showMaximized()有时候无响应，所但是第一次基本上都会相应
+            # 所以第一次最大化后，记录一下尺寸
+            if self.maxSize is None:
+                self.showMaximized()
+                self.maxSize = self.size()
+                pass
+            else:
+                self.move(0, 0)
+                self.resize(self.maxSize)
+                pass
             self._isMaxing = True
+            pass
+        else:
+            print('还原')
+            self.move(self.lastPos)
+            self.resize(self.lastSize)
+            self.mainForm.gridMain.setContentsMargins(self.SHADOW_WIDTH, self.SHADOW_WIDTH, self.SHADOW_WIDTH,
+                                                      self.SHADOW_WIDTH)
+            self._isMaxing = False
+            pass
         pass
 
     def drawShadow(self, painter):

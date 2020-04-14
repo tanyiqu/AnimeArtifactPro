@@ -19,7 +19,7 @@
   <property name="windowTitle">
    <string>看番神器</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_4">
+  <layout class="QGridLayout" name="gridMain">
    <property name="leftMargin">
     <number>8</number>
    </property>
@@ -619,6 +619,9 @@ border: 1px solid #393942;
        </property>
        <item row="0" column="0">
         <widget class="QScrollArea" name="scrollArea">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
          <property name="verticalScrollBarPolicy">
           <enum>Qt::ScrollBarAlwaysOn</enum>
          </property>
@@ -630,8 +633,8 @@ border: 1px solid #393942;
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>81</width>
-            <height>28</height>
+            <width>967</width>
+            <height>519</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="grid">
@@ -937,8 +940,8 @@ border: 1px solid #393942;
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>83</width>
-               <height>30</height>
+               <width>907</width>
+               <height>169</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridBtns"/>
