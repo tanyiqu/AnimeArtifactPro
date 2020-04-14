@@ -1,6 +1,6 @@
 import webbrowser
 from PyQt5.QtCore import Qt, QPoint, QRect
-from PyQt5.QtGui import QMouseEvent, QPainter, QPixmap
+from PyQt5.QtGui import QMouseEvent, QPainter, QPixmap, QKeyEvent
 import R
 from PyQt5.QtWidgets import QWidget
 # noinspection PyProtectedMember
@@ -170,6 +170,14 @@ class MainForm(QWidget):
             self._isTracking = False
             self._startPos = None
             self._endPos = None
+
+    # 键盘按下
+    def keyPressEvent(self, e: QKeyEvent):
+        # 按回车键搜索
+        if e.key() == Qt.Key_Enter or e.key() == Qt.Key_Return:
+            if self.mainForm.txtSearchword.hasFocus():
+                self.mainForm.search()
+        pass
 
     # 判断该点是否在可拖动的区域
     def inMovingArea(self, pos: QPoint):

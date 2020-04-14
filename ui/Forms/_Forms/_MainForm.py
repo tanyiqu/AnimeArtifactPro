@@ -54,6 +54,8 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         self.welcome()
         # 连接信号槽
         self.do_connect()
+        # 其他
+        self.func()
         pass
 
     def initVars(self):
@@ -273,6 +275,10 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         if url[-5:].lower() == '.m3u8':
             self.log_secondary('m3u8链接暂时只能用网页解析！')
         VideoUtil.play(url)
+        pass
+
+    def func(self):
+
         pass
 
     # 返回
