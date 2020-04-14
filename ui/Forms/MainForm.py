@@ -2,10 +2,7 @@ from PyQt5.QtCore import Qt, QPoint
 from PyQt5.QtGui import QMouseEvent
 # noinspection PyProtectedMember
 from ui.Forms._Forms._MainForm import _MainForm
-from PyQt5 import QtGui
 from PyQt5.QtWidgets import QWidget
-
-import R
 
 
 class MainForm(QWidget):
@@ -35,12 +32,26 @@ class MainForm(QWidget):
     def initAppearance(self):
         # 设置无边框
         self.setWindowFlags(Qt.FramelessWindowHint)
-        # 标题
-        self.setWindowTitle(R.string.APP_NAME)
-        # 图标
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("resource/imgs/logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.setWindowIcon(icon)
+        # # 标题
+        # self.setWindowTitle(R.string.APP_NAME)
+        # # 图标
+        # icon = QtGui.QIcon()
+        # icon.addPixmap(QtGui.QPixmap("resource/imgs/logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        # self.setWindowIcon(icon)
+
+        # 按钮
+        # 关闭
+        self.mainForm.btnClose.setStyleSheet("QPushButton{border-image: url(resource/imgs/close_normal.png)}"
+                                             "QPushButton:hover{border-image: url(resource/imgs/close_hover.png)}"
+                                             "QPushButton:pressed{border-image: url(resource/imgs/close_pressed.png)}")
+        # 最小化
+        self.mainForm.btnMinSize.setStyleSheet("QPushButton{border-image: url(resource/imgs/min_normal.png)}"
+                                               "QPushButton:hover{border-image: url(resource/imgs/min_hover.png)}"
+                                               "QPushButton:pressed{border-image: url(resource/imgs/min_pressed.png)}")
+        # 最大化
+        self.mainForm.btnMaxSize.setStyleSheet("QPushButton{border-image: url(resource/imgs/max_normal.png)}"
+                                               "QPushButton:hover{border-image: url(resource/imgs/max_hover.png)}"
+                                               "QPushButton:pressed{border-image: url(resource/imgs/max_pressed.png)}")
 
         # 加载欢迎图片
         # self.mainForm.lblWelcomeImg.setFixedSize(800,400)

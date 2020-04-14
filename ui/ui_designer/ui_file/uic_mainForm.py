@@ -173,10 +173,11 @@ class Ui_mainForm(object):
 "color: #bababa;\n"
 "border-top-left-radius : 20px;\n"
 "border-bottom-left-radius : 20px;\n"
-"font: 14pt \"微软雅黑\";\n"
+"font: 13pt \"微软雅黑\";\n"
 "padding-left:15px;\n"
 "}\n"
 "QLineEdit:hover{\n"
+"background-color: #373036;\n"
 "border: 1px solid #393942;\n"
 "}")
         self.txtSearchword.setObjectName("txtSearchword")
@@ -190,15 +191,26 @@ class Ui_mainForm(object):
 "border: 1px solid #393942;\n"
 "*/")
         self.widgetCrrlBtns.setObjectName("widgetCrrlBtns")
+        self.gridLayout_10 = QtWidgets.QGridLayout(self.widgetCrrlBtns)
+        self.gridLayout_10.setObjectName("gridLayout_10")
         self.btnMinSize = QtWidgets.QPushButton(self.widgetCrrlBtns)
-        self.btnMinSize.setGeometry(QtCore.QRect(10, 10, 21, 23))
+        self.btnMinSize.setMinimumSize(QtCore.QSize(16, 16))
+        self.btnMinSize.setMaximumSize(QtCore.QSize(16, 16))
+        self.btnMinSize.setText("")
         self.btnMinSize.setObjectName("btnMinSize")
+        self.gridLayout_10.addWidget(self.btnMinSize, 0, 0, 1, 1)
         self.btnMaxSize = QtWidgets.QPushButton(self.widgetCrrlBtns)
-        self.btnMaxSize.setGeometry(QtCore.QRect(40, 10, 21, 23))
+        self.btnMaxSize.setMinimumSize(QtCore.QSize(16, 16))
+        self.btnMaxSize.setMaximumSize(QtCore.QSize(16, 16))
+        self.btnMaxSize.setText("")
         self.btnMaxSize.setObjectName("btnMaxSize")
+        self.gridLayout_10.addWidget(self.btnMaxSize, 0, 1, 1, 1)
         self.btnClose = QtWidgets.QPushButton(self.widgetCrrlBtns)
-        self.btnClose.setGeometry(QtCore.QRect(70, 10, 21, 23))
+        self.btnClose.setMinimumSize(QtCore.QSize(16, 16))
+        self.btnClose.setMaximumSize(QtCore.QSize(16, 16))
+        self.btnClose.setText("")
         self.btnClose.setObjectName("btnClose")
+        self.gridLayout_10.addWidget(self.btnClose, 0, 2, 1, 1)
         self.gridLayout_9.addWidget(self.widgetCrrlBtns, 0, 4, 1, 1)
         self.gridLayout_4.addWidget(self.widgetTop, 0, 0, 1, 1)
         self.stackedWidget = QtWidgets.QStackedWidget(mainForm)
@@ -360,9 +372,6 @@ class Ui_mainForm(object):
         self.comboSelectInterface.setItemText(1, _translate("mainForm", "接口2"))
         self.btnSearch.setText(_translate("mainForm", "搜索"))
         self.txtSearchword.setText(_translate("mainForm", "我的青春恋爱物语"))
-        self.btnMinSize.setText(_translate("mainForm", "_"))
-        self.btnMaxSize.setText(_translate("mainForm", "O"))
-        self.btnClose.setText(_translate("mainForm", "X"))
         self.lblStars.setText(_translate("mainForm", "演员："))
         self.label_9.setText(_translate("mainForm", "演员："))
         self.label_6.setText(_translate("mainForm", "类型："))

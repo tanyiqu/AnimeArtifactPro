@@ -458,10 +458,11 @@ background-color: #393942;
 color: #bababa;
 border-top-left-radius : 20px;
 border-bottom-left-radius : 20px;
-font: 14pt &quot;微软雅黑&quot;;
+font: 13pt &quot;微软雅黑&quot;;
 padding-left:15px;
 }
 QLineEdit:hover{
+background-color: #373036;
 border: 1px solid #393942;
 }</string>
            </property>
@@ -499,45 +500,65 @@ border: 1px solid #393942;
 border: 1px solid #393942;
 */</string>
         </property>
-        <widget class="QPushButton" name="btnMinSize">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>10</y>
-           <width>21</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>_</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="btnMaxSize">
-         <property name="geometry">
-          <rect>
-           <x>40</x>
-           <y>10</y>
-           <width>21</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>O</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="btnClose">
-         <property name="geometry">
-          <rect>
-           <x>70</x>
-           <y>10</y>
-           <width>21</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>X</string>
-         </property>
-        </widget>
+        <layout class="QGridLayout" name="gridLayout_10">
+         <item row="0" column="0">
+          <widget class="QPushButton" name="btnMinSize">
+           <property name="minimumSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="btnMaxSize">
+           <property name="minimumSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QPushButton" name="btnClose">
+           <property name="minimumSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
      </layout>
