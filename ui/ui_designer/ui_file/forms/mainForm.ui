@@ -35,6 +35,514 @@
    <property name="spacing">
     <number>0</number>
    </property>
+   <item row="2" column="0">
+    <widget class="QWidget" name="widgetTools" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="btnGetAllLinks">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>抓取链接</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="btnOpenSource">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>项目地址</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="5">
+       <widget class="QLabel" name="lblLastPlayEpisodeName">
+        <property name="text">
+         <string>无</string>
+        </property>
+        <property name="margin">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="8">
+       <widget class="QLabel" name="lblSpace02">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <widget class="QLabel" name="lblLastPlay">
+        <property name="text">
+         <string>最近一次播放：</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="btnAbout">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>关于</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="7">
+       <widget class="QLabel" name="lblLastPlayEpisodeNum">
+        <property name="text">
+         <string>第0集</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>828</width>
+          <height>27</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="6">
+       <widget class="QLabel" name="lblSpace01">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QWidget" name="widgetConsole" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>180</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>180</height>
+      </size>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QPlainTextEdit" name="console1">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 0);
+font: 12pt &quot;微软雅黑&quot;;</string>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="plainText">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPlainTextEdit" name="console2">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 0);
+font: 12pt &quot;微软雅黑&quot;;</string>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="plainText">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QWidget" name="widgetTop" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>55</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>55</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+background-color: #303038
+/*
+background-color: rgb(255, 255, 255)
+
+*/</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_9">
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="btnBack">
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff;</string>
+        </property>
+        <property name="text">
+         <string>返回</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="2">
+       <widget class="QWidget" name="widgetSearch" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>400</width>
+          <height>45</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>45</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_8">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item row="0" column="1">
+          <widget class="QWidget" name="widget" native="true">
+           <property name="styleSheet">
+            <string notr="true">background-color: #393942;</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout" stretch="0">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QComboBox" name="comboSelectInterface">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>40</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>40</height>
+               </size>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QComboBox {
+color: #bababa;
+background:transparent;
+font: 12pt &quot;微软雅黑&quot;;
+}
+QComboBox QAbstractItemView {
+outline: 0px solid gray;
+border: 1px solid #393942;
+color: #bababa;
+background-color: #393942;
+selection-background-color: #7f7f7f;
+}</string>
+              </property>
+              <item>
+               <property name="text">
+                <string>接口1</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>接口2</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QPushButton" name="btnSearch">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+background-color: #44444f;
+color: #ff5246;
+border-top-right-radius : 20px;
+border-bottom-right-radius : 20px;
+font: 12pt &quot;微软雅黑&quot;;
+}
+QPushButton:hover{
+background-color: #ff5246;
+color: #ffffff;
+}
+QPushButton:pressed{
+color: #7f7f7f;
+}</string>
+           </property>
+           <property name="text">
+            <string>搜索</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLineEdit" name="txtSearchword">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLineEdit{
+background-color: #393942;
+color: #bababa;
+border-top-left-radius : 20px;
+border-bottom-left-radius : 20px;
+font: 14pt &quot;微软雅黑&quot;;
+padding-left:15px;
+}
+QLineEdit:hover{
+border: 1px solid #393942;
+}</string>
+           </property>
+           <property name="text">
+            <string>我的青春恋爱物语</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>199</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="4">
+       <widget class="QWidget" name="widgetCrrlBtns" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>111</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/*
+border: 1px solid #393942;
+*/</string>
+        </property>
+        <widget class="QPushButton" name="btnMinSize">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>10</y>
+           <width>21</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>_</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btnMaxSize">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>10</y>
+           <width>21</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>O</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btnClose">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>10</y>
+           <width>21</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>X</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
    <item row="1" column="0">
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
@@ -96,7 +604,7 @@
             <x>0</x>
             <y>0</y>
             <width>981</width>
-            <height>528</height>
+            <height>533</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="grid">
@@ -402,8 +910,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>83</width>
-               <height>30</height>
+               <width>923</width>
+               <height>185</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridBtns"/>
@@ -430,294 +938,6 @@
        </property>
       </widget>
      </widget>
-    </widget>
-   </item>
-   <item row="0" column="0">
-    <widget class="QWidget" name="widgetTop" native="true">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>55</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>55</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <widget class="QPushButton" name="btnSearch">
-      <property name="geometry">
-       <rect>
-        <x>640</x>
-        <y>10</y>
-        <width>91</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>搜索</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="txtSearchword">
-      <property name="geometry">
-       <rect>
-        <x>310</x>
-        <y>9</y>
-        <width>311</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>我的青春恋爱物语</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="btnBack">
-      <property name="geometry">
-       <rect>
-        <x>740</x>
-        <y>20</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>返回</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="comboSelectInterface">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>10</y>
-        <width>91</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>接口1</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>接口2</string>
-       </property>
-      </item>
-     </widget>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="QWidget" name="widgetTools" native="true">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>30</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>30</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <layout class="QGridLayout" name="gridLayout_3">
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <property name="spacing">
-       <number>0</number>
-      </property>
-      <item row="0" column="0">
-       <widget class="QPushButton" name="btnGetAllLinks">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>抓取链接</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QPushButton" name="btnOpenSource">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>项目地址</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="5">
-       <widget class="QLabel" name="lblLastPlayEpisodeName">
-        <property name="text">
-         <string>无</string>
-        </property>
-        <property name="margin">
-         <number>0</number>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="8">
-       <widget class="QLabel" name="lblSpace02">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="4">
-       <widget class="QLabel" name="lblLastPlay">
-        <property name="text">
-         <string>最近一次播放：</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QPushButton" name="btnAbout">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>关于</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="7">
-       <widget class="QLabel" name="lblLastPlayEpisodeNum">
-        <property name="text">
-         <string>第0集</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="3">
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>828</width>
-          <height>27</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="0" column="6">
-       <widget class="QLabel" name="lblSpace01">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="3" column="0">
-    <widget class="QWidget" name="widgetConsole" native="true">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>180</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>180</height>
-      </size>
-     </property>
-     <layout class="QGridLayout" name="gridLayout_2">
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <property name="spacing">
-       <number>0</number>
-      </property>
-      <item row="0" column="0">
-       <widget class="QPlainTextEdit" name="console1">
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(0, 0, 0);
-font: 12pt &quot;微软雅黑&quot;;</string>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-        <property name="plainText">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QPlainTextEdit" name="console2">
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(0, 0, 0);
-font: 12pt &quot;微软雅黑&quot;;</string>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-        <property name="plainText">
-         <string/>
-        </property>
-       </widget>
-      </item>
-     </layout>
     </widget>
    </item>
   </layout>
