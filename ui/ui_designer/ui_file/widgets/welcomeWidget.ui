@@ -44,8 +44,8 @@
   <widget class="QWidget" name="widgetDateTime" native="true">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>20</y>
+     <x>340</x>
+     <y>100</y>
      <width>315</width>
      <height>100</height>
     </rect>
@@ -72,7 +72,7 @@
     <item>
      <widget class="QLabel" name="lblDate">
       <property name="styleSheet">
-       <string notr="true">font: 28pt &quot;微软雅黑&quot;;
+       <string notr="true">font: 25pt &quot;微软雅黑&quot;;
 color: rgb(236, 236, 236);
 background-color: rgba(0, 0, 0, 0);</string>
       </property>
@@ -87,7 +87,7 @@ background-color: rgba(0, 0, 0, 0);</string>
     <item>
      <widget class="QLabel" name="lblTime">
       <property name="styleSheet">
-       <string notr="true">font: 28pt &quot;微软雅黑&quot;;
+       <string notr="true">font: 25pt &quot;微软雅黑&quot;;
 color: rgb(236, 236, 236);
 background-color: rgba(0, 0, 0, 0);</string>
       </property>
@@ -101,29 +101,94 @@ background-color: rgba(0, 0, 0, 0);</string>
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="widget" native="true">
+  <widget class="QWidget" name="widgetVersion" native="true">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>320</y>
-     <width>471</width>
-     <height>181</height>
+     <x>340</x>
+     <y>200</y>
+     <width>315</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(0, 0, 0, 84);</string>
    </property>
-   <widget class="QLabel" name="lblDate_4">
+   <widget class="QLabel" name="lblVersion">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>70</y>
-      <width>441</width>
-      <height>101</height>
+      <x>9</x>
+      <y>9</y>
+      <width>298</width>
+      <height>33</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 28pt &quot;微软雅黑&quot;;
+     <string notr="true">font: 25pt &quot;微软雅黑&quot;;
+color: rgb(236, 236, 236);
+background-color: rgba(0, 0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>看番神器Pro V1.0</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>298</x>
+     <y>251</y>
+     <width>401</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>315</width>
+     <height>100</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1010</width>
+     <height>1010</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(0, 0, 0, 84);</string>
+   </property>
+   <widget class="QLabel" name="lblHello">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>300</width>
+      <height>48</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 25pt &quot;微软雅黑&quot;;
+color: rgb(236, 236, 236);
+background-color: rgba(0, 0, 0, 0);
+</string>
+    </property>
+    <property name="text">
+     <string>下午好 Tanyiqu！</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblHelloWord">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>391</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 25pt &quot;微软雅黑&quot;;
 color: rgb(236, 236, 236);
 background-color: rgba(0, 0, 0, 0);</string>
     </property>
@@ -132,25 +197,7 @@ background-color: rgba(0, 0, 0, 0);</string>
 我这里什么都有哦！(大概)</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblDate_3">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>291</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 28pt &quot;微软雅黑&quot;;
-color: rgb(236, 236, 236);
-background-color: rgba(0, 0, 0, 0);</string>
-    </property>
-    <property name="text">
-     <string>下午好 Tanyiqu！</string>
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
   </widget>

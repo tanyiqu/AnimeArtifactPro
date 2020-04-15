@@ -1,9 +1,7 @@
 import threading
-import time
 
-import requests
-from PyQt5.QtCore import QTimer, QDateTime
-from PyQt5.QtGui import QPainter, QPixmap, QMovie
+from PyQt5.QtCore import QTimer, QDateTime, QPropertyAnimation, QPoint
+from PyQt5.QtGui import QPainter, QPixmap
 from PyQt5.QtWidgets import QWidget
 
 # noinspection PyProtectedMember
@@ -29,8 +27,10 @@ class WelcomeWidget(QWidget):
         self.welcomeWidget.init()
         self.painter = QPainter()
         self.timer = QTimer()
+        self.animDateTime = QPropertyAnimation(self.welcomeWidget.widgetDateTime, b"pos")
+        self.animWidget = QPropertyAnimation(self.welcomeWidget.widget, b"pos")
+        self.animVersion = QPropertyAnimation(self.welcomeWidget.widgetVersion, b"pos")
         self.initAppearance()
-
         pass
 
     def initAppearance(self):
@@ -48,6 +48,31 @@ class WelcomeWidget(QWidget):
         # self.welcomeWidget.lblGif.setMovie(movie)
         # self.welcomeWidget.lblGif.setScaledContents(True)
         # movie.start()
+
+        # 设置动画
+        self.initAnimation()
+        pass
+
+    def initAnimation(self):
+        # 启动动画
+        QTimer.singleShot(500, self.doAnim)
+        pass
+
+    def doAnim(self):
+        # 移动动画
+        self.animDateTime.setDuration(1000)
+        self.animDateTime.setStartValue(self.welcomeWidget.widgetDateTime.pos())
+        self.animDateTime.setEndValue(QPoint(650, 20))
+        self.animDateTime.start()
+        self.animWidget.setDuration(1000)
+        self.animWidget.setStartValue(self.welcomeWidget.widget.pos())
+        self.animWidget.setEndValue(QPoint(20, 360))
+        self.animWidget.start()
+        self.animVersion.setDuration(1000)
+        self.animVersion.setStartValue(self.welcomeWidget.widgetVersion.pos())
+        self.animVersion.setEndValue(QPoint(20, 20))
+        self.animVersion.start()
+        self.animVersion.finished.connect(lambda: print('动画完成'))
         pass
 
     def _timerUpDate(self):

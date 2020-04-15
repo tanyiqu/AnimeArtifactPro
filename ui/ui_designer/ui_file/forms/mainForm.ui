@@ -308,6 +308,9 @@ background-color: #303038;
           <height>30</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>返回</string>
+        </property>
         <property name="styleSheet">
          <string notr="true">background-color: #ffffff;
 border-radius:0;
@@ -377,6 +380,9 @@ border-radius:0;
              <width>80</width>
              <height>38</height>
             </size>
+           </property>
+           <property name="toolTip">
+            <string>o(*≧▽≦)ツ</string>
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton{
@@ -551,6 +557,9 @@ border: 1px solid #393942;
              <height>16</height>
             </size>
            </property>
+           <property name="toolTip">
+            <string>最小化</string>
+           </property>
            <property name="styleSheet">
             <string notr="true">border-radius:0;</string>
            </property>
@@ -573,6 +582,10 @@ border: 1px solid #393942;
              <height>16</height>
             </size>
            </property>
+           <property name="toolTip">
+            <string>象征性的按钮，意义不大
+最大化了反而会影响观感</string>
+           </property>
            <property name="styleSheet">
             <string notr="true">border-radius:0;</string>
            </property>
@@ -594,6 +607,9 @@ border: 1px solid #393942;
              <width>16</width>
              <height>16</height>
             </size>
+           </property>
+           <property name="toolTip">
+            <string>关闭</string>
            </property>
            <property name="styleSheet">
             <string notr="true">border-radius:0;</string>
