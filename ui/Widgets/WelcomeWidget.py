@@ -44,10 +44,10 @@ class WelcomeWidget(QWidget):
         self.timer.start(1000)
 
         # 动图
-        movie = QMovie('resource/imgs/gif1.gif')
-        self.welcomeWidget.lblGif.setMovie(movie)
-        self.welcomeWidget.lblGif.setScaledContents(True)
-        movie.start()
+        # movie = QMovie('resource/imgs/gif1.gif')
+        # self.welcomeWidget.lblGif.setMovie(movie)
+        # self.welcomeWidget.lblGif.setScaledContents(True)
+        # movie.start()
         pass
 
     def _timerUpDate(self):
@@ -62,7 +62,7 @@ class WelcomeWidget(QWidget):
         # self.imgData = QPixmap()
         # self.imgData.loadFromData(req.content)
         # print('获取完毕')
-        self.imgData = QPixmap('resource/imgs/welcome.jpg')
+        self.imgData = QPixmap('resource/imgs/welcome/welcome_01.png')
         self.canDraw = True
         self.update()
         # self.imgData = ''
