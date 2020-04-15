@@ -14,6 +14,7 @@ from Utils import CrawlUtil, VideoUtil
 from Signals import SearchFinish, DetailFinish
 from Utils.WebUtil import setLabelImg
 from ui.Widgets.ItemWidget import ItemWidget
+from ui.Widgets.SearchBarWidget import SearchBarWidget
 from ui.Widgets.WelcomeWidget import WelcomeWidget
 
 
@@ -35,6 +36,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
     # 抓取所有链接
     thread_getAllLinks = ''
 
+    txtSearchword = ''
     config = ''
     searchResult = ''
     detailResult = ''
@@ -48,6 +50,9 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
     welcomeWidget = ''
 
     def init(self):
+        # 加上搜索输入框
+        self.txtSearchword = SearchBarWidget()
+        self.gridSearchBar.addWidget(self.txtSearchword, 0, 0)
         # 初始化变量
         self.initVars()
         # 欢迎

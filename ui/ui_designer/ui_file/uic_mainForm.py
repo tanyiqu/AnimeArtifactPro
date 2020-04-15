@@ -133,6 +133,26 @@ class Ui_mainForm(object):
         self.gridLayout_8.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_8.setSpacing(0)
         self.gridLayout_8.setObjectName("gridLayout_8")
+        self.btnSearch = QtWidgets.QPushButton(self.widgetSearch)
+        self.btnSearch.setMinimumSize(QtCore.QSize(80, 38))
+        self.btnSearch.setMaximumSize(QtCore.QSize(80, 38))
+        self.btnSearch.setStyleSheet("QPushButton{\n"
+"background-color: #44444f;\n"
+"color: #ff5246;\n"
+"border-top-right-radius : 19px;\n"
+"border-bottom-right-radius : 19px;\n"
+"border-top-left-radius : 0;\n"
+"font: 12pt \"微软雅黑\";\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #ff5246;\n"
+"color: #ffffff;\n"
+"}\n"
+"QPushButton:pressed{\n"
+"color: #7f7f7f;\n"
+"}")
+        self.btnSearch.setObjectName("btnSearch")
+        self.gridLayout_8.addWidget(self.btnSearch, 0, 1, 1, 1)
         self.widget = QtWidgets.QWidget(self.widgetSearch)
         self.widget.setStyleSheet("background-color: #393942;\n"
 "border-radius : 0;")
@@ -141,9 +161,21 @@ class Ui_mainForm(object):
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName("horizontalLayout")
+        self.widget_2 = QtWidgets.QWidget(self.widget)
+        self.widget_2.setMinimumSize(QtCore.QSize(252, 38))
+        self.widget_2.setMaximumSize(QtCore.QSize(16777215, 38))
+        self.widget_2.setStyleSheet("background:transent;\n"
+"\n"
+"background-color: #292931;")
+        self.widget_2.setObjectName("widget_2")
+        self.gridSearchBar = QtWidgets.QGridLayout(self.widget_2)
+        self.gridSearchBar.setContentsMargins(0, 0, 0, 0)
+        self.gridSearchBar.setSpacing(0)
+        self.gridSearchBar.setObjectName("gridSearchBar")
+        self.horizontalLayout.addWidget(self.widget_2)
         self.comboSelectInterface = QtWidgets.QComboBox(self.widget)
-        self.comboSelectInterface.setMinimumSize(QtCore.QSize(0, 40))
-        self.comboSelectInterface.setMaximumSize(QtCore.QSize(100, 40))
+        self.comboSelectInterface.setMinimumSize(QtCore.QSize(68, 38))
+        self.comboSelectInterface.setMaximumSize(QtCore.QSize(68, 38))
         self.comboSelectInterface.setFocusPolicy(QtCore.Qt.NoFocus)
         self.comboSelectInterface.setStyleSheet("QComboBox {\n"
 "color: #bababa;\n"
@@ -162,45 +194,7 @@ class Ui_mainForm(object):
         self.comboSelectInterface.addItem("")
         self.comboSelectInterface.addItem("")
         self.horizontalLayout.addWidget(self.comboSelectInterface)
-        self.gridLayout_8.addWidget(self.widget, 0, 1, 1, 1)
-        self.btnSearch = QtWidgets.QPushButton(self.widgetSearch)
-        self.btnSearch.setMinimumSize(QtCore.QSize(80, 40))
-        self.btnSearch.setMaximumSize(QtCore.QSize(80, 40))
-        self.btnSearch.setStyleSheet("QPushButton{\n"
-"background-color: #44444f;\n"
-"color: #ff5246;\n"
-"border-top-right-radius : 20px;\n"
-"border-bottom-right-radius : 20px;\n"
-"border-top-left-radius : 0;\n"
-"font: 12pt \"微软雅黑\";\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: #ff5246;\n"
-"color: #ffffff;\n"
-"}\n"
-"QPushButton:pressed{\n"
-"color: #7f7f7f;\n"
-"}")
-        self.btnSearch.setObjectName("btnSearch")
-        self.gridLayout_8.addWidget(self.btnSearch, 0, 2, 1, 1)
-        self.txtSearchword = QtWidgets.QLineEdit(self.widgetSearch)
-        self.txtSearchword.setMinimumSize(QtCore.QSize(0, 40))
-        self.txtSearchword.setMaximumSize(QtCore.QSize(16777215, 40))
-        self.txtSearchword.setStyleSheet("QLineEdit{\n"
-"background-color: #393942;\n"
-"color: #bababa;\n"
-"border-top-left-radius : 20px;\n"
-"border-bottom-left-radius : 20px;\n"
-"border-top-right-radius : 0;\n"
-"font: 13pt \"微软雅黑\";\n"
-"padding-left:15px;\n"
-"}\n"
-"QLineEdit:hover{\n"
-"background-color: #373036;\n"
-"border: 1px solid #393942;\n"
-"}")
-        self.txtSearchword.setObjectName("txtSearchword")
-        self.gridLayout_8.addWidget(self.txtSearchword, 0, 0, 1, 1)
+        self.gridLayout_8.addWidget(self.widget, 0, 0, 1, 1)
         self.gridLayout_9.addWidget(self.widgetSearch, 0, 2, 1, 1)
         spacerItem2 = QtWidgets.QSpacerItem(199, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_9.addItem(spacerItem2, 0, 3, 1, 1)
@@ -259,7 +253,7 @@ class Ui_mainForm(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scroll = QtWidgets.QWidget()
-        self.scroll.setGeometry(QtCore.QRect(0, 0, 967, 519))
+        self.scroll.setGeometry(QtCore.QRect(0, 0, 83, 30))
         self.scroll.setObjectName("scroll")
         self.grid = QtWidgets.QGridLayout(self.scroll)
         self.grid.setSpacing(9)
@@ -391,10 +385,9 @@ class Ui_mainForm(object):
         self.lblLastPlay.setText(_translate("mainForm", "最近一次播放："))
         self.btnAbout.setText(_translate("mainForm", "关于"))
         self.lblLastPlayEpisodeNum.setText(_translate("mainForm", "第0集"))
+        self.btnSearch.setText(_translate("mainForm", "搜索"))
         self.comboSelectInterface.setItemText(0, _translate("mainForm", "接口1"))
         self.comboSelectInterface.setItemText(1, _translate("mainForm", "接口2"))
-        self.btnSearch.setText(_translate("mainForm", "搜索"))
-        self.txtSearchword.setText(_translate("mainForm", "我的青春恋爱物语"))
         self.lblStars.setText(_translate("mainForm", "演员："))
         self.label_9.setText(_translate("mainForm", "演员："))
         self.label_6.setText(_translate("mainForm", "类型："))

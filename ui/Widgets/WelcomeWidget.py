@@ -1,16 +1,14 @@
 import threading
 
-import requests
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QPainter, QColor, QFont, QPixmap
-from PyQt5.QtWidgets import QWidget, QGridLayout, QPushButton
+
+from PyQt5.QtGui import QPainter, QPixmap
+from PyQt5.QtWidgets import QWidget
 
 
 class WelcomeWidget(QWidget):
     """
     首页的欢迎界面
     """
-
 
     # 是否可以画了
     canDraw = False

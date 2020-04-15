@@ -33,6 +33,7 @@ class MainForm(QWidget):
         self.mainForm = _MainForm()
         self.mainForm.setupUi(self)
         self.mainForm.init()
+
         # 初始化外观
         self.initAppearance()
         # 功能操作（关闭窗口等）
@@ -61,6 +62,7 @@ class MainForm(QWidget):
         self.mainForm.btnBack.setStyleSheet("QPushButton{border-image: url(resource/imgs/back_normal.png)}"
                                             "QPushButton:hover{border-image: url(resource/imgs/back_hover.png)}"
                                             "QPushButton:pressed{border-image: url(resource/imgs/back_pressed.png)}")
+
         pass
 
     def initFunc(self):
