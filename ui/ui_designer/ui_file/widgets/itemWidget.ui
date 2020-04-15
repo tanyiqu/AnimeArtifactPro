@@ -126,7 +126,8 @@ background-color: rgba(0, 0, 0, 128);
         <property name="styleSheet">
          <string notr="true">font: 11pt &quot;微软雅黑&quot;;
 padding-left:5px;
-border: 0px;</string>
+border: 0px;
+color: #ffffff;</string>
         </property>
         <property name="text">
          <string>番名</string>

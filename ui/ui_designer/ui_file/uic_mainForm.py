@@ -75,7 +75,10 @@ class Ui_mainForm(object):
         self.console1 = QtWidgets.QPlainTextEdit(self.widgetConsole)
         self.console1.setStyleSheet("color: #ffffff;\n"
 "background-color: #303038;\n"
-"font: 12pt \"微软雅黑\";")
+"font: 12pt \"微软雅黑\";\n"
+"\n"
+"\n"
+"")
         self.console1.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.console1.setReadOnly(True)
         self.console1.setPlainText("")
@@ -84,7 +87,10 @@ class Ui_mainForm(object):
         self.console2 = QtWidgets.QPlainTextEdit(self.widgetConsole)
         self.console2.setStyleSheet("color: #ffffff;\n"
 "background-color: #303038;\n"
-"font: 12pt \"微软雅黑\";")
+"font: 12pt \"微软雅黑\";\n"
+"\n"
+"\n"
+"")
         self.console2.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.console2.setReadOnly(True)
         self.console2.setPlainText("")
@@ -95,10 +101,12 @@ class Ui_mainForm(object):
         self.widgetTop.setMinimumSize(QtCore.QSize(0, 55))
         self.widgetTop.setMaximumSize(QtCore.QSize(16777215, 55))
         self.widgetTop.setStyleSheet("\n"
-"background-color: #303038\n"
+"\n"
+"background-color: #292931;\n"
+"\n"
 "/*\n"
 "background-color: rgb(255, 255, 255)\n"
-"\n"
+"background-color: #303038;\n"
 "*/")
         self.widgetTop.setObjectName("widgetTop")
         self.gridLayout_9 = QtWidgets.QGridLayout(self.widgetTop)
@@ -108,7 +116,9 @@ class Ui_mainForm(object):
         self.btnBack = QtWidgets.QPushButton(self.widgetTop)
         self.btnBack.setMinimumSize(QtCore.QSize(30, 30))
         self.btnBack.setMaximumSize(QtCore.QSize(30, 30))
-        self.btnBack.setStyleSheet("background-color: #ffffff;")
+        self.btnBack.setStyleSheet("background-color: #ffffff;\n"
+"border-radius:0;\n"
+"")
         self.btnBack.setText("")
         self.btnBack.setObjectName("btnBack")
         self.gridLayout_9.addWidget(self.btnBack, 0, 0, 1, 1)
@@ -124,7 +134,8 @@ class Ui_mainForm(object):
         self.gridLayout_8.setSpacing(0)
         self.gridLayout_8.setObjectName("gridLayout_8")
         self.widget = QtWidgets.QWidget(self.widgetSearch)
-        self.widget.setStyleSheet("background-color: #393942;")
+        self.widget.setStyleSheet("background-color: #393942;\n"
+"border-radius : 0;")
         self.widget.setObjectName("widget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.widget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -138,6 +149,7 @@ class Ui_mainForm(object):
 "color: #bababa;\n"
 "background:transparent;\n"
 "font: 12pt \"微软雅黑\";\n"
+"border-radius : 0;\n"
 "}\n"
 "QComboBox QAbstractItemView {\n"
 "outline: 0px solid gray;\n"
@@ -159,6 +171,7 @@ class Ui_mainForm(object):
 "color: #ff5246;\n"
 "border-top-right-radius : 20px;\n"
 "border-bottom-right-radius : 20px;\n"
+"border-top-left-radius : 0;\n"
 "font: 12pt \"微软雅黑\";\n"
 "}\n"
 "QPushButton:hover{\n"
@@ -178,6 +191,7 @@ class Ui_mainForm(object):
 "color: #bababa;\n"
 "border-top-left-radius : 20px;\n"
 "border-bottom-left-radius : 20px;\n"
+"border-top-right-radius : 0;\n"
 "font: 13pt \"微软雅黑\";\n"
 "padding-left:15px;\n"
 "}\n"
@@ -201,18 +215,21 @@ class Ui_mainForm(object):
         self.btnMinSize = QtWidgets.QPushButton(self.widgetCrrlBtns)
         self.btnMinSize.setMinimumSize(QtCore.QSize(16, 16))
         self.btnMinSize.setMaximumSize(QtCore.QSize(16, 16))
+        self.btnMinSize.setStyleSheet("border-radius:0;")
         self.btnMinSize.setText("")
         self.btnMinSize.setObjectName("btnMinSize")
         self.gridLayout_10.addWidget(self.btnMinSize, 0, 0, 1, 1)
         self.btnMaxSize = QtWidgets.QPushButton(self.widgetCrrlBtns)
         self.btnMaxSize.setMinimumSize(QtCore.QSize(16, 16))
         self.btnMaxSize.setMaximumSize(QtCore.QSize(16, 16))
+        self.btnMaxSize.setStyleSheet("border-radius:0;")
         self.btnMaxSize.setText("")
         self.btnMaxSize.setObjectName("btnMaxSize")
         self.gridLayout_10.addWidget(self.btnMaxSize, 0, 1, 1, 1)
         self.btnClose = QtWidgets.QPushButton(self.widgetCrrlBtns)
         self.btnClose.setMinimumSize(QtCore.QSize(16, 16))
         self.btnClose.setMaximumSize(QtCore.QSize(16, 16))
+        self.btnClose.setStyleSheet("border-radius:0;")
         self.btnClose.setText("")
         self.btnClose.setObjectName("btnClose")
         self.gridLayout_10.addWidget(self.btnClose, 0, 2, 1, 1)
@@ -236,6 +253,7 @@ class Ui_mainForm(object):
         self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName("gridLayout")
         self.scrollArea = QtWidgets.QScrollArea(self.pageSearchResult)
+        self.scrollArea.setStyleSheet("background-color: #303038;")
         self.scrollArea.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
         self.scrollArea.setWidgetResizable(True)
@@ -344,7 +362,7 @@ class Ui_mainForm(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName("scrollArea_2")
         self.scrollBtns = QtWidgets.QWidget()
-        self.scrollBtns.setGeometry(QtCore.QRect(0, 0, 907, 169))
+        self.scrollBtns.setGeometry(QtCore.QRect(0, 0, 83, 30))
         self.scrollBtns.setObjectName("scrollBtns")
         self.gridBtns = QtWidgets.QGridLayout(self.scrollBtns)
         self.gridBtns.setObjectName("gridBtns")

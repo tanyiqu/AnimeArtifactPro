@@ -53,7 +53,8 @@ class Ui_item(object):
         self.lblTitle.setMaximumSize(QtCore.QSize(210, 30))
         self.lblTitle.setStyleSheet("font: 11pt \"微软雅黑\";\n"
 "padding-left:5px;\n"
-"border: 0px;")
+"border: 0px;\n"
+"color: #ffffff;")
         self.lblTitle.setObjectName("lblTitle")
         self.gridLayout_2.addWidget(self.lblTitle, 2, 0, 1, 1)
         self.gridLayout.addWidget(self.widget, 1, 0, 1, 1)

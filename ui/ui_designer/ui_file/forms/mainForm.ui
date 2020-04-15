@@ -217,7 +217,10 @@
         <property name="styleSheet">
          <string notr="true">color: #ffffff;
 background-color: #303038;
-font: 12pt &quot;微软雅黑&quot;;</string>
+font: 12pt &quot;微软雅黑&quot;;
+
+
+</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::NoFrame</enum>
@@ -235,7 +238,10 @@ font: 12pt &quot;微软雅黑&quot;;</string>
         <property name="styleSheet">
          <string notr="true">color: #ffffff;
 background-color: #303038;
-font: 12pt &quot;微软雅黑&quot;;</string>
+font: 12pt &quot;微软雅黑&quot;;
+
+
+</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::NoFrame</enum>
@@ -267,10 +273,12 @@ font: 12pt &quot;微软雅黑&quot;;</string>
      </property>
      <property name="styleSheet">
       <string notr="true">
-background-color: #303038
+
+background-color: #292931;
+
 /*
 background-color: rgb(255, 255, 255)
-
+background-color: #303038;
 */</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_9">
@@ -301,7 +309,9 @@ background-color: rgb(255, 255, 255)
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #ffffff;</string>
+         <string notr="true">background-color: #ffffff;
+border-radius:0;
+</string>
         </property>
         <property name="text">
          <string/>
@@ -357,7 +367,8 @@ background-color: rgb(255, 255, 255)
          <item row="0" column="1">
           <widget class="QWidget" name="widget" native="true">
            <property name="styleSheet">
-            <string notr="true">background-color: #393942;</string>
+            <string notr="true">background-color: #393942;
+border-radius : 0;</string>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout" stretch="0">
             <property name="spacing">
@@ -397,6 +408,7 @@ background-color: rgb(255, 255, 255)
 color: #bababa;
 background:transparent;
 font: 12pt &quot;微软雅黑&quot;;
+border-radius : 0;
 }
 QComboBox QAbstractItemView {
 outline: 0px solid gray;
@@ -441,6 +453,7 @@ background-color: #44444f;
 color: #ff5246;
 border-top-right-radius : 20px;
 border-bottom-right-radius : 20px;
+border-top-left-radius : 0;
 font: 12pt &quot;微软雅黑&quot;;
 }
 QPushButton:hover{
@@ -476,6 +489,7 @@ background-color: #393942;
 color: #bababa;
 border-top-left-radius : 20px;
 border-bottom-left-radius : 20px;
+border-top-right-radius : 0;
 font: 13pt &quot;微软雅黑&quot;;
 padding-left:15px;
 }
@@ -533,6 +547,9 @@ border: 1px solid #393942;
              <height>16</height>
             </size>
            </property>
+           <property name="styleSheet">
+            <string notr="true">border-radius:0;</string>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -552,6 +569,9 @@ border: 1px solid #393942;
              <height>16</height>
             </size>
            </property>
+           <property name="styleSheet">
+            <string notr="true">border-radius:0;</string>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -570,6 +590,9 @@ border: 1px solid #393942;
              <width>16</width>
              <height>16</height>
             </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-radius:0;</string>
            </property>
            <property name="text">
             <string/>
@@ -631,6 +654,9 @@ border: 1px solid #393942;
        </property>
        <item row="0" column="0">
         <widget class="QScrollArea" name="scrollArea">
+         <property name="styleSheet">
+          <string notr="true">background-color: #303038;</string>
+         </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
          </property>
@@ -952,8 +978,8 @@ border: 1px solid #393942;
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>907</width>
-               <height>169</height>
+               <width>83</width>
+               <height>30</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridBtns"/>
