@@ -13,22 +13,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="lblDate">
-   <property name="geometry">
-    <rect>
-     <x>670</x>
-     <y>40</y>
-     <width>281</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: 28pt &quot;微软雅黑&quot;;</string>
-   </property>
-   <property name="text">
-    <string>2020年4月15日</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="lblGif">
    <property name="geometry">
     <rect>
@@ -57,27 +41,11 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="lblTime">
-   <property name="geometry">
-    <rect>
-     <x>670</x>
-     <y>100</y>
-     <width>261</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: 28pt &quot;微软雅黑&quot;;</string>
-   </property>
-   <property name="text">
-    <string>13:34</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="lblDate_3">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>140</y>
+     <x>70</x>
+     <y>60</y>
      <width>361</width>
      <height>51</height>
     </rect>
@@ -86,14 +54,14 @@
     <string notr="true">font: 28pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
-    <string>下午好 Tanyiqu</string>
+    <string>下午好 Tanyiqu！</string>
    </property>
   </widget>
   <widget class="QLabel" name="lblDate_4">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>190</y>
+     <x>70</x>
+     <y>110</y>
      <width>501</width>
      <height>131</height>
     </rect>
@@ -105,6 +73,66 @@
     <string>今天想要看点什么呢？
 我这里什么都有哦！(大概)</string>
    </property>
+  </widget>
+  <widget class="QWidget" name="widgetDateTime" native="true">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>20</y>
+     <width>315</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>315</width>
+     <height>100</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>315</width>
+     <height>100</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(0, 0, 0, 84);</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="lblDate">
+      <property name="styleSheet">
+       <string notr="true">font: 28pt &quot;微软雅黑&quot;;
+color: #000000;
+background-color: rgba(0, 0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>2020年04月15日</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="lblTime">
+      <property name="styleSheet">
+       <string notr="true">font: 28pt &quot;微软雅黑&quot;;
+color: #000000;
+background-color: rgba(0, 0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>11:11:11</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

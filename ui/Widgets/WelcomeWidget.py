@@ -2,7 +2,7 @@ import threading
 import time
 
 import requests
-from PyQt5.QtCore import QTimer
+from PyQt5.QtCore import QTimer, QDateTime
 from PyQt5.QtGui import QPainter, QPixmap, QMovie
 from PyQt5.QtWidgets import QWidget
 
@@ -18,6 +18,9 @@ class WelcomeWidget(QWidget):
     # 是否可以画了
     canDraw = False
     imgData = ''
+    currDateTime = ''
+    currDate = ''
+    currTime = ''
 
     def __init__(self):
         super().__init__()
@@ -25,9 +28,8 @@ class WelcomeWidget(QWidget):
         self.welcomeWidget.setupUi(self)
         self.welcomeWidget.init()
         self.painter = QPainter()
-
+        self.timer = QTimer()
         self.initAppearance()
-
 
         pass
 
@@ -37,9 +39,9 @@ class WelcomeWidget(QWidget):
         t.start()
 
         # 系统时间
-        currTime = time.time()
-
-        self.welcomeWidget.lblTime.setText(str(currTime))
+        self._timerUpDate()
+        self.timer.timeout.connect(self._timerUpDate)
+        self.timer.start(1000)
 
         # 动图
         movie = QMovie('resource/imgs/gif1.gif')
@@ -47,6 +49,13 @@ class WelcomeWidget(QWidget):
         self.welcomeWidget.lblGif.setScaledContents(True)
         movie.start()
         pass
+
+    def _timerUpDate(self):
+        self.currDateTime = QDateTime.currentDateTime()
+        self.currDate = self.currDateTime.toString("yyyy年MM月dd日")
+        self.currTime = self.currDateTime.toString("hh:mm:ss")
+        self.welcomeWidget.lblDate.setText(self.currDate)
+        self.welcomeWidget.lblTime.setText(self.currTime)
 
     def getImgData(self):
         # req = requests.get('https://cn.bing.com/th?id=OHR.WatChaloem_ZH-CN8722271527_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp')
