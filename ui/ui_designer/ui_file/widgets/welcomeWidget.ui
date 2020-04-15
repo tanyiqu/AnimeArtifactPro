@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>welcomeWidget</class>
+ <widget class="QWidget" name="welcomeWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>984</width>
+    <height>519</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="lblDate">
+   <property name="geometry">
+    <rect>
+     <x>670</x>
+     <y>40</y>
+     <width>281</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 28pt &quot;微软雅黑&quot;;</string>
+   </property>
+   <property name="text">
+    <string>2020年4月15日</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblGif">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>420</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>100</width>
+     <height>100</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>100</width>
+     <height>100</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblTime">
+   <property name="geometry">
+    <rect>
+     <x>670</x>
+     <y>100</y>
+     <width>261</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 28pt &quot;微软雅黑&quot;;</string>
+   </property>
+   <property name="text">
+    <string>13:34</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblDate_3">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>140</y>
+     <width>361</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 28pt &quot;微软雅黑&quot;;</string>
+   </property>
+   <property name="text">
+    <string>下午好 Tanyiqu</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblDate_4">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>190</y>
+     <width>501</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 28pt &quot;微软雅黑&quot;;</string>
+   </property>
+   <property name="text">
+    <string>今天想要看点什么呢？
+我这里什么都有哦！(大概)</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

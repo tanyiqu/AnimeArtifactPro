@@ -8,10 +8,9 @@ from ui.ui_designer.ui_file.uic_itemWidget import Ui_item
 class _ItemWidget(Ui_item):
 
     def __init__(self, params):
-        # self.url = url
-        # self.title = title
-        # self.cover = cover
-        # self.latest = latest
+        """
+        :param params: {'url', 'title', 'latest' , 'area', 'time' , 'stars'}
+        """
         self.params = params
         pass
 
