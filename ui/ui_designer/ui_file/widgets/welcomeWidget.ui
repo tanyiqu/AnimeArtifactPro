@@ -87,7 +87,7 @@ background-color: rgba(0, 0, 0, 0);</string>
     <item>
      <widget class="QLabel" name="lblTime">
       <property name="styleSheet">
-       <string notr="true">font: 25pt &quot;微软雅黑&quot;;
+       <string notr="true">font: 25pt &quot;黑体&quot;;
 color: rgb(236, 236, 236);
 background-color: rgba(0, 0, 0, 0);</string>
       </property>
@@ -162,11 +162,11 @@ background-color: rgba(0, 0, 0, 0);</string>
       <x>10</x>
       <y>0</y>
       <width>300</width>
-      <height>48</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 25pt &quot;微软雅黑&quot;;
+     <string notr="true">font: 23pt &quot;微软雅黑&quot;;
 color: rgb(236, 236, 236);
 background-color: rgba(0, 0, 0, 0);
 </string>
@@ -182,13 +182,13 @@ background-color: rgba(0, 0, 0, 0);
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>50</y>
+      <y>40</y>
       <width>391</width>
-      <height>81</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 25pt &quot;微软雅黑&quot;;
+     <string notr="true">font: 23pt &quot;微软雅黑&quot;;
 color: rgb(236, 236, 236);
 background-color: rgba(0, 0, 0, 0);</string>
     </property>

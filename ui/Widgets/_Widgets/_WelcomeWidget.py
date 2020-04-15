@@ -7,8 +7,6 @@ class _WelcomeWidget(Ui_welcomeWidget):
 
     def init(self):
 
-
-
         pass
 
     pass

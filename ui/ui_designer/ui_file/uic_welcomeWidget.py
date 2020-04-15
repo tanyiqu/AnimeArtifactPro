@@ -39,7 +39,7 @@ class Ui_welcomeWidget(object):
         self.lblDate.setObjectName("lblDate")
         self.verticalLayout.addWidget(self.lblDate)
         self.lblTime = QtWidgets.QLabel(self.widgetDateTime)
-        self.lblTime.setStyleSheet("font: 25pt \"微软雅黑\";\n"
+        self.lblTime.setStyleSheet("font: 25pt \"黑体\";\n"
 "color: rgb(236, 236, 236);\n"
 "background-color: rgba(0, 0, 0, 0);")
         self.lblTime.setAlignment(QtCore.Qt.AlignCenter)
@@ -62,16 +62,16 @@ class Ui_welcomeWidget(object):
         self.widget.setStyleSheet("background-color: rgba(0, 0, 0, 84);")
         self.widget.setObjectName("widget")
         self.lblHello = QtWidgets.QLabel(self.widget)
-        self.lblHello.setGeometry(QtCore.QRect(10, 0, 300, 48))
-        self.lblHello.setStyleSheet("font: 25pt \"微软雅黑\";\n"
+        self.lblHello.setGeometry(QtCore.QRect(10, 0, 300, 51))
+        self.lblHello.setStyleSheet("font: 23pt \"微软雅黑\";\n"
 "color: rgb(236, 236, 236);\n"
 "background-color: rgba(0, 0, 0, 0);\n"
 "")
         self.lblHello.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.lblHello.setObjectName("lblHello")
         self.lblHelloWord = QtWidgets.QLabel(self.widget)
-        self.lblHelloWord.setGeometry(QtCore.QRect(10, 50, 391, 81))
-        self.lblHelloWord.setStyleSheet("font: 25pt \"微软雅黑\";\n"
+        self.lblHelloWord.setGeometry(QtCore.QRect(10, 40, 391, 91))
+        self.lblHelloWord.setStyleSheet("font: 23pt \"微软雅黑\";\n"
 "color: rgb(236, 236, 236);\n"
 "background-color: rgba(0, 0, 0, 0);")
         self.lblHelloWord.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
