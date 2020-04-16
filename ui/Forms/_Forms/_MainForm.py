@@ -68,7 +68,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         初始化变量
         :return: None
         """
-        self.config = Configuration.getInstance()
+        self.config = Configuration()
         self.welcomeWidget = WelcomeWidget()
         self.gridWelcome.addWidget(self.welcomeWidget, 0, 0)
         self.searchFinish = SearchFinish()

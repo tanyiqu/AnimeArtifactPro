@@ -30,7 +30,7 @@ class WelcomeWidget(QWidget):
 
     def __init__(self):
         super().__init__()
-        self.config = Configuration.getInstance()
+        self.config = Configuration()
         self.welcomeWidget = _WelcomeWidget()
         self.welcomeWidget.setupUi(self)
         self.welcomeWidget.init()
@@ -99,7 +99,7 @@ class WelcomeWidget(QWidget):
         self.sound = QMediaPlayer()
         self.sound.setMedia(content)
         self.sound.setVolume(50)
-        self.sound.play()
+        # self.sound.play()
         pass
 
     def _timerUpDate(self):
