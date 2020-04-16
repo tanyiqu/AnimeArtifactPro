@@ -68,6 +68,9 @@ class WelcomeWidget(QWidget):
 
     def initAnimation(self):
         # 启动动画
+        self.welcomeWidget.widgetDateTime.move(self.width(), 20)
+        self.welcomeWidget.widget.move(-(self.welcomeWidget.widget.width() + 20), 360)
+        self.welcomeWidget.widgetVersion.move(-(self.welcomeWidget.widgetVersion.width() + 20), 20)
         QTimer.singleShot(500, self.doAnim)
         pass
 
@@ -77,14 +80,14 @@ class WelcomeWidget(QWidget):
         self.animDateTime.setStartValue(self.welcomeWidget.widgetDateTime.pos())
         self.animDateTime.setEndValue(QPoint(650, 20))
         self.animDateTime.start()
-        self.animWidget.setDuration(self.config.anim_duration)
-        self.animWidget.setStartValue(self.welcomeWidget.widget.pos())
-        self.animWidget.setEndValue(QPoint(20, 360))
-        self.animWidget.start()
         self.animVersion.setDuration(self.config.anim_duration)
         self.animVersion.setStartValue(self.welcomeWidget.widgetVersion.pos())
         self.animVersion.setEndValue(QPoint(20, 20))
         self.animVersion.start()
+        self.animWidget.setDuration(self.config.anim_duration)
+        self.animWidget.setStartValue(self.welcomeWidget.widget.pos())
+        self.animWidget.setEndValue(QPoint(20, 360))
+        self.animWidget.start()
         self.animVersion.finished.connect(self._animFinished)
         pass
 

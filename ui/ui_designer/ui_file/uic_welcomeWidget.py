@@ -22,7 +22,7 @@ class Ui_welcomeWidget(object):
         self.lblGif.setText("")
         self.lblGif.setObjectName("lblGif")
         self.widgetDateTime = QtWidgets.QWidget(welcomeWidget)
-        self.widgetDateTime.setGeometry(QtCore.QRect(340, 100, 315, 100))
+        self.widgetDateTime.setGeometry(QtCore.QRect(650, 20, 315, 100))
         self.widgetDateTime.setMinimumSize(QtCore.QSize(315, 100))
         self.widgetDateTime.setMaximumSize(QtCore.QSize(315, 100))
         self.widgetDateTime.setStyleSheet("background-color: rgba(0, 0, 0, 84);")
@@ -46,36 +46,39 @@ class Ui_welcomeWidget(object):
         self.lblTime.setObjectName("lblTime")
         self.verticalLayout.addWidget(self.lblTime)
         self.widgetVersion = QtWidgets.QWidget(welcomeWidget)
-        self.widgetVersion.setGeometry(QtCore.QRect(340, 200, 315, 51))
+        self.widgetVersion.setGeometry(QtCore.QRect(20, 20, 315, 51))
         self.widgetVersion.setStyleSheet("background-color: rgba(0, 0, 0, 84);")
         self.widgetVersion.setObjectName("widgetVersion")
         self.lblVersion = QtWidgets.QLabel(self.widgetVersion)
-        self.lblVersion.setGeometry(QtCore.QRect(9, 9, 298, 33))
+        self.lblVersion.setGeometry(QtCore.QRect(9, 9, 291, 33))
         self.lblVersion.setStyleSheet("font: 25pt \"微软雅黑\";\n"
 "color: rgb(236, 236, 236);\n"
 "background-color: rgba(0, 0, 0, 0);")
         self.lblVersion.setObjectName("lblVersion")
         self.widget = QtWidgets.QWidget(welcomeWidget)
-        self.widget.setGeometry(QtCore.QRect(298, 251, 401, 141))
+        self.widget.setGeometry(QtCore.QRect(20, 360, 379, 141))
         self.widget.setMinimumSize(QtCore.QSize(315, 100))
         self.widget.setMaximumSize(QtCore.QSize(1010, 1010))
         self.widget.setStyleSheet("background-color: rgba(0, 0, 0, 84);")
         self.widget.setObjectName("widget")
+        self.gridLayout = QtWidgets.QGridLayout(self.widget)
+        self.gridLayout.setContentsMargins(10, 10, 10, 10)
+        self.gridLayout.setObjectName("gridLayout")
         self.lblHello = QtWidgets.QLabel(self.widget)
-        self.lblHello.setGeometry(QtCore.QRect(10, 0, 300, 51))
         self.lblHello.setStyleSheet("font: 23pt \"微软雅黑\";\n"
 "color: rgb(236, 236, 236);\n"
 "background-color: rgba(0, 0, 0, 0);\n"
 "")
         self.lblHello.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.lblHello.setObjectName("lblHello")
+        self.gridLayout.addWidget(self.lblHello, 0, 0, 1, 1)
         self.lblHelloWord = QtWidgets.QLabel(self.widget)
-        self.lblHelloWord.setGeometry(QtCore.QRect(10, 40, 391, 91))
         self.lblHelloWord.setStyleSheet("font: 23pt \"微软雅黑\";\n"
 "color: rgb(236, 236, 236);\n"
 "background-color: rgba(0, 0, 0, 0);")
         self.lblHelloWord.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.lblHelloWord.setObjectName("lblHelloWord")
+        self.gridLayout.addWidget(self.lblHelloWord, 1, 0, 1, 1)
 
         self.retranslateUi(welcomeWidget)
         QtCore.QMetaObject.connectSlotsByName(welcomeWidget)
@@ -88,4 +91,4 @@ class Ui_welcomeWidget(object):
         self.lblVersion.setText(_translate("welcomeWidget", "看番神器Pro V1.0"))
         self.lblHello.setText(_translate("welcomeWidget", "下午好 Tanyiqu！"))
         self.lblHelloWord.setText(_translate("welcomeWidget", "今天想要看点什么呢？\n"
-"我这里什么都有哦！(大概)"))
+"我这里什么都有哦！"))

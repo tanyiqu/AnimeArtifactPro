@@ -44,8 +44,8 @@
   <widget class="QWidget" name="widgetDateTime" native="true">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>100</y>
+     <x>650</x>
+     <y>20</y>
      <width>315</width>
      <height>100</height>
     </rect>
@@ -104,8 +104,8 @@ background-color: rgba(0, 0, 0, 0);</string>
   <widget class="QWidget" name="widgetVersion" native="true">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>200</y>
+     <x>20</x>
+     <y>20</y>
      <width>315</width>
      <height>51</height>
     </rect>
@@ -118,7 +118,7 @@ background-color: rgba(0, 0, 0, 0);</string>
      <rect>
       <x>9</x>
       <y>9</y>
-      <width>298</width>
+      <width>291</width>
       <height>33</height>
      </rect>
     </property>
@@ -135,9 +135,9 @@ background-color: rgba(0, 0, 0, 0);</string>
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>298</x>
-     <y>251</y>
-     <width>401</width>
+     <x>20</x>
+     <y>360</y>
+     <width>379</width>
      <height>141</height>
     </rect>
    </property>
@@ -156,50 +156,52 @@ background-color: rgba(0, 0, 0, 0);</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(0, 0, 0, 84);</string>
    </property>
-   <widget class="QLabel" name="lblHello">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>300</width>
-      <height>51</height>
-     </rect>
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>10</number>
     </property>
-    <property name="styleSheet">
-     <string notr="true">font: 23pt &quot;微软雅黑&quot;;
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <property name="bottomMargin">
+     <number>10</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QLabel" name="lblHello">
+      <property name="styleSheet">
+       <string notr="true">font: 23pt &quot;微软雅黑&quot;;
 color: rgb(236, 236, 236);
 background-color: rgba(0, 0, 0, 0);
 </string>
-    </property>
-    <property name="text">
-     <string>下午好 Tanyiqu！</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblHelloWord">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>391</width>
-      <height>91</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 23pt &quot;微软雅黑&quot;;
+      </property>
+      <property name="text">
+       <string>下午好 Tanyiqu！</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="lblHelloWord">
+      <property name="styleSheet">
+       <string notr="true">font: 23pt &quot;微软雅黑&quot;;
 color: rgb(236, 236, 236);
 background-color: rgba(0, 0, 0, 0);</string>
-    </property>
-    <property name="text">
-     <string>今天想要看点什么呢？
-我这里什么都有哦！(大概)</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-    </property>
-   </widget>
+      </property>
+      <property name="text">
+       <string>今天想要看点什么呢？
+我这里什么都有哦！</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>
