@@ -7,22 +7,23 @@ import time
 
 import requests
 import re
-from Configuration import Configuration
+# from Configuration import Configuration
 
 # 使用接口1搜索
 from Utils import TextUtil
 
-url = 'http://testsea.diyiwl.wang/ssszz.php'
-headers = {
-    'Accept': '*/*',
-    'Accept-Encoding': 'gzip, deflate',
-    'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6',
-    'Host': 'testsea.diyiwl.wang',
-    'Referer': 'http://susudm.com/search.php',
-    'Connection': 'keep-alive',
-    'Origin': 'http://susudm.com',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.92 Safari/537.36 Edg/81.0.416.50',
-}
+URL = 'http://testsea.diyiwl.wang/ssszz.php'
+
+# headers = {
+#     'Accept': '*/*',
+#     'Accept-Encoding': 'gzip, deflate',
+#     'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6',
+#     'Host': 'testsea.diyiwl.wang',
+#     'Referer': 'http://susudm.com/search.php',
+#     'Connection': 'keep-alive',
+#     'Origin': 'http://susudm.com',
+#     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.92 Safari/537.36 Edg/81.0.416.50',
+# }
 
 
 def search(searchword):
@@ -31,7 +32,7 @@ def search(searchword):
         'q': searchword,
         'dect': '0'
     }
-    resp = requests.get(url, params=params)
+    resp = requests.get(URL, params=params)
     return str(resp.content.decode('utf_8_sig')).strip()
     pass
 
@@ -47,7 +48,7 @@ def parse(json):
         obj = {}
         url = o['url']
         if re.match('^/.*?/$', o['url']):
-            url = Configuration.getInstance().url_header + o['url']
+            url = 'http://susudm.com' + o['url']
             pass
         obj.update({'url': url})
         obj.update({'cover': o['thumb']})
@@ -150,7 +151,7 @@ def getJsSrc(url):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.83 Safari/537.36 Edg/81.0.416.41'
     }
-    url = url + '1.html'
+    url += '1.html'
     src = requests.get(url, headers=headers).text
     reg = '</head><script type="text/javascript" src="(.*?)"></script>'
     # 获取js文件文件的链接
