@@ -40,21 +40,21 @@
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>30</height>
+       <height>34</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
        <width>16777215</width>
-       <height>30</height>
+       <height>34</height>
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">background-color: #2e2e36;</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <property name="leftMargin">
-       <number>0</number>
+       <number>2</number>
       </property>
       <property name="topMargin">
        <number>0</number>
@@ -65,7 +65,10 @@
       <property name="bottomMargin">
        <number>0</number>
       </property>
-      <property name="spacing">
+      <property name="horizontalSpacing">
+       <number>3</number>
+      </property>
+      <property name="verticalSpacing">
        <number>0</number>
       </property>
       <item row="0" column="0">
@@ -75,15 +78,35 @@
         </property>
         <property name="minimumSize">
          <size>
-          <width>0</width>
+          <width>75</width>
           <height>30</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>16777215</width>
+          <width>75</width>
           <height>30</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color: #2e2e36;
+color: #bababa;
+font: 10pt &quot;微软雅黑&quot;;
+border: 1px solid #bababa;
+}
+QPushButton:hover{
+background-color: #ff5246;
+color: #ffffff;
+}
+QPushButton:pressed{
+background-color: #000000;
+color: #ffffff;
+}
+QPushButton:disabled{
+background-color: #bababa;
+color: #ffffff;
+}</string>
         </property>
         <property name="text">
          <string>抓取链接</string>
@@ -94,15 +117,31 @@
        <widget class="QPushButton" name="btnOpenSource">
         <property name="minimumSize">
          <size>
-          <width>0</width>
+          <width>75</width>
           <height>30</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>16777215</width>
+          <width>75</width>
           <height>30</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color: #2e2e36;
+color: #bababa;
+font: 10pt &quot;微软雅黑&quot;;
+border: 1px solid #bababa;
+}
+QPushButton:hover{
+background-color: #ff5246;
+color: #ffffff;
+}
+QPushButton:pressed{
+background-color: #000000;
+color: #ffffff;
+}</string>
         </property>
         <property name="text">
          <string>项目地址</string>
@@ -137,15 +176,31 @@
        <widget class="QPushButton" name="btnAbout">
         <property name="minimumSize">
          <size>
-          <width>0</width>
+          <width>75</width>
           <height>30</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>16777215</width>
+          <width>75</width>
           <height>30</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color: #2e2e36;
+color: #bababa;
+font: 10pt &quot;微软雅黑&quot;;
+border: 1px solid #bababa;
+}
+QPushButton:hover{
+background-color: #ff5246;
+color: #ffffff;
+}
+QPushButton:pressed{
+background-color: #000000;
+color: #ffffff;
+}</string>
         </property>
         <property name="text">
          <string>关于</string>

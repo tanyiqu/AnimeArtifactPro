@@ -20,23 +20,56 @@ class Ui_mainForm(object):
         self.gridMain.setSpacing(0)
         self.gridMain.setObjectName("gridMain")
         self.widgetTools = QtWidgets.QWidget(mainForm)
-        self.widgetTools.setMinimumSize(QtCore.QSize(0, 30))
-        self.widgetTools.setMaximumSize(QtCore.QSize(16777215, 30))
-        self.widgetTools.setStyleSheet("")
+        self.widgetTools.setMinimumSize(QtCore.QSize(0, 34))
+        self.widgetTools.setMaximumSize(QtCore.QSize(16777215, 34))
+        self.widgetTools.setStyleSheet("background-color: #2e2e36;")
         self.widgetTools.setObjectName("widgetTools")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.widgetTools)
-        self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout_3.setSpacing(0)
+        self.gridLayout_3.setContentsMargins(2, 0, 0, 0)
+        self.gridLayout_3.setHorizontalSpacing(3)
+        self.gridLayout_3.setVerticalSpacing(0)
         self.gridLayout_3.setObjectName("gridLayout_3")
         self.btnGetAllLinks = QtWidgets.QPushButton(self.widgetTools)
         self.btnGetAllLinks.setEnabled(False)
-        self.btnGetAllLinks.setMinimumSize(QtCore.QSize(0, 30))
-        self.btnGetAllLinks.setMaximumSize(QtCore.QSize(16777215, 30))
+        self.btnGetAllLinks.setMinimumSize(QtCore.QSize(75, 30))
+        self.btnGetAllLinks.setMaximumSize(QtCore.QSize(75, 30))
+        self.btnGetAllLinks.setStyleSheet("QPushButton{\n"
+"background-color: #2e2e36;\n"
+"color: #bababa;\n"
+"font: 10pt \"微软雅黑\";\n"
+"border: 1px solid #bababa;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #ff5246;\n"
+"color: #ffffff;\n"
+"}\n"
+"QPushButton:pressed{\n"
+"background-color: #000000;\n"
+"color: #ffffff;\n"
+"}\n"
+"QPushButton:disabled{\n"
+"background-color: #bababa;\n"
+"color: #ffffff;\n"
+"}")
         self.btnGetAllLinks.setObjectName("btnGetAllLinks")
         self.gridLayout_3.addWidget(self.btnGetAllLinks, 0, 0, 1, 1)
         self.btnOpenSource = QtWidgets.QPushButton(self.widgetTools)
-        self.btnOpenSource.setMinimumSize(QtCore.QSize(0, 30))
-        self.btnOpenSource.setMaximumSize(QtCore.QSize(16777215, 30))
+        self.btnOpenSource.setMinimumSize(QtCore.QSize(75, 30))
+        self.btnOpenSource.setMaximumSize(QtCore.QSize(75, 30))
+        self.btnOpenSource.setStyleSheet("QPushButton{\n"
+"background-color: #2e2e36;\n"
+"color: #bababa;\n"
+"font: 10pt \"微软雅黑\";\n"
+"border: 1px solid #bababa;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #ff5246;\n"
+"color: #ffffff;\n"
+"}\n"
+"QPushButton:pressed{\n"
+"background-color: #000000;\n"
+"color: #ffffff;\n"
+"}")
         self.btnOpenSource.setObjectName("btnOpenSource")
         self.gridLayout_3.addWidget(self.btnOpenSource, 0, 2, 1, 1)
         self.lblLastPlayEpisodeName = QtWidgets.QLabel(self.widgetTools)
@@ -50,8 +83,22 @@ class Ui_mainForm(object):
         self.lblLastPlay.setObjectName("lblLastPlay")
         self.gridLayout_3.addWidget(self.lblLastPlay, 0, 4, 1, 1)
         self.btnAbout = QtWidgets.QPushButton(self.widgetTools)
-        self.btnAbout.setMinimumSize(QtCore.QSize(0, 30))
-        self.btnAbout.setMaximumSize(QtCore.QSize(16777215, 30))
+        self.btnAbout.setMinimumSize(QtCore.QSize(75, 30))
+        self.btnAbout.setMaximumSize(QtCore.QSize(75, 30))
+        self.btnAbout.setStyleSheet("QPushButton{\n"
+"background-color: #2e2e36;\n"
+"color: #bababa;\n"
+"font: 10pt \"微软雅黑\";\n"
+"border: 1px solid #bababa;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #ff5246;\n"
+"color: #ffffff;\n"
+"}\n"
+"QPushButton:pressed{\n"
+"background-color: #000000;\n"
+"color: #ffffff;\n"
+"}")
         self.btnAbout.setObjectName("btnAbout")
         self.gridLayout_3.addWidget(self.btnAbout, 0, 1, 1, 1)
         self.lblLastPlayEpisodeNum = QtWidgets.QLabel(self.widgetTools)
