@@ -1,7 +1,9 @@
 import threading
 
-# noinspection PyProtectedMember
+
 from Utils import TextUtil
+
+# noinspection PyProtectedMember
 from ui.Widgets._Widgets._WelcomeWidget import _WelcomeWidget
 
 from PyQt5.QtCore import QTimer, QDateTime, QPropertyAnimation, QPoint, QUrl

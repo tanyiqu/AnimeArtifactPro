@@ -256,7 +256,7 @@ font: 12pt &quot;微软雅黑&quot;;</string>
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">font: 16pt &quot;微软雅黑&quot;;</string>
+              <string notr="true">font: 18pt &quot;微软雅黑&quot;;</string>
              </property>
              <property name="text">
               <string>标题</string>
@@ -431,7 +431,48 @@ font: 12pt &quot;微软雅黑&quot;;</string>
          <property name="styleSheet">
           <string notr="true"/>
          </property>
-         <layout class="QGridLayout" name="gridBtns"/>
+         <layout class="QGridLayout" name="grid000">
+          <property name="leftMargin">
+           <number>15</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="rightMargin">
+           <number>15</number>
+          </property>
+          <property name="bottomMargin">
+           <number>20</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QScrollArea" name="scrollArea_2">
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollBtns">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>954</width>
+               <height>180</height>
+              </rect>
+             </property>
+             <layout class="QGridLayout" name="gridBtns">
+              <property name="leftMargin">
+               <number>9</number>
+              </property>
+              <property name="topMargin">
+               <number>9</number>
+              </property>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>

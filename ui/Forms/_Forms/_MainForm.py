@@ -5,7 +5,6 @@ from functools import partial
 
 from PyQt5 import sip
 from PyQt5.QtGui import QTextCursor
-from PyQt5.QtWidgets import QPushButton
 
 import R
 from Configuration import Configuration
@@ -16,6 +15,9 @@ from Utils.WebUtil import setLabelImg
 from ui.Widgets.ItemWidget import ItemWidget
 from ui.Widgets.SearchBarWidget import SearchBarWidget
 from ui.Widgets.WelcomeWidget import WelcomeWidget
+
+# noinspection PyProtectedMember
+from ui.Widgets._Widgets.EpisodeButton import EpisodeButton
 
 
 class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
@@ -244,7 +246,8 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         # 动态生成对应的按钮
         for i in range(1, len(self.detailResult) + 1):
             result = self.detailResult[i]
-            w = QPushButton(result[0])
+            w = EpisodeButton(result[0])
+            # w = QPushButton(result[0])
             w.clicked.connect(partial(self.play, result[0], result[1]))
             w.setFixedSize(120, 35)
             self.gridBtns.addWidget(w, r, c)
