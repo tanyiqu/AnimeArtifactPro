@@ -3,7 +3,7 @@ class string:
 
     APP_NAME = '看番神器 Pro'
 
-    VERSION = 'V1.0'
+    VERSION = 'V1.0 (2020.4.12)'
 
     OPEN_SOURCE = 'https://github.com/Tanyiqu/AnimeArtifactPro'
 

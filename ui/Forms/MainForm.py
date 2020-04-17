@@ -4,6 +4,7 @@ from PyQt5.QtGui import QMouseEvent, QPainter, QPixmap, QKeyEvent
 import R
 from PyQt5.QtWidgets import QWidget
 # noinspection PyProtectedMember
+from ui.Forms.AboutForm import AboutForm
 from ui.Forms._Forms._MainForm import _MainForm
 
 
@@ -27,6 +28,9 @@ class MainForm(QWidget):
     lastSize = None
     # 最大化之前的位置
     lastPos = None
+
+    # 关于对话框
+    aboutForm = None
 
     def __init__(self):
         super().__init__()
@@ -73,9 +77,15 @@ class MainForm(QWidget):
         # 最大化
         self.mainForm.btnMaxSize.clicked.connect(self._maxSize)
         # 关于
-        self.mainForm.btnAbout.clicked.connect(lambda: print('关于'))
+        self.mainForm.btnAbout.clicked.connect(self.showAbout)
         # 项目地址
         self.mainForm.btnOpenSource.clicked.connect(lambda: webbrowser.open_new(R.string.OPEN_SOURCE))
+        pass
+
+    # 点击关于
+    def showAbout(self):
+        self.aboutForm = AboutForm()
+        self.aboutForm.show()
         pass
 
     # 点击最大化
