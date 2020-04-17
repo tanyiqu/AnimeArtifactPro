@@ -27,5 +27,8 @@ class Configuration(metaclass=SingletonType):
     # 用户的昵称
     user_name = 'Tanyiqu'
 
+    # 当前调用的接口
+    curr_interface = 1
+
     def __init__(self):
         pass

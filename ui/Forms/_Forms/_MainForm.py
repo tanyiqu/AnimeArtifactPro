@@ -9,8 +9,9 @@ from PyQt5.QtGui import QTextCursor
 import R
 from Configuration import Configuration
 import ui.ui_designer.ui_file.uic_mainForm
-from Utils import CrawlUtil, VideoUtil
+from Utils import VideoUtil
 from Signals import SearchFinish, DetailFinish
+from Utils.CrawlInterfaces.CrawlImpl_01 import CrawlImpl_01
 from Utils.WebUtil import setLabelImg
 from ui.Widgets.ItemWidget import ItemWidget
 from ui.Widgets.SearchBarWidget import SearchBarWidget
@@ -26,30 +27,31 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
     在此类中做逻辑操作
     """
 
+    # 核心变量
+    config = None               # 全局配置
+    crawlImpl = None            # 接口实现类
+
     # 信号
-    searchFinish = ''  # 搜索完成
-    detailFinish = ''  # 获取详情完成
+    searchFinish = None     # 搜索完成
+    detailFinish = None     # 获取详情完成
 
     # 线程
-    # 搜索动漫线程
-    thread_search = ''
-    # 加载动漫详情
-    thread_detail = ''
-    # 抓取所有链接
-    thread_getAllLinks = ''
+    thread_search = None        # 搜索动漫线程
+    thread_detail = None        # 加载动漫详情
+    thread_getAllLinks = None   # 抓取所有链接
 
-    txtSearchword = ''
-    config = ''
-    searchResult = ''
-    detailResult = ''
-    searchword = ''
-    interface = 1
-    # 当前番剧的名字
-    currentEName = ''
-    # 当前番剧的链接
-    currentEUrl = ''
+    # 字符串变量
+    searchword = ''     # 关键词
+    currentEName = ''   # 当前番剧的名字
+    currentEUrl = ''    # 当前番剧的链接
 
-    welcomeWidget = ''
+    # 控件
+    welcomeWidget = None    # 欢迎面板
+    txtSearchword = None    # 搜索输入框
+
+    #
+    searchResult = None     # 存放搜索的结果
+    detailResult = None     # 存放动漫的详情信息 如：{1: ['第1集'.'第1集的url'], 2: ['第2集'.'第2集的url']}
 
     def init(self):
         # 加上搜索输入框
@@ -71,6 +73,9 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         :return: None
         """
         self.config = Configuration()
+        # 根据配置文件选择接口
+        if self.config.curr_interface == 1:
+            self.crawlImpl = CrawlImpl_01()
         self.welcomeWidget = WelcomeWidget()
         self.gridWelcome.addWidget(self.welcomeWidget, 0, 0)
         self.searchFinish = SearchFinish()
@@ -135,13 +140,13 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
     # 搜索 线程执行
     def _search(self):
         # 获取搜索的数据
-        self.searchResult = CrawlUtil.search(self.searchword, self.interface)
+        self.searchResult = self.crawlImpl.search(self.searchword)
         # print(self.searchResult)
         # 将json格式化成python内置的列表对象
         self.searchResult = json.loads(self.searchResult)
         # print('标准化前：', self.searchResult)
         # 解析成app标准的列表
-        self.searchResult = CrawlUtil.parseSearchResult(self.searchResult, self.interface)
+        self.searchResult = self.crawlImpl.parseSearchResult(self.searchResult)
         # print('标准化后：', self.searchResult)
         # 发射搜索完成的信号
         self.searchFinish.signal.emit()
@@ -230,7 +235,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
     # 获取详情 线程执行
     def _detail(self, url):
         print('执行')
-        self.detailResult = CrawlUtil.detail(url, self.log_secondary, self.interface)
+        self.detailResult = self.crawlImpl.detail(self.log_secondary, url)
         print(self.detailResult)
         # 发射获取完成的信号
         self.detailFinish.signal.emit()
@@ -262,7 +267,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
 
     # 抓取链接
     def getAllLinks(self):
-        t = threading.Thread(target=CrawlUtil.getAllLinks, name='getLinks', args=(self.detailResult, self.log_secondary, self.interface,))
+        t = threading.Thread(target=self.crawlImpl.getAllLinks, name='getLinks', args=(self.detailResult, self.log_secondary,))
         t.start()
         pass
 
@@ -277,7 +282,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         print('播放', url)
         self.log_secondary('正在播放：' + name)
         # 开启线程获取真实播放链接
-        url = CrawlUtil.getVideoUrl(url, self.interface)
+        url = self.crawlImpl.getVideoUrl(url)
         self.log_secondary('真实视频播放链接：' + url)
         # 判断一下能不能用potplayer播放
         if url[-5:].lower() == '.m3u8':

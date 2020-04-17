@@ -1,80 +1,82 @@
-"""
-供外部调用
-"""
-
-import Utils.Crawl.interface1
+from abc import abstractmethod
 
 
-def search(searchword, interface):
+class CrawlUtil:
     """
-    使用第interface个接口执行查询操作
-    :param searchword: 关键词
-    :param interface: 接口
-    :return: json格式的字符串
+    接口规范：
+    不管接口内部是怎么实现的，
+    总之，要提供外部这样的实现
     """
-    if interface == 1:
-        return Utils.Crawl.interface1.search(searchword)
+
+    @abstractmethod
+    def search(self, searchword):
+        """
+        使用接口查询searchword
+        :param searchword: 关键词
+        :return: 搜索结果
+        //至少要包含这三个
+        [{
+        url:url,        整部动漫的url，如：http://susudm.com/acg/2130/
+        cover:cover,    封面
+        title:title,    标题
+        }]
+        """
+        pass
+
+    @abstractmethod
+    def parseSearchResult(self, json):
+        """
+        解析json成app标准的数组
+        如果search搜索结果可以满足需求的话，
+        也可以不解析，函数原样返回json即可
+        :param json: 使用search函数的搜索结果
+        :return: app标准的数组 带*标为必有属性
+        [{
+        url:url,        *   整部动漫的url，如：http://susudm.com/acg/2130/
+        cover:cover,    *   封面
+        title:title,    *   标题
+        latest:latest       最新集数（最新连载）
+        area:area,          地区
+        time:time,          时间
+        stars:stars         演员
+        }]
+        就这7个部分
+        """
+        pass
+
+    @abstractmethod
+    def detail(self, func, url):
+        """
+        获取动漫的详情信息
+        详情信息指总共多少集和每一集的播放地址
+        :param url: 动漫的url 如：http://susudm.com/acg/2130/
+        :param func: 打印日志函数
+        :return: 详情信息
+        {
+            1: ['第1集'.'第1集的url'],   这里的 “第1集的url” 可以是存放url链接的json文件，也可以是真实的播放链接
+            2: ['第2集'.'第2集的url']    根据接口而定
+        }
+        """
+        pass
+
+    @abstractmethod
+    def getVideoUrl(self, url):
+        """
+        获取视频真实播放链接
+        如果url已经是真实播放链接，将url原样返回即可
+        :param url: 存放真实播放链接的json文件的url
+        :return: 真实的播放链接
+        """
+        pass
+
+    @abstractmethod
+    def getAllLinks(self, result, func):
+        """
+        获取动漫的全部链接
+        :param result: 由detail()函数获取的结果 如： {1: ['第1集', 'url'], 2: ['第2集', 'url']}
+        :param func: 打印日志函数
+        :return: 不返回值，直接把链接保存到文本中
+        """
+        pass
     pass
 
-
-def parseSearchResult(json, interface):
-    """
-    解析json成app标准的数组
-    [{
-        url:url,
-        cover:cover,
-        title:title,
-        latest:latest   最新集数（最新连载），可有可无
-        area:area,      可有可无
-        time:time,      可有可无
-        stars:stars     可有可无
-    }]
-    :param json: json
-    :param interface: 接口
-    :return: app标准的数组
-    """
-    if interface == 1:
-        return Utils.Crawl.interface1.parse(json)
-    pass
-
-
-def detail(url, func, interface):
-    """
-    获取详情
-    {
-        1: ['第1集'.'url'],
-        2: ['第2集'.'url']
-    }
-    :param url: 链接
-    :param func: 打印日志接口
-    :param interface: 接口
-    :return: 详情信息的字典
-    """
-    if interface == 1:
-        return Utils.Crawl.interface1.detail(url, func)
-    pass
-
-
-def getVideoUrl(url, interface):
-    """
-    获取视频真实播放链接
-    :param url: url
-    :param interface: 接口
-    :return: 真实播放链接
-    """
-    if interface == 1:
-        return Utils.Crawl.interface1.getPlayLink(url)
-    pass
-
-
-def getAllLinks(result, func, interface):
-    """
-    获取全部链接 由线程调用此函数
-    :param result: {1: ['第1集', 'url'], 2: ['第2集', 'url']}
-    :param func: 打印日志函数
-    :param interface: 接口
-    :return: 获取到的链接字符串
-    """
-    if interface == 1:
-        return Utils.Crawl.interface1.getAllLinks(result, func)
-    pass

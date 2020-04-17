@@ -3,8 +3,6 @@ import threading
 
 from Utils import TextUtil
 
-# noinspection PyProtectedMember
-from ui.Widgets._Widgets._WelcomeWidget import _WelcomeWidget
 
 from PyQt5.QtCore import QTimer, QDateTime, QPropertyAnimation, QPoint, QUrl
 from PyQt5.QtGui import QPainter, QPixmap
@@ -12,6 +10,7 @@ from PyQt5.QtMultimedia import QMediaContent, QMediaPlayer
 from PyQt5.QtWidgets import QWidget
 
 from Configuration import Configuration
+from ui.ui_designer.ui_file.uic_welcomeWidget import Ui_welcomeWidget
 
 
 class WelcomeWidget(QWidget):
@@ -33,9 +32,8 @@ class WelcomeWidget(QWidget):
     def __init__(self):
         super().__init__()
         self.config = Configuration()
-        self.welcomeWidget = _WelcomeWidget()
+        self.welcomeWidget = Ui_welcomeWidget()
         self.welcomeWidget.setupUi(self)
-        self.welcomeWidget.init()
         self.painter = QPainter()
         self.timer = QTimer()
         self.animDateTime = QPropertyAnimation(self.welcomeWidget.widgetDateTime, b"pos")
