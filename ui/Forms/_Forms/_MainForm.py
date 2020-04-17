@@ -82,6 +82,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         self.detailFinish = DetailFinish()
         self.thread_search = threading.Thread(target=self._search, name='')
         self.thread_detail = threading.Thread(target=self._detail, name='')
+        self.thread_getAllLinks = threading.Thread(target=self.crawlImpl.getAllLinks, name='getLinks', args=(self.detailResult, self.log_secondary,))
         pass
 
     def welcome(self):
@@ -267,8 +268,8 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
 
     # 抓取链接
     def getAllLinks(self):
-        t = threading.Thread(target=self.crawlImpl.getAllLinks, name='getLinks', args=(self.detailResult, self.log_secondary,))
-        t.start()
+        self.thread_getAllLinks = threading.Thread(target=self.crawlImpl.getAllLinks, name='getLinks', args=(self.detailResult, self.log_secondary,))
+        self.thread_getAllLinks.start()
         pass
 
     # 播放

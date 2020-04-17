@@ -18,17 +18,17 @@ class Configuration(metaclass=SingletonType):
     单例模式
     """
 
-    # 播放欢迎动画
-    play_anim = True
-    # 播放音效
-    play_sound = True
-    # 欢迎动画持续时长
-    anim_duration = 600
-    # 用户的昵称
-    user_name = 'Tanyiqu'
+    # 基本上不会变动的变量
+    user_name = 'Tanyiqu'   # 用户的昵称
 
-    # 当前调用的接口
-    curr_interface = 1
+    # 变量
+    anim_duration = 600     # 欢迎动画持续时长 ms
+    curr_interface = 1      # 当前调用的接口
+
+    # 是否标志
+    play_anim = True            # 播放欢迎动画
+    play_sound = True           # 播放音效
+    showClosingWarning = True   # 显示警告框，抓取链接中的警告还是要显示
 
     def __init__(self):
         pass

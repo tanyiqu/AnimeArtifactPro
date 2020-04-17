@@ -124,6 +124,7 @@ class CrawlImpl_01(CrawlUtil):
             with open(desktop + '/download.txt', 'a') as f:
                 f.write(result[i][0] + '@' + self.getVideoUrl(result[i][1]) + '\n')
                 log('【{}】'.format(result[i][0]))
+                print('【{}】'.format(result[i][0]))
                 pass
             pass
         log('抓取完成！')

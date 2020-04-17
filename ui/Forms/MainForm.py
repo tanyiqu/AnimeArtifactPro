@@ -1,10 +1,13 @@
+import os
 import webbrowser
 from PyQt5.QtCore import Qt, QPoint, QRect
-from PyQt5.QtGui import QMouseEvent, QPainter, QPixmap, QKeyEvent
+from PyQt5.QtGui import QMouseEvent, QPainter, QPixmap, QKeyEvent, QIcon
 import R
-from PyQt5.QtWidgets import QWidget
-# noinspection PyProtectedMember
+from PyQt5.QtWidgets import QWidget, QMessageBox
+
 from ui.Forms.AboutForm import AboutForm
+
+# noinspection PyProtectedMember
 from ui.Forms._Forms._MainForm import _MainForm
 
 
@@ -71,7 +74,7 @@ class MainForm(QWidget):
 
     def initFunc(self):
         # 关闭窗口
-        self.mainForm.btnClose.clicked.connect(self.close)
+        self.mainForm.btnClose.clicked.connect(self.closeApp)
         # 最小化
         self.mainForm.btnMinSize.clicked.connect(self.showMinimized)
         # 最大化
@@ -80,6 +83,43 @@ class MainForm(QWidget):
         self.mainForm.btnAbout.clicked.connect(self.showAbout)
         # 项目地址
         self.mainForm.btnOpenSource.clicked.connect(lambda: webbrowser.open_new(R.string.OPEN_SOURCE))
+        pass
+
+    # 关闭程序
+    def closeApp(self):
+        msgbox = QMessageBox()
+        msgbox.setWindowIcon(QIcon('resource/imgs/logo.png'))
+        msgbox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        msgbox.setDefaultButton(QMessageBox.No)
+        buttonY = msgbox.button(QMessageBox.Yes)
+        # 判断抓取链接线程是否在执行
+        if self.mainForm.thread_getAllLinks.is_alive():
+            msgbox.setWindowTitle('警告')
+            msgbox.setIcon(QMessageBox.Warning)
+            msgbox.setText('当前正在抓取链接中...\n确定退出吗？')
+            msgbox.exec_()
+            if msgbox.clickedButton() == buttonY:
+                self._closeApp()
+            return
+        # 不显示警告框，抓取链接中的警告还是要显示
+        if not self.mainForm.config.showClosingWarning:
+            self._closeApp()
+            return
+            pass
+        msgbox.setIcon(QMessageBox.Question)
+        msgbox.setWindowTitle('行きたいですか？')
+        msgbox.setText('本当に行きたいですか？ \n本当に行きたいですか？ ')
+        buttonY.setText('はい')
+        buttonN = msgbox.button(QMessageBox.No)
+        buttonN.setText('いいえ')
+        msgbox.exec_()
+        if msgbox.clickedButton() == buttonY:
+            self._closeApp()
+        pass
+
+    def _closeApp(self):
+        # noinspection PyProtectedMember
+        os._exit(0)
         pass
 
     # 点击关于
