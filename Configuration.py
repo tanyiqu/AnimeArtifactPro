@@ -24,11 +24,13 @@ class Configuration(metaclass=SingletonType):
     # 变量
     anim_duration = 600     # 欢迎动画持续时长 ms
     curr_interface = 1      # 当前调用的接口
+    player_path = 'D:/PotPlayer/PotPlayerMini64.exe'
+    idm_path = None
 
     # 是否标志
     play_anim = True            # 播放欢迎动画
     play_sound = True           # 播放音效
-    showClosingWarning = True   # 显示警告框，抓取链接中的警告还是要显示
+    showClosingWarning = False  # 显示警告框，抓取链接中的警告还是要显示
 
     def __init__(self):
         pass

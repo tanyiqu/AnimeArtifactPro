@@ -176,8 +176,8 @@ font: 12pt &quot;微软雅黑&quot;;
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>967</width>
-            <height>515</height>
+            <width>83</width>
+            <height>30</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="grid">
@@ -457,8 +457,8 @@ font: 12pt &quot;微软雅黑&quot;;</string>
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>954</width>
-               <height>180</height>
+               <width>53</width>
+               <height>18</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridBtns">
@@ -530,6 +530,58 @@ font: 12pt &quot;微软雅黑&quot;;</string>
       <property name="verticalSpacing">
        <number>0</number>
       </property>
+      <item row="0" column="7">
+       <widget class="QLabel" name="lblLastPlayEpisodeName">
+        <property name="text">
+         <string>无</string>
+        </property>
+        <property name="margin">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="8">
+       <widget class="QLabel" name="lblSpace01">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QPushButton" name="btnSetting">
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>75</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color: #2e2e36;
+color: #bababa;
+font: 10pt &quot;微软雅黑&quot;;
+border: 1px solid #bababa;
+}
+QPushButton:hover{
+background-color: #ff5246;
+color: #ffffff;
+}
+QPushButton:pressed{
+background-color: #000000;
+color: #ffffff;
+}</string>
+        </property>
+        <property name="text">
+         <string>设置</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="0">
        <widget class="QPushButton" name="btnGetAllLinks">
         <property name="enabled">
@@ -608,26 +660,36 @@ color: #ffffff;
        </widget>
       </item>
       <item row="0" column="5">
-       <widget class="QLabel" name="lblLastPlayEpisodeName">
-        <property name="text">
-         <string>无</string>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
-        <property name="margin">
-         <number>0</number>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>828</width>
+          <height>27</height>
+         </size>
         </property>
-       </widget>
+       </spacer>
       </item>
-      <item row="0" column="8">
+      <item row="0" column="10">
        <widget class="QLabel" name="lblSpace02">
         <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="0" column="4">
+      <item row="0" column="6">
        <widget class="QLabel" name="lblLastPlay">
         <property name="text">
          <string>最近一次播放：</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="9">
+       <widget class="QLabel" name="lblLastPlayEpisodeNum">
+        <property name="text">
+         <string>第0集</string>
         </property>
        </widget>
       </item>
@@ -666,30 +728,38 @@ color: #ffffff;
         </property>
        </widget>
       </item>
-      <item row="0" column="7">
-       <widget class="QLabel" name="lblLastPlayEpisodeNum">
-        <property name="text">
-         <string>第0集</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="3">
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
+      <item row="0" column="4">
+       <widget class="QPushButton" name="btnBatchDownload">
+        <property name="minimumSize">
          <size>
-          <width>828</width>
-          <height>27</height>
+          <width>75</width>
+          <height>30</height>
          </size>
         </property>
-       </spacer>
-      </item>
-      <item row="0" column="6">
-       <widget class="QLabel" name="lblSpace01">
+        <property name="maximumSize">
+         <size>
+          <width>75</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color: #2e2e36;
+color: #bababa;
+font: 10pt &quot;微软雅黑&quot;;
+border: 1px solid #bababa;
+}
+QPushButton:hover{
+background-color: #ff5246;
+color: #ffffff;
+}
+QPushButton:pressed{
+background-color: #000000;
+color: #ffffff;
+}</string>
+        </property>
         <property name="text">
-         <string/>
+         <string>批量下载</string>
         </property>
        </widget>
       </item>

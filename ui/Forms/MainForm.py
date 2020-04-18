@@ -7,6 +7,8 @@ from PyQt5.QtWidgets import QWidget, QMessageBox
 
 from ui.Forms.AboutForm import AboutForm
 
+
+from ui.Forms.SettingForm import SettingForm
 # noinspection PyProtectedMember
 from ui.Forms._Forms._MainForm import _MainForm
 
@@ -34,6 +36,7 @@ class MainForm(QWidget):
 
     # 关于对话框
     aboutForm = None
+    settingForm = None
 
     def __init__(self):
         super().__init__()
@@ -81,6 +84,8 @@ class MainForm(QWidget):
         self.mainForm.btnMaxSize.clicked.connect(self._maxSize)
         # 关于
         self.mainForm.btnAbout.clicked.connect(self.showAbout)
+        # 设置
+        self.mainForm.btnSetting.clicked.connect(self.showSetting)
         # 项目地址
         self.mainForm.btnOpenSource.clicked.connect(lambda: webbrowser.open_new(R.string.OPEN_SOURCE))
         pass
@@ -126,6 +131,12 @@ class MainForm(QWidget):
     def showAbout(self):
         self.aboutForm = AboutForm()
         self.aboutForm.show()
+        pass
+
+    # 点击设置
+    def showSetting(self):
+        self.settingForm = SettingForm(self)
+        self.settingForm.show()
         pass
 
     # 点击最大化
