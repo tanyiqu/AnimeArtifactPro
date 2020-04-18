@@ -1,3 +1,4 @@
+import json
 import threading
 
 
@@ -18,19 +19,68 @@ class Configuration(metaclass=SingletonType):
     单例模式
     """
 
+    jsonPath = 'user data/config.json'
+
     # 基本上不会变动的变量
     user_name = 'Tanyiqu'   # 用户的昵称
 
     # 变量
     anim_duration = 600     # 欢迎动画持续时长 ms
     curr_interface = 1      # 当前调用的接口
-    player_path = 'D:/PotPlayer/PotPlayerMini64.exe'
+    player_path = None
     idm_path = None
 
     # 是否标志
+    first_open = True           # 首次打开App
     play_anim = True            # 播放欢迎动画
     play_sound = True           # 播放音效
     showClosingWarning = False  # 显示警告框，抓取链接中的警告还是要显示
 
     def __init__(self):
+        with open(self.jsonPath, encoding='utf-8') as f:
+            self.obj = json.load(f)
+            # print('obj', self.obj)
+            pass
+        self.first_open = self.obj['first_open']
+        self.user_name = self.obj['user_name']
+        self.anim_duration = self.obj['anim_duration']
+        self.curr_interface = self.obj['curr_interface']
+        self.player_path = self.obj['player_path']
+        self.idm_path = self.obj['idm_path']
+        self.play_anim = self.obj['play_anim']
+        self.play_sound = self.obj['play_sound']
+        self.showClosingWarning = self.obj['showClosingWarning']
+        print(self.play_sound)
         pass
+
+    # 保存设置到json
+    def save(self):
+        self.obj['first_open'] = self.first_open
+        self.obj['user_name'] = self.user_name
+        self.obj['anim_duration'] = self.first_open
+        self.obj['curr_interface'] = self.curr_interface
+        self.obj['player_path'] = self.player_path
+        self.obj['idm_path'] = self.idm_path
+        self.obj['play_anim'] = self.play_anim
+        self.obj['play_sound'] = self.play_sound
+        self.obj['showClosingWarning'] = self.showClosingWarning
+        with open(self.jsonPath, 'w') as f:
+            json.dump(self.obj, f)
+            pass
+        pass
+
+    # 恢复默认数据
+    def default(self):
+        self.first_open = False
+        self.user_name = 'Master'
+        self.anim_duration = 600
+        self.curr_interface = 1
+        self.player_path = None
+        self.idm_path = None
+        self.play_anim = True
+        self.play_sound = True
+        self.showClosingWarning = True
+        self.save()
+        pass
+
+    pass

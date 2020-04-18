@@ -5,8 +5,9 @@ from PyQt5.QtGui import QMouseEvent, QPainter, QPixmap, QKeyEvent, QIcon
 import R
 from PyQt5.QtWidgets import QWidget, QMessageBox
 
+from Configuration import Configuration
 from ui.Forms.AboutForm import AboutForm
-
+from ui.Forms.InitDialog import InitDialog
 
 from ui.Forms.SettingForm import SettingForm
 # noinspection PyProtectedMember
@@ -40,6 +41,7 @@ class MainForm(QWidget):
 
     def __init__(self):
         super().__init__()
+        self.config = Configuration()
         self.mainForm = _MainForm()
         self.mainForm.setupUi(self)
         self.mainForm.init()
@@ -48,6 +50,13 @@ class MainForm(QWidget):
         self.initAppearance()
         # 功能操作（关闭窗口等）
         self.initFunc()
+
+        # 首次打开时需要注册
+        if self.config.first_open:
+            # QMessageBox.warning(self,'','',QMessageBox.Ok)
+            dialog = InitDialog()
+            dialog.exec_()
+            pass
         pass
 
     def initAppearance(self):

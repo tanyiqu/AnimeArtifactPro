@@ -63,7 +63,8 @@ class WelcomeWidget(QWidget):
         # movie.start()
 
         # 设置动画
-        self.initAnimation()
+        if self.config.play_anim:
+            self.initAnimation()
         pass
 
     def initAnimation(self):
@@ -92,14 +93,18 @@ class WelcomeWidget(QWidget):
         pass
 
     def _animFinished(self):
-        print('播放')
-        sound_file = 'resource/sounds/hello.mp3'
-        url = QUrl.fromLocalFile(sound_file)
-        content = QMediaContent(url)
-        self.sound = QMediaPlayer()
-        self.sound.setMedia(content)
-        self.sound.setVolume(50)
-        # self.sound.play()
+        print('动画完成')
+        if self.config.first_open:
+            return
+        if self.config.play_sound:
+            print('播放音效')
+            sound_file = 'resource/sounds/hello.mp3'
+            url = QUrl.fromLocalFile(sound_file)
+            content = QMediaContent(url)
+            self.sound = QMediaPlayer()
+            self.sound.setMedia(content)
+            self.sound.setVolume(50)
+            # self.sound.play()
         pass
 
     def _timerUpDate(self):
