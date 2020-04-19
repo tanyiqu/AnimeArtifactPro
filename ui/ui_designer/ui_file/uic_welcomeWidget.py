@@ -46,11 +46,11 @@ class Ui_welcomeWidget(object):
         self.lblTime.setObjectName("lblTime")
         self.verticalLayout.addWidget(self.lblTime)
         self.widgetVersion = QtWidgets.QWidget(welcomeWidget)
-        self.widgetVersion.setGeometry(QtCore.QRect(20, 20, 315, 51))
+        self.widgetVersion.setGeometry(QtCore.QRect(20, 20, 511, 53))
         self.widgetVersion.setStyleSheet("background-color: rgba(0, 0, 0, 84);")
         self.widgetVersion.setObjectName("widgetVersion")
         self.lblVersion = QtWidgets.QLabel(self.widgetVersion)
-        self.lblVersion.setGeometry(QtCore.QRect(9, 9, 291, 33))
+        self.lblVersion.setGeometry(QtCore.QRect(10, 7, 501, 41))
         self.lblVersion.setStyleSheet("font: 25pt \"微软雅黑\";\n"
 "color: rgb(236, 236, 236);\n"
 "background-color: rgba(0, 0, 0, 0);")
@@ -88,7 +88,7 @@ class Ui_welcomeWidget(object):
         welcomeWidget.setWindowTitle(_translate("welcomeWidget", "Form"))
         self.lblDate.setText(_translate("welcomeWidget", "2020年04月15日"))
         self.lblTime.setText(_translate("welcomeWidget", "11:11:11"))
-        self.lblVersion.setText(_translate("welcomeWidget", "看番神器Pro V1.0"))
+        self.lblVersion.setText(_translate("welcomeWidget", "看番神器Pro V1.X.X(2020.XX.XX)"))
         self.lblHello.setText(_translate("welcomeWidget", "下午好 Tanyiqu！"))
         self.lblHelloWord.setText(_translate("welcomeWidget", "今天想要看点什么呢？\n"
 "我这里什么都有哦！"))

@@ -8,6 +8,7 @@ from PyQt5.QtWidgets import QWidget, QMessageBox
 from Configuration import Configuration
 from ui.Forms.AboutForm import AboutForm
 from ui.Forms.InitDialog import InitDialog
+from ui.Forms.LogsForm import LogsForm
 
 from ui.Forms.SettingForm import SettingForm
 # noinspection PyProtectedMember
@@ -35,9 +36,10 @@ class MainForm(QWidget):
     # 最大化之前的位置
     lastPos = None
 
-    # 关于对话框
+    # 窗口
     aboutForm = None
     settingForm = None
+    logsForm = None
 
     def __init__(self):
         super().__init__()
@@ -97,6 +99,12 @@ class MainForm(QWidget):
         self.mainForm.btnSetting.clicked.connect(self.showSetting)
         # 项目地址
         self.mainForm.btnOpenSource.clicked.connect(lambda: webbrowser.open_new(R.string.OPEN_SOURCE))
+        # 使用教程
+        self.mainForm.btnHowToUse.clicked.connect(lambda: webbrowser.open_new(R.string.TUTORIAL))
+        # 批量下载
+        self.mainForm.btnBatchDownload.clicked.connect(lambda: print(self.config.idm_path))
+        # 更新日志
+        self.mainForm.btnUpdataLogs.clicked.connect(self.showUpdateLogs)
         pass
 
     # 关闭程序
@@ -146,6 +154,12 @@ class MainForm(QWidget):
     def showSetting(self):
         self.settingForm = SettingForm(self)
         self.settingForm.show()
+        pass
+
+    # 点击更新日志
+    def showUpdateLogs(self):
+        self.logsForm = LogsForm()
+        self.logsForm.show()
         pass
 
     # 点击最大化

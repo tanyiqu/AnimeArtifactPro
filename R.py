@@ -3,7 +3,7 @@ class string:
 
     APP_NAME = '看番神器 Pro'
 
-    VERSION = 'V1.0 (2020.4.12)'
+    VERSION = 'V1.0.1 (测试版)'
 
     OPEN_SOURCE = 'https://github.com/Tanyiqu/AnimeArtifactPro'
 
@@ -16,3 +16,23 @@ class string:
 """ % APP_NAME
 
     M3U8_API = 'https://www.m3u8play.com/?play='
+
+    TUTORIAL = 'https://www.bilibili.com/video/BV1Gp4y1y74c'
+
+    UPDATE_LOG = [
+        {
+            'version': 'V1.0 测试版',
+            'time': '2020.04.12',
+            'detail': ['发布...']
+        },
+        {
+            'version': 'V1.0.1 测试版',
+            'time': '2020.04.19',
+            'detail': [
+                '1.添加使用教程的接口',
+                '2.添加更新日志',
+                '3.修复“关于按钮”的一些bug',
+                '4.优化开启App时的流畅度'
+            ]
+        }
+    ]

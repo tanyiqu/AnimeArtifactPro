@@ -1,6 +1,6 @@
 import threading
 
-
+import R
 from Utils import TextUtil
 
 
@@ -55,6 +55,7 @@ class WelcomeWidget(QWidget):
         # 欢迎语
         self.welcomeWidget.lblHello.setText(self.hello[1] + ' ' + self.config.user_name)
         self.welcomeWidget.lblHelloWord.setText(self.hello[2])
+        self.welcomeWidget.lblVersion.setText(R.string.APP_NAME + ' ' + R.string.VERSION)
 
         # 动图
         # movie = QMovie('resource/imgs/gif1.gif')

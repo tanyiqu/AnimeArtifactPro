@@ -25,6 +25,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
     """
     继承pyuic生成的类
     在此类中做逻辑操作
+    主要是调用爬虫等操作
     """
 
     # 核心变量

@@ -197,11 +197,7 @@ class Ui_mainForm(object):
         self.gridLayout_3.setObjectName("gridLayout_3")
         self.lblLastPlayEpisodeName = QtWidgets.QLabel(self.widgetTools)
         self.lblLastPlayEpisodeName.setObjectName("lblLastPlayEpisodeName")
-        self.gridLayout_3.addWidget(self.lblLastPlayEpisodeName, 0, 7, 1, 1)
-        self.lblSpace01 = QtWidgets.QLabel(self.widgetTools)
-        self.lblSpace01.setText("")
-        self.lblSpace01.setObjectName("lblSpace01")
-        self.gridLayout_3.addWidget(self.lblSpace01, 0, 8, 1, 1)
+        self.gridLayout_3.addWidget(self.lblLastPlayEpisodeName, 0, 9, 1, 1)
         self.btnSetting = QtWidgets.QPushButton(self.widgetTools)
         self.btnSetting.setMinimumSize(QtCore.QSize(75, 30))
         self.btnSetting.setMaximumSize(QtCore.QSize(75, 30))
@@ -221,6 +217,96 @@ class Ui_mainForm(object):
 "}")
         self.btnSetting.setObjectName("btnSetting")
         self.gridLayout_3.addWidget(self.btnSetting, 0, 3, 1, 1)
+        self.btnBatchDownload = QtWidgets.QPushButton(self.widgetTools)
+        self.btnBatchDownload.setMinimumSize(QtCore.QSize(75, 30))
+        self.btnBatchDownload.setMaximumSize(QtCore.QSize(75, 30))
+        self.btnBatchDownload.setStyleSheet("QPushButton{\n"
+"background-color: #2e2e36;\n"
+"color: #bababa;\n"
+"font: 10pt \"微软雅黑\";\n"
+"border: 1px solid #bababa;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #ff5246;\n"
+"color: #ffffff;\n"
+"}\n"
+"QPushButton:pressed{\n"
+"background-color: #000000;\n"
+"color: #ffffff;\n"
+"}")
+        self.btnBatchDownload.setObjectName("btnBatchDownload")
+        self.gridLayout_3.addWidget(self.btnBatchDownload, 0, 4, 1, 1)
+        self.lblSpace02 = QtWidgets.QLabel(self.widgetTools)
+        self.lblSpace02.setText("")
+        self.lblSpace02.setObjectName("lblSpace02")
+        self.gridLayout_3.addWidget(self.lblSpace02, 0, 12, 1, 1)
+        self.btnAbout = QtWidgets.QPushButton(self.widgetTools)
+        self.btnAbout.setMinimumSize(QtCore.QSize(75, 30))
+        self.btnAbout.setMaximumSize(QtCore.QSize(75, 30))
+        self.btnAbout.setStyleSheet("QPushButton{\n"
+"background-color: #2e2e36;\n"
+"color: #bababa;\n"
+"font: 10pt \"微软雅黑\";\n"
+"border: 1px solid #bababa;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #ff5246;\n"
+"color: #ffffff;\n"
+"}\n"
+"QPushButton:pressed{\n"
+"background-color: #000000;\n"
+"color: #ffffff;\n"
+"}")
+        self.btnAbout.setObjectName("btnAbout")
+        self.gridLayout_3.addWidget(self.btnAbout, 0, 1, 1, 1)
+        self.lblSpace01 = QtWidgets.QLabel(self.widgetTools)
+        self.lblSpace01.setText("")
+        self.lblSpace01.setObjectName("lblSpace01")
+        self.gridLayout_3.addWidget(self.lblSpace01, 0, 10, 1, 1)
+        self.btnOpenSource = QtWidgets.QPushButton(self.widgetTools)
+        self.btnOpenSource.setMinimumSize(QtCore.QSize(75, 30))
+        self.btnOpenSource.setMaximumSize(QtCore.QSize(75, 30))
+        self.btnOpenSource.setStyleSheet("QPushButton{\n"
+"background-color: #2e2e36;\n"
+"color: #bababa;\n"
+"font: 10pt \"微软雅黑\";\n"
+"border: 1px solid #bababa;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #ff5246;\n"
+"color: #ffffff;\n"
+"}\n"
+"QPushButton:pressed{\n"
+"background-color: #000000;\n"
+"color: #ffffff;\n"
+"}")
+        self.btnOpenSource.setObjectName("btnOpenSource")
+        self.gridLayout_3.addWidget(self.btnOpenSource, 0, 2, 1, 1)
+        self.lblLastPlay = QtWidgets.QLabel(self.widgetTools)
+        self.lblLastPlay.setObjectName("lblLastPlay")
+        self.gridLayout_3.addWidget(self.lblLastPlay, 0, 8, 1, 1)
+        self.lblLastPlayEpisodeNum = QtWidgets.QLabel(self.widgetTools)
+        self.lblLastPlayEpisodeNum.setObjectName("lblLastPlayEpisodeNum")
+        self.gridLayout_3.addWidget(self.lblLastPlayEpisodeNum, 0, 11, 1, 1)
+        self.btnHowToUse = QtWidgets.QPushButton(self.widgetTools)
+        self.btnHowToUse.setMinimumSize(QtCore.QSize(75, 30))
+        self.btnHowToUse.setMaximumSize(QtCore.QSize(75, 30))
+        self.btnHowToUse.setStyleSheet("QPushButton{\n"
+"background-color: #2e2e36;\n"
+"color: #bababa;\n"
+"font: 10pt \"微软雅黑\";\n"
+"border: 1px solid #bababa;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #ff5246;\n"
+"color: #ffffff;\n"
+"}\n"
+"QPushButton:pressed{\n"
+"background-color: #000000;\n"
+"color: #ffffff;\n"
+"}")
+        self.btnHowToUse.setObjectName("btnHowToUse")
+        self.gridLayout_3.addWidget(self.btnHowToUse, 0, 5, 1, 1)
         self.btnGetAllLinks = QtWidgets.QPushButton(self.widgetTools)
         self.btnGetAllLinks.setEnabled(False)
         self.btnGetAllLinks.setMinimumSize(QtCore.QSize(75, 30))
@@ -245,41 +331,12 @@ class Ui_mainForm(object):
 "}")
         self.btnGetAllLinks.setObjectName("btnGetAllLinks")
         self.gridLayout_3.addWidget(self.btnGetAllLinks, 0, 0, 1, 1)
-        self.btnOpenSource = QtWidgets.QPushButton(self.widgetTools)
-        self.btnOpenSource.setMinimumSize(QtCore.QSize(75, 30))
-        self.btnOpenSource.setMaximumSize(QtCore.QSize(75, 30))
-        self.btnOpenSource.setStyleSheet("QPushButton{\n"
-"background-color: #2e2e36;\n"
-"color: #bababa;\n"
-"font: 10pt \"微软雅黑\";\n"
-"border: 1px solid #bababa;\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: #ff5246;\n"
-"color: #ffffff;\n"
-"}\n"
-"QPushButton:pressed{\n"
-"background-color: #000000;\n"
-"color: #ffffff;\n"
-"}")
-        self.btnOpenSource.setObjectName("btnOpenSource")
-        self.gridLayout_3.addWidget(self.btnOpenSource, 0, 2, 1, 1)
         spacerItem = QtWidgets.QSpacerItem(828, 27, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem, 0, 5, 1, 1)
-        self.lblSpace02 = QtWidgets.QLabel(self.widgetTools)
-        self.lblSpace02.setText("")
-        self.lblSpace02.setObjectName("lblSpace02")
-        self.gridLayout_3.addWidget(self.lblSpace02, 0, 10, 1, 1)
-        self.lblLastPlay = QtWidgets.QLabel(self.widgetTools)
-        self.lblLastPlay.setObjectName("lblLastPlay")
-        self.gridLayout_3.addWidget(self.lblLastPlay, 0, 6, 1, 1)
-        self.lblLastPlayEpisodeNum = QtWidgets.QLabel(self.widgetTools)
-        self.lblLastPlayEpisodeNum.setObjectName("lblLastPlayEpisodeNum")
-        self.gridLayout_3.addWidget(self.lblLastPlayEpisodeNum, 0, 9, 1, 1)
-        self.btnAbout = QtWidgets.QPushButton(self.widgetTools)
-        self.btnAbout.setMinimumSize(QtCore.QSize(75, 30))
-        self.btnAbout.setMaximumSize(QtCore.QSize(75, 30))
-        self.btnAbout.setStyleSheet("QPushButton{\n"
+        self.gridLayout_3.addItem(spacerItem, 0, 7, 1, 1)
+        self.btnUpdataLogs = QtWidgets.QPushButton(self.widgetTools)
+        self.btnUpdataLogs.setMinimumSize(QtCore.QSize(75, 30))
+        self.btnUpdataLogs.setMaximumSize(QtCore.QSize(75, 30))
+        self.btnUpdataLogs.setStyleSheet("QPushButton{\n"
 "background-color: #2e2e36;\n"
 "color: #bababa;\n"
 "font: 10pt \"微软雅黑\";\n"
@@ -293,27 +350,8 @@ class Ui_mainForm(object):
 "background-color: #000000;\n"
 "color: #ffffff;\n"
 "}")
-        self.btnAbout.setObjectName("btnAbout")
-        self.gridLayout_3.addWidget(self.btnAbout, 0, 1, 1, 1)
-        self.btnBatchDownload = QtWidgets.QPushButton(self.widgetTools)
-        self.btnBatchDownload.setMinimumSize(QtCore.QSize(75, 30))
-        self.btnBatchDownload.setMaximumSize(QtCore.QSize(75, 30))
-        self.btnBatchDownload.setStyleSheet("QPushButton{\n"
-"background-color: #2e2e36;\n"
-"color: #bababa;\n"
-"font: 10pt \"微软雅黑\";\n"
-"border: 1px solid #bababa;\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: #ff5246;\n"
-"color: #ffffff;\n"
-"}\n"
-"QPushButton:pressed{\n"
-"background-color: #000000;\n"
-"color: #ffffff;\n"
-"}")
-        self.btnBatchDownload.setObjectName("btnBatchDownload")
-        self.gridLayout_3.addWidget(self.btnBatchDownload, 0, 4, 1, 1)
+        self.btnUpdataLogs.setObjectName("btnUpdataLogs")
+        self.gridLayout_3.addWidget(self.btnUpdataLogs, 0, 6, 1, 1)
         self.gridMain.addWidget(self.widgetTools, 2, 0, 1, 1)
         self.widgetTop = QtWidgets.QWidget(mainForm)
         self.widgetTop.setMinimumSize(QtCore.QSize(0, 55))
@@ -467,12 +505,14 @@ class Ui_mainForm(object):
         self.label_2.setText(_translate("mainForm", "啥都没有"))
         self.lblLastPlayEpisodeName.setText(_translate("mainForm", "无"))
         self.btnSetting.setText(_translate("mainForm", "设置"))
-        self.btnGetAllLinks.setText(_translate("mainForm", "抓取链接"))
+        self.btnBatchDownload.setText(_translate("mainForm", "批量下载"))
+        self.btnAbout.setText(_translate("mainForm", "关于"))
         self.btnOpenSource.setText(_translate("mainForm", "项目地址"))
         self.lblLastPlay.setText(_translate("mainForm", "最近一次播放："))
         self.lblLastPlayEpisodeNum.setText(_translate("mainForm", "第0集"))
-        self.btnAbout.setText(_translate("mainForm", "关于"))
-        self.btnBatchDownload.setText(_translate("mainForm", "批量下载"))
+        self.btnHowToUse.setText(_translate("mainForm", "使用教程"))
+        self.btnGetAllLinks.setText(_translate("mainForm", "抓取链接"))
+        self.btnUpdataLogs.setText(_translate("mainForm", "更新日志"))
         self.btnBack.setToolTip(_translate("mainForm", "返回"))
         self.btnSearch.setToolTip(_translate("mainForm", "o(*≧▽≦)ツ"))
         self.btnSearch.setText(_translate("mainForm", "搜索"))

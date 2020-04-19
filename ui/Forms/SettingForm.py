@@ -9,5 +9,4 @@ class SettingForm(QWidget):
         self.parent = parent
         self.settingForm = Ui_settingForm()
         self.settingForm.setupUi(self)
-        self.parent.mainForm.btnAbout.setText('关于关')
     pass
