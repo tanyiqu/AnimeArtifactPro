@@ -3,7 +3,7 @@ class string:
 
     APP_NAME = '看番神器 Pro'
 
-    VERSION = 'V1.0.1 (测试版)'
+    VERSION = 'V1.1.0 正式版'
 
     OPEN_SOURCE = 'https://github.com/Tanyiqu/AnimeArtifactPro'
 
@@ -22,6 +22,17 @@ class string:
     DOWNLOAD_LINK = 'https://tanyiqu.lanzous.com/b0cq4peeb'
 
     UPDATE_LOG = [
+        {
+            'version': 'V1.1.0 正式版',
+            'time': '2020.04.20',
+            'downloadNum': 0,
+            'detail': [
+                '1.添加设置功能',
+                '2.添加批量下载功能',
+                '3.添加检查更新功能',
+                '...'
+            ]
+        },
         {
             'version': 'V1.0.1 测试版',
             'time': '2020.04.19',
