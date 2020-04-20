@@ -21,15 +21,6 @@ class string:
 
     UPDATE_LOG = [
         {
-            'version': 'V1.0 测试版',
-            'time': '2020.04.12',
-            'downloadNum': 155,
-            'detail': [
-                '1.发布',
-                '...'
-            ]
-        },
-        {
             'version': 'V1.0.1 测试版',
             'time': '2020.04.19',
             'downloadNum': 0,
@@ -38,6 +29,15 @@ class string:
                 '2.添加更新日志',
                 '3.修复“关于按钮”的一些bug',
                 '4.优化开启App时的流畅度',
+                '...'
+            ]
+        },
+        {
+            'version': 'V1.0 测试版',
+            'time': '2020.04.12',
+            'downloadNum': 155,
+            'detail': [
+                '1.发布',
                 '...'
             ]
         }
