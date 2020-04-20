@@ -36,7 +36,7 @@ class string:
         {
             'version': 'V1.0.1 测试版',
             'time': '2020.04.19',
-            'downloadNum': 0,
+            'downloadNum': 145,
             'detail': [
                 '1.添加使用教程的接口',
                 '2.添加更新日志',
@@ -48,7 +48,7 @@ class string:
         {
             'version': 'V1.0 测试版',
             'time': '2020.04.12',
-            'downloadNum': 155,
+            'downloadNum': 172,
             'detail': [
                 '1.发布',
                 '...'
