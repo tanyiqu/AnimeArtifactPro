@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import QWidget, QMessageBox
 
 from Configuration import Configuration
 from ui.Forms.AboutForm import AboutForm
+from ui.Forms.BatchDownloadForm import BatchDownloadForm
 from ui.Forms.InitDialog import InitDialog
 from ui.Forms.LogsForm import LogsForm
 
@@ -43,6 +44,7 @@ class MainForm(QWidget):
     settingForm = None
     logsForm = None
     updateForm = None
+    batchDownloadForm = None
 
     def __init__(self):
         super().__init__()
@@ -105,11 +107,17 @@ class MainForm(QWidget):
         # 使用教程
         self.mainForm.btnHowToUse.clicked.connect(lambda: webbrowser.open_new(R.string.TUTORIAL))
         # 批量下载
-        self.mainForm.btnBatchDownload.clicked.connect(lambda: print(self.config.idm_path))
+        self.mainForm.btnBatchDownload.clicked.connect(self._batchDownload)
         # 更新日志
         self.mainForm.btnUpdataLogs.clicked.connect(self.showUpdateLogs)
         # 检查更新
         self.mainForm.updateSignal.signal.connect(self._updateVersion)
+        pass
+
+    # 批量下载
+    def _batchDownload(self):
+        self.batchDownloadForm = BatchDownloadForm()
+        self.batchDownloadForm.show()
         pass
 
     # 关闭程序

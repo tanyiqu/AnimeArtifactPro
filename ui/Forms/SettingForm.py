@@ -3,7 +3,7 @@ import webbrowser
 from subprocess import call
 
 from PyQt5 import QtGui
-from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QWidget, QFileDialog
 
 import R
 from Configuration import Configuration
@@ -24,6 +24,8 @@ class SettingForm(QWidget):
         self.settingForm.btnTestPlayer.clicked.connect(self._testPlayer)
         self.settingForm.btnTestIDM.clicked.connect(self._testIDM)
         self.settingForm.btnFinished.clicked.connect(self._finish)
+        self.settingForm.btnChoosePlayer.clicked.connect(self._choosePlayer)
+        self.settingForm.btnChooseIDM.clicked.connect(self._chooseIDM)
 
         pass
 
@@ -52,7 +54,7 @@ class SettingForm(QWidget):
 
     def _testPlayer(self):
         path = self.settingForm.lblPlayer.text()
-        t = threading.Thread(target=lambda:call(path), name='testPlay')
+        t = threading.Thread(target=lambda: call(path), name='testPlay')
         t.start()
         print('测试player', path)
         pass
@@ -62,6 +64,24 @@ class SettingForm(QWidget):
         t = threading.Thread(target=lambda: call(path), name='testIDM')
         t.start()
         print('测试idm', path)
+        pass
+
+    def _choosePlayer(self):
+        fileName_choose, filetype = QFileDialog.getOpenFileName(self,
+                                                                '选择播放器',
+                                                                './',
+                                                                "播放器 (*exe);")
+        if fileName_choose != '':
+            self.settingForm.lblPlayer.setText(fileName_choose)
+        pass
+
+    def _chooseIDM(self):
+        fileName_choose, filetype = QFileDialog.getOpenFileName(self,
+                                                                '选择下载器',
+                                                                './',
+                                                                "播放器 (*exe);")
+        if fileName_choose != '':
+            self.settingForm.lblIDM.setText(fileName_choose)
         pass
 
     def loadConfig(self):

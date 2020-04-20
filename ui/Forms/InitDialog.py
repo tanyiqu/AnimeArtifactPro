@@ -35,7 +35,6 @@ class InitDialog(QDialog):
         pass
 
     def _choosePlayer(self):
-        print('选择播放器')
         fileName_choose, filetype = QFileDialog.getOpenFileName(self,
                                                                 '选择播放器',
                                                                 './',
@@ -45,7 +44,6 @@ class InitDialog(QDialog):
         pass
 
     def _chooseIDM(self):
-        print('选择下载器')
         fileName_choose, filetype = QFileDialog.getOpenFileName(self,
                                                                 '选择下载器',
                                                                 './',
