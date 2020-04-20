@@ -11,6 +11,8 @@ from ui.Forms.InitDialog import InitDialog
 from ui.Forms.LogsForm import LogsForm
 
 from ui.Forms.SettingForm import SettingForm
+from ui.Forms.UpdateForm import UpdateForm
+
 # noinspection PyProtectedMember
 from ui.Forms._Forms._MainForm import _MainForm
 
@@ -40,6 +42,7 @@ class MainForm(QWidget):
     aboutForm = None
     settingForm = None
     logsForm = None
+    updateForm = None
 
     def __init__(self):
         super().__init__()
@@ -105,6 +108,8 @@ class MainForm(QWidget):
         self.mainForm.btnBatchDownload.clicked.connect(lambda: print(self.config.idm_path))
         # 更新日志
         self.mainForm.btnUpdataLogs.clicked.connect(self.showUpdateLogs)
+        # 检查更新
+        self.mainForm.updateSignal.signal.connect(self._updateVersion)
         pass
 
     # 关闭程序
@@ -160,6 +165,12 @@ class MainForm(QWidget):
     def showUpdateLogs(self):
         self.logsForm = LogsForm()
         self.logsForm.show()
+        pass
+
+    # 弹出更新框
+    def _updateVersion(self):
+        self.updateForm = UpdateForm()
+        self.updateForm.show()
         pass
 
     # 点击最大化

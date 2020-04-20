@@ -19,6 +19,8 @@ class string:
 
     TUTORIAL = 'https://www.bilibili.com/video/BV1Gp4y1y74c'
 
+    DOWNLOAD_LINK = 'https://tanyiqu.lanzous.com/b0cq4peeb'
+
     UPDATE_LOG = [
         {
             'version': 'V1.0.1 测试版',

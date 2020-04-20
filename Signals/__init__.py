@@ -27,3 +27,11 @@ class DetailFinish(QObject):
     """
     signal = pyqtSignal()
     pass
+
+
+class UpdateSignal(QObject):
+    """
+    准备更新
+    """
+    signal = pyqtSignal()
+    pass

@@ -1,16 +1,19 @@
+import re
 import threading
 import time
 import json
 from functools import partial
 
+import requests
 from PyQt5 import sip
+from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QTextCursor
 
 import R
 from Configuration import Configuration
 import ui.ui_designer.ui_file.uic_mainForm
 from Utils import VideoUtil
-from Signals import SearchFinish, DetailFinish
+from Signals import SearchFinish, DetailFinish, UpdateSignal
 from Utils.CrawlInterfaces.CrawlImpl_01 import CrawlImpl_01
 from Utils.WebUtil import setLabelImg
 from ui.Widgets.ItemWidget import ItemWidget
@@ -35,11 +38,13 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
     # 信号
     searchFinish = None     # 搜索完成
     detailFinish = None     # 获取详情完成
+    updateSignal = None
 
     # 线程
     thread_search = None        # 搜索动漫线程
     thread_detail = None        # 加载动漫详情
     thread_getAllLinks = None   # 抓取所有链接
+    thread_getUpdates = None    # 获取更新信息
 
     # 字符串变量
     searchword = ''     # 关键词
@@ -81,9 +86,12 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         self.gridWelcome.addWidget(self.welcomeWidget, 0, 0)
         self.searchFinish = SearchFinish()
         self.detailFinish = DetailFinish()
+        self.updateSignal = UpdateSignal()
         self.thread_search = threading.Thread(target=self._search, name='')
         self.thread_detail = threading.Thread(target=self._detail, name='')
         self.thread_getAllLinks = threading.Thread(target=self.crawlImpl.getAllLinks, name='getLinks', args=(self.detailResult, self.log_secondary,))
+        self.thread_getUpdates = threading.Thread(target=self._checkUpdate, name='checkUpdate')
+
         pass
 
     def welcome(self):
@@ -108,6 +116,8 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         self.btnBack.clicked.connect(self.back)
         # 抓取链接
         self.btnGetAllLinks.clicked.connect(self.getAllLinks)
+        # # 版本更新
+        # self.updateSignal.signal.connect(self._updateVersion)
         pass
 
     # 点击搜索按钮
@@ -292,8 +302,27 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         VideoUtil.play(url)
         pass
 
-    def func(self):
+    # 检查更新
+    def _checkUpdate(self):
+        print('检查更新')
+        # 获取当前版本
+        currVersion = R.string.UPDATE_LOG[0]['version']
+        # 获取新版本
+        txt = requests.get('https://tanyiqu.github.io/AnimeArtifactPro/').content.decode('utf-8')
+        newVersion = re.findall(r'h3 id=".*?">(.*?)</h3>', txt)[0]
+        # 版本匹配
+        print('currVersion', currVersion)
+        print('newVersion', newVersion)
+        if currVersion.strip() == newVersion.strip():
+            return
+        # 发射更新的信号，让主窗口去处理更新操作
+        self.updateSignal.signal.emit()
+        pass
 
+    def func(self):
+        # 检查更新
+        if self.config.checkUpdate:
+            QTimer.singleShot(2000, lambda: self.thread_getUpdates.start())
         pass
 
     # 返回

@@ -35,6 +35,7 @@ class Configuration(metaclass=SingletonType):
     play_anim = True            # 播放欢迎动画
     play_sound = True           # 播放音效
     showClosingWarning = False  # 显示警告框，抓取链接中的警告还是要显示
+    checkUpdate = True          # 检查更新
 
     def __init__(self):
         with open(self.jsonPath, encoding='utf-8') as f:
@@ -50,7 +51,7 @@ class Configuration(metaclass=SingletonType):
         self.play_anim = self.obj['play_anim']
         self.play_sound = self.obj['play_sound']
         self.showClosingWarning = self.obj['showClosingWarning']
-        print(self.play_sound)
+        self.checkUpdate = self.obj['checkUpdate']
         pass
 
     # 保存设置到json
@@ -64,6 +65,7 @@ class Configuration(metaclass=SingletonType):
         self.obj['play_anim'] = self.play_anim
         self.obj['play_sound'] = self.play_sound
         self.obj['showClosingWarning'] = self.showClosingWarning
+        self.obj['checkUpdate'] = self.checkUpdate
         with open(self.jsonPath, 'w') as f:
             json.dump(self.obj, f)
             pass
