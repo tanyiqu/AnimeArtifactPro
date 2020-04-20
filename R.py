@@ -23,7 +23,7 @@ class string:
         {
             'version': 'V1.0 测试版',
             'time': '2020.04.12',
-            'downloadNum': 144,
+            'downloadNum': 155,
             'detail': [
                 '1.发布',
                 '...'
