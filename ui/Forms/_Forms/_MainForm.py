@@ -292,6 +292,10 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         :return: None
         """
         print('播放', url)
+        if url[-5:].lower() == '.html':
+            self.log_secondary('非常抱歉！可能此接口不适合这部番剧><')
+            self.log_secondary('可以尝试在抓取里的链接播放，或着切换搜索接口！')
+            return
         self.log_secondary('正在播放：' + name)
         # 开启线程获取真实播放链接
         url = self.crawlImpl.getVideoUrl(url)

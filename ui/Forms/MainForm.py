@@ -1,5 +1,4 @@
 import os
-import sys
 import webbrowser
 from PyQt5.QtCore import Qt, QPoint, QRect
 from PyQt5.QtGui import QMouseEvent, QPainter, QPixmap, QKeyEvent, QIcon
