@@ -116,8 +116,6 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         self.btnBack.clicked.connect(self.back)
         # 抓取链接
         self.btnGetAllLinks.clicked.connect(self.getAllLinks)
-        # # 版本更新
-        # self.updateSignal.signal.connect(self._updateVersion)
         pass
 
     # 点击搜索按钮
@@ -279,6 +277,9 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
 
     # 抓取链接
     def getAllLinks(self):
+        if self.thread_getAllLinks.is_alive():
+            self.log('正在抓取链接中！请稍后再试！')
+            return
         self.thread_getAllLinks = threading.Thread(target=self.crawlImpl.getAllLinks, name='getLinks', args=(self.detailResult, self.log_secondary,))
         self.thread_getAllLinks.start()
         pass
