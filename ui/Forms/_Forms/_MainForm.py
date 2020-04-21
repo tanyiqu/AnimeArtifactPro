@@ -104,8 +104,9 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         连接信号槽
         :return:
         """
-        # 页面切换 --> 禁用抓取链接按钮
-        self.stackedWidget.currentChanged.connect(lambda: self.btnGetAllLinks.setEnabled(False))
+        # 页面切换
+        # self.stackedWidget.currentChanged.connect(lambda: self.btnGetAllLinks.setEnabled(False))
+        self.stackedWidget.currentChanged.connect(self.pageChanged)
         # 搜索
         self.btnSearch.clicked.connect(self.search)
         # 搜索完成
@@ -116,6 +117,8 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         self.btnBack.clicked.connect(self.back)
         # 抓取链接
         self.btnGetAllLinks.clicked.connect(self.getAllLinks)
+        # 下一集
+        self.btnNext.clicked.connect(self.playNext)
         pass
 
     # 点击搜索按钮
@@ -284,6 +287,25 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         self.thread_getAllLinks.start()
         pass
 
+    def playNext(self):
+        print('下一集')
+        # 找到下一集的播放链接
+        old = self.lblLastPlayEpisodeNum.text()
+        length = len(self.detailResult)
+        n = 1
+        for i in range(1, length+1):
+            s = self.detailResult[i]
+            if s[0] == old:
+                n = i + 1
+                break
+            pass
+        # 找到下一集的编号
+        # 如果下一集越界
+        if n > length:
+            n -= 1
+        self.play(self.detailResult[n][0], self.detailResult[n][1])
+        pass
+
     # 播放
     def play(self, name, url):
         """
@@ -293,6 +315,9 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         :return: None
         """
         print('播放', url)
+        self.lblLastPlayEpisodeName.setText(self.currentEName)
+        self.lblLastPlayEpisodeNum.setText(name)
+        self.btnNext.setEnabled(True)
         if url[-5:].lower() == '.html':
             self.log_secondary('非常抱歉！可能此接口不适合这部番剧><')
             self.log_secondary('可以尝试在抓取里的链接播放，或着切换搜索接口！')
@@ -328,6 +353,17 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         # 检查更新
         if self.config.checkUpdate:
             QTimer.singleShot(2000, lambda: self.thread_getUpdates.start())
+        pass
+
+    # 页面切换
+    def pageChanged(self):
+        # 抓取链接禁用
+        self.btnGetAllLinks.setEnabled(False)
+        # 下一集禁用
+        self.btnNext.setEnabled(False)
+        # 上次播放清除
+        self.lblLastPlayEpisodeNum.setText('第0集')
+        self.lblLastPlayEpisodeName.setText('无')
         pass
 
     # 返回
