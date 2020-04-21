@@ -457,8 +457,8 @@ font: 12pt &quot;微软雅黑&quot;;</string>
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>70</width>
-               <height>18</height>
+               <width>100</width>
+               <height>30</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridBtns">
@@ -1106,6 +1106,14 @@ background-color: #292931;</string>
               <property name="focusPolicy">
                <enum>Qt::NoFocus</enum>
               </property>
+              <property name="toolTip">
+               <string>接口1 老司机一样稳，极少翻车
+接口2 不得不说，这个网站有点不太行，有的搜到看不了
+...</string>
+              </property>
+              <property name="toolTipDuration">
+               <number>-1</number>
+              </property>
               <property name="styleSheet">
                <string notr="true">QComboBox {
 color: #bababa;
@@ -1119,6 +1127,9 @@ border: 1px solid #393942;
 color: #bababa;
 background-color: #393942;
 selection-background-color: #7f7f7f;
+}
+QToolTip{
+color:#ffffff;
 }</string>
               </property>
               <item>

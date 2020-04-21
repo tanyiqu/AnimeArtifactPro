@@ -169,7 +169,7 @@ class Ui_mainForm(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName("scrollArea_2")
         self.scrollBtns = QtWidgets.QWidget()
-        self.scrollBtns.setGeometry(QtCore.QRect(0, 0, 70, 18))
+        self.scrollBtns.setGeometry(QtCore.QRect(0, 0, 100, 30))
         self.scrollBtns.setObjectName("scrollBtns")
         self.gridBtns = QtWidgets.QGridLayout(self.scrollBtns)
         self.gridBtns.setContentsMargins(9, 9, -1, -1)
@@ -456,6 +456,7 @@ class Ui_mainForm(object):
         self.comboSelectInterface.setMinimumSize(QtCore.QSize(68, 38))
         self.comboSelectInterface.setMaximumSize(QtCore.QSize(68, 38))
         self.comboSelectInterface.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.comboSelectInterface.setToolTipDuration(-1)
         self.comboSelectInterface.setStyleSheet("QComboBox {\n"
 "color: #bababa;\n"
 "background:transparent;\n"
@@ -468,6 +469,9 @@ class Ui_mainForm(object):
 "color: #bababa;\n"
 "background-color: #393942;\n"
 "selection-background-color: #7f7f7f;\n"
+"}\n"
+"QToolTip{\n"
+"color:#ffffff;\n"
 "}")
         self.comboSelectInterface.setObjectName("comboSelectInterface")
         self.comboSelectInterface.addItem("")
@@ -540,6 +544,9 @@ class Ui_mainForm(object):
         self.btnBack.setToolTip(_translate("mainForm", "返回"))
         self.btnSearch.setToolTip(_translate("mainForm", "o(*≧▽≦)ツ"))
         self.btnSearch.setText(_translate("mainForm", "搜索"))
+        self.comboSelectInterface.setToolTip(_translate("mainForm", "接口1 老司机一样稳，极少翻车\n"
+"接口2 不得不说，这个网站有点不太行，有的搜到看不了\n"
+"..."))
         self.comboSelectInterface.setItemText(0, _translate("mainForm", "接口1"))
         self.comboSelectInterface.setItemText(1, _translate("mainForm", "接口2"))
         self.btnMinSize.setToolTip(_translate("mainForm", "最小化"))

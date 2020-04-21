@@ -156,17 +156,23 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
 
     # 搜索 线程执行
     def _search(self):
-        # 获取搜索的数据
-        self.searchResult = self.crawlImpl.search(self.searchword)
-        # print(type(self.searchResult), self.searchResult)
-        # 将json格式化成python内置的列表对象
-        self.searchResult = json.loads(self.searchResult)
-        # print('标准化前：', self.searchResult)
-        # 解析成app标准的列表
-        self.searchResult = self.crawlImpl.parseSearchResult(self.searchResult)
-        print('标准化后：', self.searchResult)
-        # 发射搜索完成的信号
-        self.searchFinish.signal.emit()
+        try:
+            # 获取搜索的数据
+            self.searchResult = self.crawlImpl.search(self.searchword)
+            # print(type(self.searchResult), self.searchResult)
+            # 将json格式化成python内置的列表对象
+            self.searchResult = json.loads(self.searchResult)
+            # print('标准化前：', self.searchResult)
+            # 解析成app标准的列表
+            self.searchResult = self.crawlImpl.parseSearchResult(self.searchResult)
+            print('标准化后：', self.searchResult)
+            # 发射搜索完成的信号
+            self.searchFinish.signal.emit()
+            pass
+        except Exception as e:
+            print('异常', e)
+            self.log('请求有点频繁！不知道这个网站怎么搞的！')
+            return
         pass
 
     # 搜索完成时执行
@@ -260,6 +266,8 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
 
     # 获取详情完成
     def _detailFinish(self):
+        if len(self.detailResult) == 0:
+            return
         self.log_secondary('番剧获取完毕!')
         self.log_secondary('「' + self.currentEName + '」 总集数：' + str(len(self.detailResult)))
         # 在这里加载详情信息
