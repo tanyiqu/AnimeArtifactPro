@@ -39,6 +39,7 @@ class SettingForm(QWidget):
     def _finish(self):
         self.save()
         self.close()
+        self.parent.syncInterface()
         pass
 
     def save(self):

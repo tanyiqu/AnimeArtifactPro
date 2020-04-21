@@ -4,6 +4,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QDialog, QFileDialog
 
+import Utils
 from Configuration import Configuration
 from ui.ui_designer.ui_file.uic_initDialog import Ui_initDialog
 
@@ -72,7 +73,7 @@ class InitDialog(QDialog):
 
         self.config.first_open = False
         self.config.save()
-        self._closeApp()
+        Utils.restart_program()
         pass
 
     def _closeApp(self):

@@ -1,4 +1,5 @@
 import os
+import sys
 import webbrowser
 from PyQt5.QtCore import Qt, QPoint, QRect
 from PyQt5.QtGui import QMouseEvent, QPainter, QPixmap, QKeyEvent, QIcon
@@ -89,6 +90,10 @@ class MainForm(QWidget):
                                             "QPushButton:hover{border-image: url(resource/imgs/back_hover.png)}"
                                             "QPushButton:pressed{border-image: url(resource/imgs/back_pressed.png)}")
 
+        pass
+
+    def syncInterface(self):
+        self.mainForm.welcomeWidget.refreshHello()
         pass
 
     def initFunc(self):

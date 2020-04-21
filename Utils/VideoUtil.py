@@ -4,8 +4,8 @@ import threading
 import R
 from Configuration import Configuration
 
-config = Configuration()
-player = config.player_path
+# config = Configuration()
+# player = config.player_path
 
 
 def play(link):
@@ -15,8 +15,8 @@ def play(link):
     :return: None
     """
     # 如果没有路径，返回-1
-    if player is None:
-        return -1
+    # if player is None:
+    #     return -1
     # 开启线程播放
     # 判断一下能不能用potplayer播放
     if link[-5:].lower() == '.m3u8':
@@ -30,5 +30,5 @@ def play(link):
 
 
 def _play_(link):
-    call([player, link])
+    call([Configuration().player_path, link])
     pass

@@ -53,9 +53,7 @@ class WelcomeWidget(QWidget):
         self.timer.start(1000)
 
         # 欢迎语
-        self.welcomeWidget.lblHello.setText(self.hello[1] + ' ' + self.config.user_name)
-        self.welcomeWidget.lblHelloWord.setText(self.hello[2])
-        self.welcomeWidget.lblVersion.setText(R.string.APP_NAME + ' ' + R.string.VERSION)
+        self.refreshHello()
 
         # 动图
         # movie = QMovie('resource/imgs/gif1.gif')
@@ -66,6 +64,12 @@ class WelcomeWidget(QWidget):
         # 设置动画
         if self.config.play_anim:
             self.initAnimation()
+        pass
+
+    def refreshHello(self):
+        self.welcomeWidget.lblHello.setText(self.hello[1] + ' ' + self.config.user_name)
+        self.welcomeWidget.lblHelloWord.setText(self.hello[2])
+        self.welcomeWidget.lblVersion.setText(R.string.APP_NAME + ' ' + R.string.VERSION)
         pass
 
     def initAnimation(self):
