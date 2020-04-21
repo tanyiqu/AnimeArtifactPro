@@ -15,6 +15,7 @@ import ui.ui_designer.ui_file.uic_mainForm
 from Utils import VideoUtil
 from Signals import SearchFinish, DetailFinish, UpdateSignal
 from Utils.CrawlInterfaces.CrawlImpl_01 import CrawlImpl_01
+from Utils.CrawlInterfaces.CrawlImpl_02 import CrawlImpl_02
 from Utils.WebUtil import setLabelImg
 from ui.Widgets.ItemWidget import ItemWidget
 from ui.Widgets.SearchBarWidget import SearchBarWidget
@@ -80,8 +81,9 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         """
         self.config = Configuration()
         # 根据配置文件选择接口
-        if self.config.curr_interface == 1:
-            self.crawlImpl = CrawlImpl_01()
+        # if self.config.curr_interface == 1:
+        #     self.crawlImpl = CrawlImpl_01()
+        self.crawlImpl = CrawlImpl_01()
         self.welcomeWidget = WelcomeWidget()
         self.gridWelcome.addWidget(self.welcomeWidget, 0, 0)
         self.searchFinish = SearchFinish()
@@ -119,6 +121,8 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         self.btnGetAllLinks.clicked.connect(self.getAllLinks)
         # 下一集
         self.btnNext.clicked.connect(self.playNext)
+        # 切换接口
+        self.comboSelectInterface.currentIndexChanged.connect(self.changeInterface)
         pass
 
     # 点击搜索按钮
@@ -154,13 +158,13 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
     def _search(self):
         # 获取搜索的数据
         self.searchResult = self.crawlImpl.search(self.searchword)
-        # print(self.searchResult)
+        # print(type(self.searchResult), self.searchResult)
         # 将json格式化成python内置的列表对象
         self.searchResult = json.loads(self.searchResult)
         # print('标准化前：', self.searchResult)
         # 解析成app标准的列表
         self.searchResult = self.crawlImpl.parseSearchResult(self.searchResult)
-        # print('标准化后：', self.searchResult)
+        print('标准化后：', self.searchResult)
         # 发射搜索完成的信号
         self.searchFinish.signal.emit()
         pass
@@ -364,6 +368,18 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         # 上次播放清除
         self.lblLastPlayEpisodeNum.setText('第0集')
         self.lblLastPlayEpisodeName.setText('无')
+        pass
+
+    def changeInterface(self):
+        i = self.comboSelectInterface.currentIndex() + 1
+        if i == 1:
+            self.crawlImpl = CrawlImpl_01()
+            pass
+        elif i == 2:
+            self.crawlImpl = CrawlImpl_02()
+            pass
+        else:
+            self.crawlImpl = CrawlImpl_01()
         pass
 
     # 返回
