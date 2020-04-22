@@ -338,9 +338,9 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         # 开启线程获取真实播放链接
         url = self.crawlImpl.getVideoUrl(url)
         self.log_secondary('真实视频播放链接：' + url)
-        # 判断一下能不能用potplayer播放
-        if url[-5:].lower() == '.m3u8':
-            self.log_secondary('m3u8链接暂时只能用网页解析！')
+        # # 判断一下能不能用potplayer播放
+        # if url[-5:].lower() == '.m3u8':
+        #     self.log_secondary('m3u8链接暂时只能用网页解析！')
         VideoUtil.play(url)
         pass
 

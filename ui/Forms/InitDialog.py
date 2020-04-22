@@ -68,7 +68,7 @@ class InitDialog(QDialog):
         if idm == "无":
             idm = None
         self.config.user_name = user_name.strip()
-        self.config.player_path = player
+        self.config.player_pot_path = player
         self.config.idm_path = idm
 
         self.config.first_open = False
