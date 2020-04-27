@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'welcomeWidget.ui'
 #
-# Created by: PyQt5 UI code generator 5.14.1
+# Created by: PyQt5 UI code generator 5.14.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_welcomeWidget(object):
     def setupUi(self, welcomeWidget):
         welcomeWidget.setObjectName("welcomeWidget")
-        welcomeWidget.resize(984, 519)
+        welcomeWidget.resize(976, 549)
         self.lblGif = QtWidgets.QLabel(welcomeWidget)
         self.lblGif.setGeometry(QtCore.QRect(0, 420, 100, 100))
         self.lblGif.setMinimumSize(QtCore.QSize(100, 100))
@@ -56,7 +56,7 @@ class Ui_welcomeWidget(object):
 "background-color: rgba(0, 0, 0, 0);")
         self.lblVersion.setObjectName("lblVersion")
         self.widget = QtWidgets.QWidget(welcomeWidget)
-        self.widget.setGeometry(QtCore.QRect(20, 360, 379, 141))
+        self.widget.setGeometry(QtCore.QRect(20, 390, 379, 141))
         self.widget.setMinimumSize(QtCore.QSize(315, 100))
         self.widget.setMaximumSize(QtCore.QSize(1010, 1010))
         self.widget.setStyleSheet("background-color: rgba(0, 0, 0, 84);")

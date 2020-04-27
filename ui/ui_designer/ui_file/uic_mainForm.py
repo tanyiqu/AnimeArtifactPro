@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainForm.ui'
 #
-# Created by: PyQt5 UI code generator 5.14.1
+# Created by: PyQt5 UI code generator 5.14.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_mainForm(object):
     def setupUi(self, mainForm):
         mainForm.setObjectName("mainForm")
-        mainForm.resize(1000, 800)
+        mainForm.resize(992, 834)
         mainForm.setMinimumSize(QtCore.QSize(960, 650))
         self.gridMain = QtWidgets.QGridLayout(mainForm)
         self.gridMain.setContentsMargins(8, 8, 8, 8)
