@@ -624,38 +624,24 @@ color: #ffffff;
         </property>
         <property name="minimumSize">
          <size>
-          <width>75</width>
+          <width>30</width>
           <height>30</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>75</width>
+          <width>30</width>
           <height>30</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>播放下一集</string>
+        </property>
         <property name="styleSheet">
-         <string notr="true">QPushButton{
-background-color: #2e2e36;
-color: #bababa;
-font: 10pt &quot;微软雅黑&quot;;
-border: 1px solid #bababa;
-}
-QPushButton:hover{
-background-color: #ff5246;
-color: #ffffff;
-}
-QPushButton:pressed{
-background-color: #000000;
-color: #ffffff;
-}
-QPushButton:disabled{
-background-color: #bababa;
-color: #ffffff;
-}</string>
+         <string notr="true"/>
         </property>
         <property name="text">
-         <string>下一集</string>
+         <string/>
         </property>
        </widget>
       </item>

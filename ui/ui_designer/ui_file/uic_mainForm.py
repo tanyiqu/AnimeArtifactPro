@@ -243,26 +243,10 @@ class Ui_mainForm(object):
         self.gridLayout_3.addWidget(self.btnBatchDownload, 0, 4, 1, 1)
         self.btnNext = QtWidgets.QPushButton(self.widgetTools)
         self.btnNext.setEnabled(False)
-        self.btnNext.setMinimumSize(QtCore.QSize(75, 30))
-        self.btnNext.setMaximumSize(QtCore.QSize(75, 30))
-        self.btnNext.setStyleSheet("QPushButton{\n"
-"background-color: #2e2e36;\n"
-"color: #bababa;\n"
-"font: 10pt \"微软雅黑\";\n"
-"border: 1px solid #bababa;\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: #ff5246;\n"
-"color: #ffffff;\n"
-"}\n"
-"QPushButton:pressed{\n"
-"background-color: #000000;\n"
-"color: #ffffff;\n"
-"}\n"
-"QPushButton:disabled{\n"
-"background-color: #bababa;\n"
-"color: #ffffff;\n"
-"}")
+        self.btnNext.setMinimumSize(QtCore.QSize(30, 30))
+        self.btnNext.setMaximumSize(QtCore.QSize(30, 30))
+        self.btnNext.setStyleSheet("")
+        self.btnNext.setText("")
         self.btnNext.setObjectName("btnNext")
         self.gridLayout_3.addWidget(self.btnNext, 0, 12, 1, 1)
         self.lblLastPlayEpisodeName = QtWidgets.QLabel(self.widgetTools)
@@ -533,7 +517,7 @@ class Ui_mainForm(object):
         self.lblLastPlay.setText(_translate("mainForm", "最近一次播放："))
         self.btnOpenSource.setText(_translate("mainForm", "项目地址"))
         self.btnBatchDownload.setText(_translate("mainForm", "批量下载"))
-        self.btnNext.setText(_translate("mainForm", "下一集"))
+        self.btnNext.setToolTip(_translate("mainForm", "播放下一集"))
         self.lblLastPlayEpisodeName.setText(_translate("mainForm", "无"))
         self.btnSetting.setText(_translate("mainForm", "设置"))
         self.btnGetAllLinks.setText(_translate("mainForm", "抓取链接"))

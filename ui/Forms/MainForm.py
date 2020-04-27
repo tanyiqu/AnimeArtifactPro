@@ -88,6 +88,11 @@ class MainForm(QWidget):
         self.mainForm.btnBack.setStyleSheet("QPushButton{border-image: url(resource/imgs/back_normal.png)}"
                                             "QPushButton:hover{border-image: url(resource/imgs/back_hover.png)}"
                                             "QPushButton:pressed{border-image: url(resource/imgs/back_pressed.png)}")
+        # 下一集
+        self.mainForm.btnNext.setStyleSheet("QPushButton{border-image: url(resource/imgs/next_normal.png)}"
+                                            "QPushButton:hover{border-image: url(resource/imgs/next_hover.png)}"
+                                            "QPushButton:pressed{border-image: url(resource/imgs/next_pressed.png)}"
+                                            "QPushButton:disabled{border-image: url(resource/imgs/next_disable.png)}")
 
         pass
 
