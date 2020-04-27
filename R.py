@@ -3,7 +3,7 @@ class string:
 
     APP_NAME = '看番神器 Pro'
 
-    VERSION = 'V1.1.0 正式版'
+    VERSION = 'V1.2.0 正式版'
 
     OPEN_SOURCE = 'https://github.com/Tanyiqu/AnimeArtifactPro'
 
@@ -23,9 +23,22 @@ class string:
 
     UPDATE_LOG = [
         {
+            'version': 'V1.2.0 正式版',
+            'time': '2020.04.27',
+            'downloadNum': 0,
+            'detail': [
+                '1.添加备用播放器功能、解析m3u8视频（网速不快的话，体验应该会不佳）',
+                '2.更改主界面比例为16:9,',
+                '3.添加播放下一集功能',
+                '4.新增接口2（太垃圾了，这个网站！实在没有好网站让我做测试><）',
+                '5.提供临时更换背景图的解决方案，详情在“使用教程”分集里面',
+                '...'
+            ]
+        },
+        {
             'version': 'V1.1.0 正式版',
             'time': '2020.04.20',
-            'downloadNum': 0,
+            'downloadNum': 489,
             'detail': [
                 '1.添加设置功能',
                 '2.添加批量下载功能',
@@ -36,7 +49,7 @@ class string:
         {
             'version': 'V1.0.1 测试版',
             'time': '2020.04.19',
-            'downloadNum': 145,
+            'downloadNum': 170,
             'detail': [
                 '1.添加使用教程的接口',
                 '2.添加更新日志',
@@ -48,7 +61,7 @@ class string:
         {
             'version': 'V1.0 测试版',
             'time': '2020.04.12',
-            'downloadNum': 172,
+            'downloadNum': 186,
             'detail': [
                 '1.发布',
                 '...'
