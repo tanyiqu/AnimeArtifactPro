@@ -16,6 +16,7 @@ from Utils import VideoUtil
 from Signals import SearchFinish, DetailFinish, UpdateSignal
 from Utils.CrawlInterfaces.CrawlImpl_01 import CrawlImpl_01
 from Utils.CrawlInterfaces.CrawlImpl_02 import CrawlImpl_02
+from Utils.CrawlInterfaces.CrawlImpl_03 import CrawlImpl_03
 from Utils.WebUtil import setLabelImg
 from ui.Widgets.ItemWidget import ItemWidget
 from ui.Widgets.SearchBarWidget import SearchBarWidget
@@ -330,13 +331,14 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         self.lblLastPlayEpisodeName.setText(self.currentEName)
         self.lblLastPlayEpisodeNum.setText(name)
         self.btnNext.setEnabled(True)
-        if url[-5:].lower() == '.html':
-            self.log_secondary('非常抱歉！可能此接口不适合这部番剧><')
-            self.log_secondary('可以尝试在抓取里的链接播放，或着切换搜索接口！')
-            return
+
         self.log_secondary('正在播放：' + name)
         # 开启线程获取真实播放链接
         url = self.crawlImpl.getVideoUrl(url)
+        # if url[-5:].lower() == '.html':
+        #     self.log_secondary('非常抱歉！可能此接口不适合这部番剧><')
+        #     self.log_secondary('可以尝试在抓取里的链接播放，或着切换搜索接口！')
+        #     return
         self.log_secondary('真实视频播放链接：' + url)
         # # 判断一下能不能用potplayer播放
         # if url[-5:].lower() == '.m3u8':
@@ -385,6 +387,9 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
             pass
         elif i == 2:
             self.crawlImpl = CrawlImpl_02()
+            pass
+        elif i == 3:
+            self.crawlImpl = CrawlImpl_03()
             pass
         else:
             self.crawlImpl = CrawlImpl_01()

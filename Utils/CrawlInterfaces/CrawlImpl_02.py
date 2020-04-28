@@ -107,7 +107,7 @@ class CrawlImpl_02(CrawlUtil):
 
     def getVideoUrl(self, url):
         url = url[:-4]
-        print(url)
+        print("2 URL", url)
         return url
         pass
 
