@@ -43,9 +43,7 @@ class WelcomeWidget(QWidget):
         pass
 
     def initAppearance(self):
-        # 开启线程获取欢迎图片
-        t = threading.Thread(target=self.getImgData, name='', )
-        t.start()
+        self.refreshBG()
 
         # 系统时间
         self._timerUpDate()
@@ -66,10 +64,18 @@ class WelcomeWidget(QWidget):
             self.initAnimation()
         pass
 
+    # 刷新界面文字
     def refreshHello(self):
         self.welcomeWidget.lblHello.setText(self.hello[1] + ' ' + self.config.user_name)
         self.welcomeWidget.lblHelloWord.setText(self.hello[2])
         self.welcomeWidget.lblVersion.setText(R.string.APP_NAME + ' ' + R.string.VERSION)
+        pass
+
+    # 刷新界面背景图
+    def refreshBG(self):
+        # 开启线程获取欢迎图片
+        t = threading.Thread(target=self.getImgData, name='', )
+        t.start()
         pass
 
     def initAnimation(self):

@@ -98,6 +98,7 @@ class MainForm(QWidget):
 
     def syncInterface(self):
         self.mainForm.welcomeWidget.refreshHello()
+        self.mainForm.welcomeWidget.refreshBG()
         pass
 
     def initFunc(self):

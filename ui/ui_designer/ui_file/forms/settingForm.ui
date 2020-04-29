@@ -360,6 +360,19 @@
         <bool>true</bool>
        </property>
       </widget>
+      <widget class="QPushButton" name="btnChangeBG">
+       <property name="geometry">
+        <rect>
+         <x>266</x>
+         <y>220</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>切换背景图</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">

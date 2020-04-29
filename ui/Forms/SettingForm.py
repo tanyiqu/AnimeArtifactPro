@@ -1,5 +1,7 @@
+import random
 import threading
 import webbrowser
+import shutil
 from subprocess import call
 
 from PyQt5 import QtGui
@@ -7,6 +9,7 @@ from PyQt5.QtWidgets import QWidget, QFileDialog
 
 import R
 from Configuration import Configuration
+from Utils import TextUtil
 from ui.ui_designer.ui_file.uic_settingForm import Ui_settingForm
 
 
@@ -20,17 +23,20 @@ class SettingForm(QWidget):
         self.initAppearance()
         self.loadConfig()
 
+        # 检查更新
         self.settingForm.btnCheckUpdate.clicked.connect(lambda: webbrowser.open_new(R.string.DOWNLOAD_LINK))
-
+        # 配置exe
         self.settingForm.btnTestPlayerPot.clicked.connect(self._testPlayer)
         self.settingForm.btnTestPlayerVlc.clicked.connect(self._testPlayer2)
         self.settingForm.btnTestIDM.clicked.connect(self._testIDM)
-
+        # 完成
         self.settingForm.btnFinished_1.clicked.connect(self._finish)
-
+        # 选择exe
         self.settingForm.btnChoosePlayerPot.clicked.connect(self._choosePlayer)
         self.settingForm.btnChoosePlayerVlc.clicked.connect(self._choosePlayer2)
         self.settingForm.btnChooseIDM.clicked.connect(self._chooseIDM)
+        # 切换背景
+        self.settingForm.btnChangeBG.clicked.connect(self._changeBG)
 
         pass
 
@@ -105,6 +111,26 @@ class SettingForm(QWidget):
                                                                 "播放器 (*exe);")
         if fileName_choose != '':
             self.settingForm.lblIDM.setText(fileName_choose)
+        pass
+
+    def _changeBG(self):
+        # 选择图片
+        fileName_choose, filetype = QFileDialog.getOpenFileName(self,
+                                                                '选择背景图',
+                                                                TextUtil.get_desktop(),
+                                                                "背景图（只支持png） (*png);")
+        img_path = 'resource/imgs/welcome/welcome_01.png'
+        # 备份原来的图片
+        # 生成乱码后缀
+        sur = ''.join(random.sample(
+            ['z', 'y', 'x', 'w', 'v', 'u', 't', 's', 'r', 'q', 'p', 'o', 'n', 'm', 'l', 'k', 'j', 'i', 'h', 'g', 'f',
+             'e', 'd', 'c', 'b', 'a'], 6))
+        img_path_ = 'resource/imgs/welcome/welcome_01{}.png'.format(sur)
+        shutil.copyfile(img_path, img_path_)
+        # 复制选择的图片
+        shutil.copyfile(fileName_choose, img_path)
+        # 生效
+        self.parent.syncInterface()
         pass
 
     def loadConfig(self):
