@@ -1,4 +1,8 @@
+import re
+import time
 from abc import abstractmethod
+
+from Utils import TextUtil
 
 
 class CrawlUtil:
@@ -69,13 +73,51 @@ class CrawlUtil:
         """
         pass
 
-    @abstractmethod
-    def getAllLinks(self, result, func):
+    # @abstractmethod
+    def getAllLinks(self, result, log):
         """
         获取动漫的全部链接
         :param result: 由detail()函数获取的结果 如： {1: ['第1集', 'url'], 2: ['第2集', 'url']}
-        :param func: 打印日志函数
+        :param log: 打印日志函数
         :return: 不返回值，直接把链接保存到文本中
         """
+        # 捕获异常
+        try:
+            log('正在抓取链接')
+            log('【提示】在未出现成功提示之前最好不要离开此页面！')
+            log('...')
+            Num = len(result)
+            # 格式化集数：第1集 --> 第01集 根据集数而定
+            n = TextUtil.getIntegerDigits(Num)
+            f = '第%0{}d集'.format(n)
+            for i in range(1, Num + 1):
+                name = result[i][0]
+                if re.match('第(.*?)集', name):
+                    num = re.findall('第(.*?)集', name)[0]
+                    # 看下num是不是整数
+                    if re.match(r'\d *', num):
+                        name = f % int(num)
+                        result.update({i: [name, result[i][1]]})
+                pass
+
+            # 创建文件
+            desktop = TextUtil.get_desktop()
+            file = open(desktop + '/download.txt', 'w')
+            file.close()
+            for i in range(1, Num + 1):
+                time.sleep(1)
+                # print(result[i][0])
+                with open(desktop + '/download.txt', 'a') as f:
+                    f.write(result[i][0] + '@' + self.getVideoUrl(result[i][1]) + '\n')
+                    log('【{}】'.format(result[i][0]))
+                    print('【{}】'.format(result[i][0]))
+                    pass
+                pass
+            log('抓取完成！')
+            log('以保存至 ' + desktop + '\\download.txt')
+        except Exception as e:
+            print('yc')
+            print(e.args)
         pass
+
     pass

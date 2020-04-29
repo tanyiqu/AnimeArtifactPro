@@ -36,6 +36,16 @@ class string:
             ]
         },
         {
+            'version': 'V1.2.0',
+            'time': '2020.0',
+            'downloadNum': 0,
+            'detail': [
+                '1.添加接口3',
+                '2.对所有接口添加抓取链接功能',
+                '...'
+            ]
+        },
+        {
             'version': 'V1.1.0 正式版',
             'time': '2020.04.20',
             'downloadNum': 489,

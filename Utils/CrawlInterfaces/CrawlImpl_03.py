@@ -102,8 +102,5 @@ class CrawlImpl_03(CrawlUtil):
         #     f.write(htmlsrc)
         reg = 'var now="(.*?)"'
         url = re.findall(reg, htmlsrc)[0]
-        print("URL", url)
+        # print("URL", url)
         return url
-
-    def getAllLinks(self, result, func):
-        pass

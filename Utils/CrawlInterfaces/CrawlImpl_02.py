@@ -107,16 +107,13 @@ class CrawlImpl_02(CrawlUtil):
 
     def getVideoUrl(self, url):
         url = url[:-4]
-        print("2 URL", url)
+        # print("2 URL", url)
         return url
-        pass
-
-    def getAllLinks(self, result, func):
         pass
 
     def trimList(self, obj):
         newObj = [obj[0]]
-        n = 0
+        # n = 0
         flag = obj[0][1]
         length = len(obj)
 
