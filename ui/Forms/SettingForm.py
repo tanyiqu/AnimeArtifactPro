@@ -119,6 +119,8 @@ class SettingForm(QWidget):
                                                                 '选择背景图',
                                                                 TextUtil.get_desktop(),
                                                                 "背景图（只支持png） (*png);")
+        if fileName_choose == '':
+            return
         img_path = 'resource/imgs/welcome/welcome_01.png'
         # 备份原来的图片
         # 生成乱码后缀
