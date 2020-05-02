@@ -14,19 +14,26 @@ def play(link):
     :param link: 视频链接
     :return: None
     """
-    # 如果没有路径，返回-1
-    # if player is None:
-    #     return -1
-    # 开启线程播放
-    # 判断一下能不能用potplayer播放
-    player = ''
+
+    # 处理m3u8链接
     if link[-5:].lower() == '.m3u8':
-        # broswerLk = (R.string.M3U8_API + '{}').format(link)
-        # webbrowser.open_new(broswerLk)
-        player = Configuration().player_vlc_path
+        # 判断是网页解析还是vlc解析
+        if Configuration().broswer_decode_m3u8:
+            broswerLk = (R.string.M3U8_API + '{}').format(link)
+            webbrowser.open_new(broswerLk)
+            return
+        else:
+            player = Configuration().player_vlc_path
         pass
-    else:
+    # mp4播放链接
+    elif (link[-4:].lower() == '.mp4') or ('.mp4' in link.lower()):
         player = Configuration().player_pot_path
+        pass
+    # 处理其他链接
+    else:
+        broswerLk = (R.string.M3U8_API + '{}').format(link)
+        webbrowser.open_new(broswerLk)
+        return
         pass
     t = threading.Thread(target=_play_, name='播放', args=(link, player,))
     t.start()

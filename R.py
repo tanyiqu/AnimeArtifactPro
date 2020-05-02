@@ -15,7 +15,8 @@ class string:
 个人认为，就算有清晰度极差的视频，只要下载到手机上（虽然有些下载不了），观看观感不会影响太多。
 """ % APP_NAME
 
-    M3U8_API = 'https://www.m3u8play.com/?play='
+    # M3U8_API = 'https://www.m3u8play.com/?play='
+    M3U8_API = 'https://www.nxflv.com/?url='
 
     TUTORIAL = 'https://www.bilibili.com/video/BV1Gp4y1y74c'
 

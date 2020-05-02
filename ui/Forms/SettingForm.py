@@ -62,6 +62,7 @@ class SettingForm(QWidget):
         self.config.showClosingWarning = self.settingForm.checkClosingWarning.isChecked()
         self.config.play_sound = self.settingForm.checkPlaySound.isChecked()
         self.config.checkUpdate = self.settingForm.checkCheckUpdate.isChecked()
+        self.config.broswer_decode_m3u8 = self.settingForm.checkBrowserDecodeM3u.isChecked()
         self.config.save()
         pass
 
@@ -143,6 +144,7 @@ class SettingForm(QWidget):
         self.settingForm.checkClosingWarning.setChecked(self.config.showClosingWarning)
         self.settingForm.checkPlaySound.setChecked(self.config.play_sound)
         self.settingForm.checkCheckUpdate.setChecked(self.config.checkUpdate)
+        self.settingForm.checkBrowserDecodeM3u.setChecked(self.config.broswer_decode_m3u8)
         pass
 
     pass

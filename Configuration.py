@@ -37,6 +37,7 @@ class Configuration(metaclass=SingletonType):
     play_sound = True           # 播放音效
     showClosingWarning = False  # 显示警告框，抓取链接中的警告还是要显示
     checkUpdate = True          # 检查更新
+    broswer_decode_m3u8 = True  # 用浏览器解析m3u8
 
     def __init__(self):
         with open(self.jsonPath, encoding='utf-8') as f:
@@ -54,6 +55,7 @@ class Configuration(metaclass=SingletonType):
         self.play_sound = self.obj['play_sound']
         self.showClosingWarning = self.obj['showClosingWarning']
         self.checkUpdate = self.obj['checkUpdate']
+        self.broswer_decode_m3u8 = self.obj['broswer_decode_m3u8']
         pass
 
     # 保存设置到json
@@ -69,6 +71,7 @@ class Configuration(metaclass=SingletonType):
         self.obj['play_sound'] = self.play_sound
         self.obj['showClosingWarning'] = self.showClosingWarning
         self.obj['checkUpdate'] = self.checkUpdate
+        self.obj['broswer_decode_m3u8'] = self.broswer_decode_m3u8
         with open(self.jsonPath, 'w') as f:
             json.dump(self.obj, f)
             pass
@@ -86,6 +89,8 @@ class Configuration(metaclass=SingletonType):
         self.play_anim = True
         self.play_sound = True
         self.showClosingWarning = True
+        self.checkUpdate = False
+        self.broswer_decode_m3u8 = True
         self.save()
         pass
 

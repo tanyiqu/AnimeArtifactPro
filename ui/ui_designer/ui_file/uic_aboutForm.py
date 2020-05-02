@@ -79,6 +79,7 @@ class Ui_AboutForm(object):
 "\n"
 "额外感谢：\n"
 "● 软件图标：https://www.iconfont.cn/collections/detail?cid=21867\n"
+"● 诺讯解析：https://www.nxflv.com/\n"
 "● B站网友提供的网站\n"
 "● 其他：...\n"
 "\n"
