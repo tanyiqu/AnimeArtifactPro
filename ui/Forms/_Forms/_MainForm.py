@@ -17,6 +17,7 @@ from Signals import SearchFinish, DetailFinish, UpdateSignal
 from Utils.CrawlInterfaces.CrawlImpl_01 import CrawlImpl_01
 from Utils.CrawlInterfaces.CrawlImpl_02 import CrawlImpl_02
 from Utils.CrawlInterfaces.CrawlImpl_03 import CrawlImpl_03
+from Utils.CrawlInterfaces.CrawlImpl_04 import CrawlImpl_04
 from Utils.WebUtil import setLabelImg
 from ui.Widgets.ItemWidget import ItemWidget
 from ui.Widgets.SearchBarWidget import SearchBarWidget
@@ -34,32 +35,32 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
     """
 
     # 核心变量
-    config = None               # 全局配置
-    crawlImpl = None            # 接口实现类
+    config = None  # 全局配置
+    crawlImpl = None  # 接口实现类
 
     # 信号
-    searchFinish = None     # 搜索完成
-    detailFinish = None     # 获取详情完成
+    searchFinish = None  # 搜索完成
+    detailFinish = None  # 获取详情完成
     updateSignal = None
 
     # 线程
-    thread_search = None        # 搜索动漫线程
-    thread_detail = None        # 加载动漫详情
-    thread_getAllLinks = None   # 抓取所有链接
-    thread_getUpdates = None    # 获取更新信息
+    thread_search = None  # 搜索动漫线程
+    thread_detail = None  # 加载动漫详情
+    thread_getAllLinks = None  # 抓取所有链接
+    thread_getUpdates = None  # 获取更新信息
 
     # 字符串变量
-    searchword = ''     # 关键词
-    currentEName = ''   # 当前番剧的名字
-    currentEUrl = ''    # 当前番剧的链接
+    searchword = ''  # 关键词
+    currentEName = ''  # 当前番剧的名字
+    currentEUrl = ''  # 当前番剧的链接
 
     # 控件
-    welcomeWidget = None    # 欢迎面板
-    txtSearchword = None    # 搜索输入框
+    welcomeWidget = None  # 欢迎面板
+    txtSearchword = None  # 搜索输入框
 
     #
-    searchResult = None     # 存放搜索的结果
-    detailResult = None     # 存放动漫的详情信息 如：{1: ['第1集'.'第1集的url'], 2: ['第2集'.'第2集的url']}
+    searchResult = None  # 存放搜索的结果
+    detailResult = None  # 存放动漫的详情信息 如：{1: ['第1集'.'第1集的url'], 2: ['第2集'.'第2集的url']}
 
     def init(self):
         # 加上搜索输入框
@@ -92,7 +93,8 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         self.updateSignal = UpdateSignal()
         self.thread_search = threading.Thread(target=self._search, name='')
         self.thread_detail = threading.Thread(target=self._detail, name='')
-        self.thread_getAllLinks = threading.Thread(target=self.crawlImpl.getAllLinks, name='getLinks', args=(self.detailResult, self.log_secondary,))
+        self.thread_getAllLinks = threading.Thread(target=self.crawlImpl.getAllLinks, name='getLinks',
+                                                   args=(self.detailResult, self.log_secondary,))
         self.thread_getUpdates = threading.Thread(target=self._checkUpdate, name='checkUpdate')
 
         pass
@@ -296,7 +298,8 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         if self.thread_getAllLinks.is_alive():
             self.log('正在抓取链接中！请稍后再试！')
             return
-        self.thread_getAllLinks = threading.Thread(target=self.crawlImpl.getAllLinks, name='getLinks', args=(self.detailResult, self.log_secondary,))
+        self.thread_getAllLinks = threading.Thread(target=self.crawlImpl.getAllLinks, name='getLinks',
+                                                   args=(self.detailResult, self.log_secondary,))
         self.thread_getAllLinks.start()
         pass
 
@@ -306,7 +309,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         old = self.lblLastPlayEpisodeNum.text()
         length = len(self.detailResult)
         n = 1
-        for i in range(1, length+1):
+        for i in range(1, length + 1):
             s = self.detailResult[i]
             if s[0] == old:
                 n = i + 1
@@ -391,6 +394,9 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         elif i == 3:
             self.crawlImpl = CrawlImpl_03()
             pass
+        elif i == 4:
+            self.crawlImpl = CrawlImpl_04()
+            pass
         else:
             self.crawlImpl = CrawlImpl_01()
         pass
@@ -407,7 +413,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
             pass
         # 其余的返回上一页
         else:
-            self.stackedWidget.setCurrentIndex(index-1)
+            self.stackedWidget.setCurrentIndex(index - 1)
         pass
 
     def log(self, msg, showTime=True):

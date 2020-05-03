@@ -461,6 +461,7 @@ class Ui_mainForm(object):
         self.comboSelectInterface.addItem("")
         self.comboSelectInterface.addItem("")
         self.comboSelectInterface.addItem("")
+        self.comboSelectInterface.addItem("")
         self.horizontalLayout.addWidget(self.comboSelectInterface)
         self.gridLayout_8.addWidget(self.widget, 0, 0, 1, 1)
         self.gridLayout_9.addWidget(self.widgetSearch, 0, 2, 1, 1)
@@ -529,12 +530,11 @@ class Ui_mainForm(object):
         self.btnBack.setToolTip(_translate("mainForm", "返回"))
         self.btnSearch.setToolTip(_translate("mainForm", "o(*≧▽≦)ツ"))
         self.btnSearch.setText(_translate("mainForm", "搜索"))
-        self.comboSelectInterface.setToolTip(_translate("mainForm", "接口1 老司机一样稳，极少翻车\n"
-"接口2 不得不说，这个网站有点不太行，有的搜到看不了\n"
-"..."))
+        self.comboSelectInterface.setToolTip(_translate("mainForm", "<html><head/><body><p>接口1 老司机一样稳，极少翻车</p><p>接口2 不得不说，这个网站有点不太行，有的搜到看不了</p><p>接口3 还行</p><p>接口4 搜到的基本上都是m3u8的，不过支持电影搜索</p><p>...</p></body></html>"))
         self.comboSelectInterface.setItemText(0, _translate("mainForm", "接口1"))
         self.comboSelectInterface.setItemText(1, _translate("mainForm", "接口2"))
         self.comboSelectInterface.setItemText(2, _translate("mainForm", "接口3"))
+        self.comboSelectInterface.setItemText(3, _translate("mainForm", "接口4"))
         self.btnMinSize.setToolTip(_translate("mainForm", "最小化"))
         self.btnMaxSize.setToolTip(_translate("mainForm", "象征性的按钮，意义不大\n"
 "最大化了反而会影响观感"))

@@ -17,7 +17,7 @@ class CrawlUtil:
         """
         使用接口查询searchword
         :param searchword: 关键词
-        :return: 搜索结果
+        :return: str 搜索结果
         //至少要包含这三个
         [{
         url:url,        整部动漫的url，如：http://susudm.com/acg/2130/

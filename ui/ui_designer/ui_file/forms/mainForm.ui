@@ -1093,9 +1093,7 @@ background-color: #292931;</string>
                <enum>Qt::NoFocus</enum>
               </property>
               <property name="toolTip">
-               <string>接口1 老司机一样稳，极少翻车
-接口2 不得不说，这个网站有点不太行，有的搜到看不了
-...</string>
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;接口1 老司机一样稳，极少翻车&lt;/p&gt;&lt;p&gt;接口2 不得不说，这个网站有点不太行，有的搜到看不了&lt;/p&gt;&lt;p&gt;接口3 还行&lt;/p&gt;&lt;p&gt;接口4 搜到的基本上都是m3u8的，不过支持电影搜索&lt;/p&gt;&lt;p&gt;...&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="toolTipDuration">
                <number>-1</number>
@@ -1131,6 +1129,11 @@ color:#ffffff;
               <item>
                <property name="text">
                 <string>接口3</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>接口4</string>
                </property>
               </item>
              </widget>
