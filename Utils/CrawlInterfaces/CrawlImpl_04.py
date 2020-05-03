@@ -71,7 +71,31 @@ class CrawlImpl_04(CrawlUtil):
         pass
 
     def detail(self, func, url):
+        d = {}
+        # 搞html源码
+        headers = {
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.24 Safari/537.36 Edg/83.0.478.18'
+        }
+        res = requests.get(url, headers=headers)
+        txt = res.content.decode('utf-8')
+        l1 = re.findall('(<div id="playlist1".*?</div>)', txt)[0]
+        l2 = re.findall('href="(.*?)">(.*?)</a>', l1)
+        length = len(l2)
+        for i in range(0, length):
+            ls = [l2[i][1], self.domain + l2[i][0]]
+            d.update({i + 1: ls})
+            pass
+        return d
         pass
 
     def getVideoUrl(self, url):
+        headers = {
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.24 Safari/537.36 Edg/83.0.478.18'
+        }
+        resp = requests.get(url, headers=headers)
+        txt = resp.content.decode('utf-8')
+        reg = 'var player_data={.*?"url":"(.*?)","url_next":.*?}'
+        u = re.findall(reg, txt)[0]
+        u = u.replace('\\', '')
+        return u
         pass
