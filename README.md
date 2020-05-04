@@ -1,7 +1,7 @@
 # 看番神器Pro V1.2.0 正式版 
 # by [Tanyiqu](https://tanyiqu.github.io/)
 
-![Image text](https://pp.qn.img-space.com/202004/29/ca4d7fa61883cbf134fb904a458787fa.png?imageView2/2/w/1200/q/75/ignore-error/1/)
+![Image text](https://tanyiqu.github.io/resource/AAP/01.png)
 
 ## 1. 为什么要自己写工具《看番神器》？
 实在是想看某部番，但是B站上没有资源
