@@ -370,6 +370,9 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
         # 检查更新
         if self.config.checkUpdate:
             QTimer.singleShot(2000, lambda: self.thread_getUpdates.start())
+            pass
+        # 选择默认接口
+        self.comboSelectInterface.setCurrentIndex(self.config.curr_interface - 1)
         pass
 
     # 页面切换

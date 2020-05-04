@@ -63,6 +63,7 @@ class SettingForm(QWidget):
         self.config.play_sound = self.settingForm.checkPlaySound.isChecked()
         self.config.checkUpdate = self.settingForm.checkCheckUpdate.isChecked()
         self.config.broswer_decode_m3u8 = self.settingForm.checkBrowserDecodeM3u.isChecked()
+        self.config.curr_interface = self.settingForm.comboDefaultInterface.currentIndex() + 1
         self.config.save()
         pass
 
@@ -145,6 +146,7 @@ class SettingForm(QWidget):
         self.settingForm.checkPlaySound.setChecked(self.config.play_sound)
         self.settingForm.checkCheckUpdate.setChecked(self.config.checkUpdate)
         self.settingForm.checkBrowserDecodeM3u.setChecked(self.config.broswer_decode_m3u8)
+        self.settingForm.comboDefaultInterface.setCurrentIndex(self.config.curr_interface - 1)
         pass
 
     pass

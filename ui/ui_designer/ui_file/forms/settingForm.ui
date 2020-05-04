@@ -277,7 +277,7 @@
         <string>完成</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QComboBox" name="comboDefaultInterface">
        <property name="geometry">
         <rect>
          <x>90</x>
@@ -299,6 +299,11 @@
        <item>
         <property name="text">
          <string>接口3</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>接口4</string>
         </property>
        </item>
       </widget>
