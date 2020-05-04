@@ -11,7 +11,8 @@ class SearchBarWidget(QLineEdit):
 
     def __init__(self):
         super().__init__()
-        self.setText('辉夜大小姐')
+        # self.setText('辉夜大小姐')
+        self.setText('搜索吧！')
         self.setMinimumHeight(38)
         self.setStyleSheet("""
             QLineEdit{
