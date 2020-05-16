@@ -77,6 +77,7 @@ class CrawlImpl_01(CrawlUtil):
         :return: None
         """
         jsonLink = jsonLink.replace('http://test.1yltao.com','http://test.1yltao.com:8022')
+
         temp_url = re.findall('url=(.*?)', jsonLink)[0]
         myheaders = {
             'Accept': 'application/json, text/javascript, */*; q=0.01',

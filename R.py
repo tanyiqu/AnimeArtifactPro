@@ -3,7 +3,7 @@ class string:
 
     APP_NAME = '看番神器 Pro'
 
-    VERSION = 'V1.2.1 正式版'
+    VERSION = 'V1.2.2 正式版'
 
     OPEN_SOURCE = 'https://github.com/Tanyiqu/AnimeArtifactPro'
 
@@ -24,9 +24,19 @@ class string:
 
     UPDATE_LOG = [
         {
+            'version': 'V1.2.2',
+            'time': '2020.05,17',
+            'downloadNum': 0,
+            'detail': [
+                '1.修复接口1出现的闪退bug',
+                '2.其实接口不能用很正常，这次的原因就是那个网站改了端口号，如果在发生类似的事情，就不要一直发评论了，我只需要看到一条就行了！',
+                '...'
+            ]
+        },
+        {
             'version': 'V1.2.1',
             'time': '2020.05,04',
-            'downloadNum': 0,
+            'downloadNum': 604,
             'detail': [
                 '1.添加接口3，清晰度不太好，可以应急用',
                 '2.添加接口4，支持电影和电视剧，清晰度不错，但是大部分都是m3u8链接',
@@ -40,7 +50,7 @@ class string:
         {
             'version': 'V1.2.0 正式版',
             'time': '2020.04.27',
-            'downloadNum': 0,
+            'downloadNum': 665,
             'detail': [
                 '1.添加备用播放器功能、解析m3u8视频（网速不快的话，体验应该会不佳）',
                 '2.更改主界面比例为16:9,',
@@ -53,7 +63,7 @@ class string:
         {
             'version': 'V1.1.0 正式版',
             'time': '2020.04.20',
-            'downloadNum': 489,
+            'downloadNum': 517,
             'detail': [
                 '1.添加设置功能',
                 '2.添加批量下载功能',
@@ -64,7 +74,7 @@ class string:
         {
             'version': 'V1.0.1 测试版',
             'time': '2020.04.19',
-            'downloadNum': 170,
+            'downloadNum': 174,
             'detail': [
                 '1.添加使用教程的接口',
                 '2.添加更新日志',
@@ -76,7 +86,7 @@ class string:
         {
             'version': 'V1.0 测试版',
             'time': '2020.04.12',
-            'downloadNum': 186,
+            'downloadNum': 195,
             'detail': [
                 '1.发布',
                 '...'
