@@ -76,6 +76,7 @@ class CrawlImpl_01(CrawlUtil):
         :param jsonLink: json文件url
         :return: None
         """
+        jsonLink = jsonLink.replace('http://test.1yltao.com','http://test.1yltao.com:8022')
         temp_url = re.findall('url=(.*?)', jsonLink)[0]
         myheaders = {
             'Accept': 'application/json, text/javascript, */*; q=0.01',
@@ -92,128 +93,6 @@ class CrawlImpl_01(CrawlUtil):
         s = s.replace('\\', '')
         return s
         pass
-
-    # def getAllLinks(self, result, log):
-    #     """
-    #     抓取链接
-    #     :param result: {1: ['第1集', 'url'], 2: ['第2集', 'url']}
-    #     :param log: 打印日志函数
-    #     :return: None
-    #     """
-    #     # 捕获异常
-    #     try:
-    #         log('正在抓取链接')
-    #         log('【提示】在未出现成功提示之前最好不要离开此页面！')
-    #         log('...')
-    #         Num = len(result)
-    #         # 格式化集数：第1集 --> 第01集 根据集数而定
-    #         n = TextUtil.getIntegerDigits(Num)
-    #         f = '第%0{}d集'.format(n)
-    #         for i in range(1, Num + 1):
-    #             name = result[i][0]
-    #             if re.match('第(.*?)集', name):
-    #                 num = re.findall('第(.*?)集', name)[0]
-    #                 # 看下num是不是整数
-    #                 if re.match(r'\d *', num):
-    #                     name = f % int(num)
-    #                     result.update({i: [name, result[i][1]]})
-    #             pass
-    #
-    #         # 创建文件
-    #         desktop = TextUtil.get_desktop()
-    #         file = open(desktop + '/download.txt', 'w')
-    #         file.close()
-    #         for i in range(1, Num + 1):
-    #             time.sleep(1)
-    #             # print(result[i][0])
-    #             with open(desktop + '/download.txt', 'a') as f:
-    #                 f.write(result[i][0] + '@' + self.getVideoUrl(result[i][1]) + '\n')
-    #                 log('【{}】'.format(result[i][0]))
-    #                 print('【{}】'.format(result[i][0]))
-    #                 pass
-    #             pass
-    #         log('抓取完成！')
-    #         log('以保存至 ' + desktop + '\\download.txt')
-    #     except Exception as e:
-    #         print('yc')
-    #         print(e.args)
-    #     pass
-
-    # def _getAllLinks(self, result, log):
-    #     # result: {1: ['第1集', 'url'], 2: ['第2集', 'url']}
-    #     print('result', result)
-    #     log('正在抓取链接')
-    #     log('【提示】在未出现成功提示之前最好不要离开此页面！')
-    #     log('...')
-    #     Num = len(result)
-    #     # 格式化集数：第1集 --> 第01集 根据集数而定
-    #     n = TextUtil.getIntegerDigits(Num)
-    #     f = '第%0{}d集'.format(n)
-    #     for i in range(1, Num + 1):
-    #         name = result[i][0]
-    #         if re.match('第(.*?)集', name):
-    #             num = re.findall('第(.*?)集', name)[0]
-    #             # 看下num是不是整数
-    #             if re.match(r'\d *', num):
-    #                 name = f % int(num)
-    #                 result.update({i: [name, result[i][1]]})
-    #         pass
-    #
-    #     # 创建文件
-    #     desktop = TextUtil.get_desktop()
-    #     file = open(desktop + '/download.txt', 'w')
-    #     file.close()
-    #     for i in range(1, Num + 1):
-    #         time.sleep(1)
-    #         # print(result[i][0])
-    #         with open(desktop + '/download.txt', 'a') as f:
-    #             f.write(result[i][0] + '@' + self.getVideoUrl(result[i][1]) + '\n')
-    #             log('【{}】'.format(result[i][0]))
-    #             print('【{}】'.format(result[i][0]))
-    #             pass
-    #         pass
-    #     log('抓取完成！')
-    #     log('以保存至 ' + desktop + '\\download.txt')
-    #     pass
-
-    # def getAllLinks(self, result, log):
-    #     # result: {1: ['第1集', 'url'], 2: ['第2集', 'url']}
-    #     print('result', result)
-    #     log('正在抓取链接')
-    #     log('【提示】在未出现成功提示之前最好不要离开此页面！')
-    #     log('...')
-    #     Num = len(result)
-    #     # 格式化集数：第1集 --> 第01集 根据集数而定
-    #     n = TextUtil.getIntegerDigits(Num)
-    #     f = '第%0{}d集'.format(n)
-    #     for i in range(1, Num + 1):
-    #         name = result[i][0]
-    #         if re.match('第(.*?)集', name):
-    #             num = re.findall('第(.*?)集', name)[0]
-    #             # 看下num是不是整数
-    #             if re.match(r'\d *', num):
-    #                 name = f % int(num)
-    #                 result.update({i: [name, result[i][1]]})
-    #         pass
-    #
-    #     # 创建文件
-    #     desktop = TextUtil.get_desktop()
-    #     file = open(desktop + '/download.txt', 'w')
-    #     file.close()
-    #     for i in range(1, Num + 1):
-    #         time.sleep(1)
-    #         # print(result[i][0])
-    #         with open(desktop + '/download.txt', 'a') as f:
-    #             f.write(result[i][0] + '@' + self.getVideoUrl(result[i][1]) + '\n')
-    #             log('【{}】'.format(result[i][0]))
-    #             print('【{}】'.format(result[i][0]))
-    #             pass
-    #         pass
-    #     log('抓取完成！')
-    #     log('以保存至 ' + desktop + '\\download.txt')
-    #     pass
-
-    # 以下均为辅助函数
 
     # html源码
     def getHtmlSrc(self, url):
