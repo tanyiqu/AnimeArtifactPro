@@ -4,6 +4,7 @@ import threading
 import R
 from Configuration import Configuration
 
+
 # config = Configuration()
 # player = config.player_path
 
@@ -14,6 +15,13 @@ def play(link):
     :param link: 视频链接
     :return: None
     """
+
+    # 判断一下是不是全部使用网页解析
+    if Configuration().broswer_decode_all:
+        broswerLk = (R.string.M3U8_API + '{}').format(link)
+        webbrowser.open_new(broswerLk)
+        return
+        pass
 
     # 处理m3u8链接
     if link[-5:].lower() == '.m3u8':

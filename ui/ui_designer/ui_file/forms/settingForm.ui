@@ -211,6 +211,19 @@
          <string>使用网页解析m3u8</string>
         </property>
        </widget>
+       <widget class="QCheckBox" name="checkBrowserDecodeAll">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>50</y>
+          <width>121</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>一律使用网页解析</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QLabel" name="label_5">
        <property name="geometry">
