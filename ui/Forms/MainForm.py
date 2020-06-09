@@ -152,11 +152,15 @@ class MainForm(QWidget):
             return
             pass
         msgbox.setIcon(QMessageBox.Question)
-        msgbox.setWindowTitle('行きたいですか？')
-        msgbox.setText('本当に行きたいですか？ \n本当に行きたいですか？ ')
-        buttonY.setText('はい')
+        # msgbox.setWindowTitle('行きたいですか？')
+        # msgbox.setText('本当に行きたいですか？ \n本当に行きたいですか？ ')
+        # buttonY.setText('はい')
+        msgbox.setWindowTitle('确认退出？')
+        msgbox.setText('真的要退出吗？ \n真的要退出吗？ ')
+        buttonY.setText('退出')
         buttonN = msgbox.button(QMessageBox.No)
-        buttonN.setText('いいえ')
+        # buttonN.setText('いいえ')
+        buttonN.setText('不退出了')
         msgbox.exec_()
         if msgbox.clickedButton() == buttonY:
             self._closeApp()
