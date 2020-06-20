@@ -56,7 +56,7 @@ class CrawlImpl_01(CrawlUtil):
         # 获取js文件
         log('正在获取js文件...')
         jsSrc = self.getJsSrc(url)
-        # print('jsSrc：', jsSrc)
+        print('jsSrc：', jsSrc)
         # 获取链接后缀
         jsonLinkDir = self.getJsonLinkDir(jsSrc, num)
         # print('jsonLinkDir：', jsonLinkDir)
@@ -76,7 +76,7 @@ class CrawlImpl_01(CrawlUtil):
         :param jsonLink: json文件url
         :return: None
         """
-        jsonLink = jsonLink.replace('http://test.1yltao.com','http://test.1yltao.com:8022')
+        jsonLink = jsonLink.replace('http://test.1yltao.com', 'http://test.1yltao.com:8022')
 
         temp_url = re.findall('url=(.*?)', jsonLink)[0]
         myheaders = {
@@ -148,8 +148,15 @@ class CrawlImpl_01(CrawlUtil):
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.83 Safari/537.36 Edg/81.0.416.41'
         }
         url += '1.html'
+        print('url：：', url)
         src = requests.get(url, headers=headers).text
-        reg = '</head><script type="text/javascript" src="(.*?)"></script>'
+
+        # with open('C:/Users/Tanyiqu/Desktop/a.html', 'w', encoding='utf-8') as f:
+        #     f.write(src)
+        #     pass
+
+        # reg = '</head><script type="text/javascript" src="(.*?)"></script>'
+        reg = '<script type="text/javascript" src="(.*?)"></script>'
         # 获取js文件文件的链接
         jsLink = re.findall(reg, src)[0]
         print('jsLink：' + jsLink)

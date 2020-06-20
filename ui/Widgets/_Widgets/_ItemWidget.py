@@ -15,9 +15,9 @@ class _ItemWidget(Ui_item):
         pass
 
     def init(self):
-        # print('params', self.params)
+        print('params', self.params)
         # 设置标题
-        print(self.params['title'])
+        # print(self.params['title'])
         self.lblTitle.setText(self.params['title'])
         # 设置标题提示
         self.lblTitle.setToolTip(self.params['title'])
@@ -30,6 +30,7 @@ class _ItemWidget(Ui_item):
         # 设置封面 在线程里面设置，防止主线程卡顿
         t = threading.Thread(target=setLabelImg, name='', args=(self.lblCover, self.params['cover'],))
         t.start()
+        print('添加 ' + self.params['title'] + '完成')
         pass
 
     pass

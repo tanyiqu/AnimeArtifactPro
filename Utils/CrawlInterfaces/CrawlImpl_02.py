@@ -80,7 +80,7 @@ class CrawlImpl_02(CrawlUtil):
 
             print('jsLink', jsLink)
             text = requests.get(jsLink, headers=headers).text
-            print(text)
+            # print(text)
             reg = "(http.*?)'"
             rs = re.findall(reg, text)
             print('rs', rs)

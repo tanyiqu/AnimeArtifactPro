@@ -262,7 +262,7 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
     def _detail(self, url):
         print('执行')
         self.detailResult = self.crawlImpl.detail(self.log_secondary, url)
-        print(self.detailResult)
+        print('detailResult', self.detailResult)
         # 发射获取完成的信号
         self.detailFinish.signal.emit()
         pass
