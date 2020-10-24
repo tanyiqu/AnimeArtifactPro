@@ -1136,6 +1136,11 @@ color:#ffffff;
                 <string>接口4</string>
                </property>
               </item>
+              <item>
+               <property name="text">
+                <string>接口5</string>
+               </property>
+              </item>
              </widget>
             </item>
            </layout>

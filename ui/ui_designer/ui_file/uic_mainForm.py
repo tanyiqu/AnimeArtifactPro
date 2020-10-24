@@ -462,6 +462,7 @@ class Ui_mainForm(object):
         self.comboSelectInterface.addItem("")
         self.comboSelectInterface.addItem("")
         self.comboSelectInterface.addItem("")
+        self.comboSelectInterface.addItem("")
         self.horizontalLayout.addWidget(self.comboSelectInterface)
         self.gridLayout_8.addWidget(self.widget, 0, 0, 1, 1)
         self.gridLayout_9.addWidget(self.widgetSearch, 0, 2, 1, 1)
@@ -535,6 +536,7 @@ class Ui_mainForm(object):
         self.comboSelectInterface.setItemText(1, _translate("mainForm", "接口2"))
         self.comboSelectInterface.setItemText(2, _translate("mainForm", "接口3"))
         self.comboSelectInterface.setItemText(3, _translate("mainForm", "接口4"))
+        self.comboSelectInterface.setItemText(4, _translate("mainForm", "接口5"))
         self.btnMinSize.setToolTip(_translate("mainForm", "最小化"))
         self.btnMaxSize.setToolTip(_translate("mainForm", "象征性的按钮，意义不大\n"
 "最大化了反而会影响观感"))

@@ -18,6 +18,7 @@ from Utils.CrawlInterfaces.CrawlImpl_01 import CrawlImpl_01
 from Utils.CrawlInterfaces.CrawlImpl_02 import CrawlImpl_02
 from Utils.CrawlInterfaces.CrawlImpl_03 import CrawlImpl_03
 from Utils.CrawlInterfaces.CrawlImpl_04 import CrawlImpl_04
+from Utils.CrawlInterfaces.CrawlImpl_05 import CrawlImpl_05
 from Utils.WebUtil import setLabelImg
 from ui.Widgets.ItemWidget import ItemWidget
 from ui.Widgets.SearchBarWidget import SearchBarWidget
@@ -399,6 +400,9 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
             pass
         elif i == 4:
             self.crawlImpl = CrawlImpl_04()
+            pass
+        elif i == 5:
+            self.crawlImpl = CrawlImpl_05()
             pass
         else:
             self.crawlImpl = CrawlImpl_01()
