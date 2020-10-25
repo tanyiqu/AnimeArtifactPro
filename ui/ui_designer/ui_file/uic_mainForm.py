@@ -531,7 +531,7 @@ class Ui_mainForm(object):
         self.btnBack.setToolTip(_translate("mainForm", "返回"))
         self.btnSearch.setToolTip(_translate("mainForm", "o(*≧▽≦)ツ"))
         self.btnSearch.setText(_translate("mainForm", "搜索"))
-        self.comboSelectInterface.setToolTip(_translate("mainForm", "<html><head/><body><p>接口1 老司机一样稳，极少翻车</p><p>接口2 不得不说，这个网站有点不太行，有的搜到看不了</p><p>接口3 还行</p><p>接口4 搜到的基本上都是m3u8的，不过支持电影搜索</p><p>...</p></body></html>"))
+        self.comboSelectInterface.setToolTip(_translate("mainForm", "<html><head/><body><p>接口1 看动漫的接口，比较稳定</p><p>接口2 不得不说，这个网站有点不太行，有的搜到看不了</p><p>接口3 还行</p><p>接口4 搜到的基本上都是m3u8的，不过支持电影搜索</p><p>接口5 能搜到就能看，极其稳定（吧）</p><p>...</p></body></html>"))
         self.comboSelectInterface.setItemText(0, _translate("mainForm", "接口1"))
         self.comboSelectInterface.setItemText(1, _translate("mainForm", "接口2"))
         self.comboSelectInterface.setItemText(2, _translate("mainForm", "接口3"))
