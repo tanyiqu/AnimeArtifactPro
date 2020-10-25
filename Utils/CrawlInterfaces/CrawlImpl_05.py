@@ -1,6 +1,7 @@
 import requests
 import re
 import json
+import threading
 
 from Utils.CrawlUtil import CrawlUtil
 
@@ -49,8 +50,17 @@ class CrawlImpl_05(CrawlUtil):
             pass
 
         # 开启线程获取封面地址
+        i = 1
+        threads = []
         for item in result:
-            
+            thread_get_cover = threading.Thread(target=self._getCover, name='thread_get_cover', args=(result, i))
+            threads.append(thread_get_cover)
+            thread_get_cover.start()
+            i += 1
+            pass
+
+        for t in threads:
+            t.join()
             pass
 
         return result.__str__().replace('\'', '\"')
@@ -100,7 +110,11 @@ class CrawlImpl_05(CrawlUtil):
         return url
         pass
 
-    def getCover(self, url):
+    def _getCover(self, result, index):
+        result[index - 1]['cover'] = self.getCover(result[index - 1]['url'], 3)
+        pass
+
+    def getCover(self, url, timeout):
         txt = requests.get(url=url, headers=self.headers).text
         txt = txt.replace(' ', '').replace('\n', '')
         reg = r'<imgclass="lazy"src="(.*?)"alt='
