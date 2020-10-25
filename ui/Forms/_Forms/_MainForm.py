@@ -166,10 +166,10 @@ class _MainForm(ui.ui_designer.ui_file.uic_mainForm.Ui_mainForm):
             # print(type(self.searchResult), self.searchResult)
             # 将json格式化成python内置的列表对象
             self.searchResult = json.loads(self.searchResult)
-            # print('标准化前：', self.searchResult)
+            print('标准化前：', type(self.searchResult), self.searchResult)
             # 解析成app标准的列表
             self.searchResult = self.crawlImpl.parseSearchResult(self.searchResult)
-            print('标准化后：', self.searchResult)
+            print('标准化后：', type(self.searchResult), self.searchResult)
             # 发射搜索完成的信号
             self.searchFinish.signal.emit()
             pass
